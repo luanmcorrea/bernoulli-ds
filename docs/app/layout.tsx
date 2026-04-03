@@ -4,7 +4,6 @@ import { NuqsAdapter } from "nuqs/adapters/next/app"
 import { META_THEME_COLORS, siteConfig } from "@/lib/config"
 import { fontVariables } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { LayoutProvider } from "@/hooks/use-layout"
 import { ActiveThemeProvider } from "@/components/active-theme"
 import { Analytics } from "@/components/analytics"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
@@ -96,20 +95,18 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider>
-          <LayoutProvider>
-            <ActiveThemeProvider>
-              <NuqsAdapter>
-                <BaseTooltipProvider delay={0}>
-                  <RadixTooltipProvider delayDuration={0}>
-                    {children}
-                    <Toaster position="top-center" />
-                  </RadixTooltipProvider>
-                </BaseTooltipProvider>
-              </NuqsAdapter>
-              <TailwindIndicator />
-              <Analytics />
-            </ActiveThemeProvider>
-          </LayoutProvider>
+          <ActiveThemeProvider>
+            <NuqsAdapter>
+              <BaseTooltipProvider delay={0}>
+                <RadixTooltipProvider delayDuration={0}>
+                  {children}
+                  <Toaster position="top-center" />
+                </RadixTooltipProvider>
+              </BaseTooltipProvider>
+            </NuqsAdapter>
+            <TailwindIndicator />
+            <Analytics />
+          </ActiveThemeProvider>
         </ThemeProvider>
       </body>
     </html>
