@@ -117,28 +117,28 @@ function ButtonIconOnly() {
   return (
     <Example title="Icon Only">
       <div className="flex flex-wrap items-center gap-4">
-        <Button size="icon-sm"><ArrowRightIcon/></Button>
-        <Button size="icon-sm" variant="outline"><ArrowRightIcon/></Button>
-        <Button size="icon-sm" variant="ghost"><ArrowRightIcon/></Button>
-        <Button size="icon-sm" variant="link"><ArrowRightIcon/></Button>
+        <Button size="icon-sm"><PlusIcon/></Button>
+        <Button size="icon-sm" variant="outline"><PlusIcon/></Button>
+        <Button size="icon-sm" variant="ghost"><PlusIcon/></Button>
+        <Button size="icon-sm" variant="link"><PlusIcon/></Button>
       </div>
       <div className="flex flex-wrap items-center gap-4">
-        <Button size="icon"><ArrowRightIcon/></Button>
-        <Button size="icon" variant="outline"><ArrowRightIcon/></Button>
-        <Button size="icon" variant="ghost"><ArrowRightIcon/></Button>
-        <Button size="icon" variant="link"><ArrowRightIcon/></Button>
+        <Button size="icon"><PlusIcon/></Button>
+        <Button size="icon" variant="outline"><PlusIcon/></Button>
+        <Button size="icon" variant="ghost"><PlusIcon/></Button>
+        <Button size="icon" variant="link"><PlusIcon/></Button>
       </div>
       <div className="flex flex-wrap items-center gap-4">
-        <Button size="icon-lg"><ArrowRightIcon/></Button>
-        <Button size="icon-lg" variant="outline"><ArrowRightIcon/></Button>
-        <Button size="icon-lg" variant="ghost"><ArrowRightIcon/></Button>
-        <Button size="icon-lg" variant="link"><ArrowRightIcon/></Button>
+        <Button size="icon-lg"><PlusIcon/></Button>
+        <Button size="icon-lg" variant="outline"><PlusIcon/></Button>
+        <Button size="icon-lg" variant="ghost"><PlusIcon/></Button>
+        <Button size="icon-lg" variant="link"><PlusIcon/></Button>
       </div>
       <div className="flex flex-wrap items-center gap-4">
-        <Button size="icon-xl"><ArrowRightIcon/></Button>
-        <Button size="icon-xl" variant="outline"><ArrowRightIcon/></Button>
-        <Button size="icon-xl" variant="ghost"><ArrowRightIcon/></Button>
-        <Button size="icon-xl" variant="link"><ArrowRightIcon/></Button>
+        <Button size="icon-xl"><PlusIcon/></Button>
+        <Button size="icon-xl" variant="outline"><PlusIcon/></Button>
+        <Button size="icon-xl" variant="ghost"><PlusIcon/></Button>
+        <Button size="icon-xl" variant="link"><PlusIcon/></Button>
       </div>
     </Example>
   )
