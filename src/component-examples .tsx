@@ -2,31 +2,32 @@ import { useEffect, useMemo, useState, type ComponentType } from "react"
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { cn } from "@/lib/utils"
-import AccordionExample from "@/showcase-examples/accordion-example"
-import AvatarExample from "@/showcase-examples/avatar-example"
-import BadgeExample from "@/showcase-examples/badge-example"
-import ButtonExample from "@/showcase-examples/button-example"
-import CardExample from "@/showcase-examples/card-example"
-import CheckboxExample from "@/showcase-examples/checkbox-example"
-import ComboboxExample from "@/showcase-examples/combobox-example"
-import ContextMenuExample from "@/showcase-examples/context-menu-example"
-import DialogExample from "@/showcase-examples/dialog-example"
-import DropdownMenuExample from "@/showcase-examples/dropdown-menu-example"
-import InputExample from "@/showcase-examples/input-example"
-import LabelExample from "@/showcase-examples/label-example"
-import PaginationExample from "@/showcase-examples/pagination-example"
-import PopoverExample from "@/showcase-examples/popover-example"
-import ProgressExample from "@/showcase-examples/progress-example"
-import RadioGroupExample from "@/showcase-examples/radio-group-example"
-import SelectExample from "@/showcase-examples/select-example"
-import SheetExample from "@/showcase-examples/sheet-example"
-import SkeletonExample from "@/showcase-examples/skeleton-example"
-import SliderExample from "@/showcase-examples/slider-example"
-import SwitchExample from "@/showcase-examples/switch-example"
-import TableExample from "@/showcase-examples/table-example"
-import TabsExample from "@/showcase-examples/tabs-example"
-import TextareaExample from "@/showcase-examples/textarea-example"
-import TooltipExample from "@/showcase-examples/tooltip-example"
+import AccordionExample from "@/examples/accordion-example"
+import AvatarExample from "@/examples/avatar-example"
+import BadgeExample from "@/examples/badge-example"
+import ButtonExample from "@/examples/button-example"
+import CardExample from "@/examples/card-example"
+import CheckboxExample from "@/examples/checkbox-example"
+import ComboboxExample from "@/examples/combobox-example"
+import ContextMenuExample from "@/examples/context-menu-example"
+import DialogExample from "@/examples/dialog-example"
+import DropdownMenuExample from "@/examples/dropdown-menu-example"
+import InputExample from "@/examples/input-example"
+import LabelExample from "@/examples/label-example"
+import PaginationExample from "@/examples/pagination-example"
+import PopoverExample from "@/examples/popover-example"
+import ProgressExample from "@/examples/progress-example"
+import RadioGroupExample from "@/examples/radio-group-example"
+import SelectExample from "@/examples/select-example"
+import SheetExample from "@/examples/sheet-example"
+import SidebarExample from "@/examples/sidebar-example"
+import SkeletonExample from "@/examples/skeleton-example"
+import SliderExample from "@/examples/slider-example"
+import SwitchExample from "@/examples/switch-example"
+import TableExample from "@/examples/table-example"
+import TabsExample from "@/examples/tabs-example"
+import TextareaExample from "@/examples/textarea-example"
+import TooltipExample from "@/examples/tooltip-example"
 
 type Section = {
   slug: string
@@ -53,6 +54,7 @@ const sections: Section[] = [
   { slug: "radio-group", title: "Radio Group", component: RadioGroupExample },
   { slug: "select", title: "Select", component: SelectExample },
   { slug: "sheet", title: "Sheet", component: SheetExample },
+  { slug: "sidebar", title: "Sidebar", component: SidebarExample },
   { slug: "skeleton", title: "Skeleton", component: SkeletonExample },
   { slug: "slider", title: "Slider", component: SliderExample },
   { slug: "switch", title: "Switch", component: SwitchExample },
@@ -124,7 +126,7 @@ export function ComponentShowcase() {
           </nav>
         </div>
       </aside>
-      <main className="min-w-0 flex-1">
+      <main className="min-w-0 flex-1 overflow-hidden">
         <div className="border-b px-6 py-5 lg:hidden">
           <Select
             value={currentSection.slug}

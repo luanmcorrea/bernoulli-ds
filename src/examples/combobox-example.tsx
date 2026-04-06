@@ -940,7 +940,7 @@ function ComboboxMultiple() {
         multiple
         autoHighlight
         items={frameworks}
-        defaultValue={[frameworks[0]]}
+        defaultValue={[frameworks[0], frameworks[1]]}
       >
         <ComboboxChips ref={anchor}>
           <ComboboxValue>
