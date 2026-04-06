@@ -31,7 +31,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { IconPlaceholder } from "@/components/ui/icon-placeholder"
+import { DotsThreeVerticalIcon } from "@phosphor-icons/react"
 
 const invoices = [
   {
@@ -270,13 +270,7 @@ function TableWithActions() {
                     <Button variant="ghost" size="icon" className="size-8" />
                   }
                 >
-                  <IconPlaceholder
-                    lucide="MoreHorizontalIcon"
-                    tabler="IconDots"
-                    hugeicons="MoreHorizontalCircle01Icon"
-                    phosphor="DotsThreeOutlineIcon"
-                    remixicon="RiMoreLine"
-                  />
+                  <DotsThreeVerticalIcon weight="bold" />
                   <span className="sr-only">Open menu</span>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
@@ -300,13 +294,7 @@ function TableWithActions() {
                     <Button variant="ghost" size="icon" className="size-8" />
                   }
                 >
-                  <IconPlaceholder
-                    lucide="MoreHorizontalIcon"
-                    tabler="IconDots"
-                    hugeicons="MoreHorizontalCircle01Icon"
-                    phosphor="DotsThreeOutlineIcon"
-                    remixicon="RiMoreLine"
-                  />
+                  <DotsThreeVerticalIcon weight="bold" />
                   <span className="sr-only">Open menu</span>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
@@ -330,13 +318,7 @@ function TableWithActions() {
                     <Button variant="ghost" size="icon" className="size-8" />
                   }
                 >
-                  <IconPlaceholder
-                    lucide="MoreHorizontalIcon"
-                    tabler="IconDots"
-                    hugeicons="MoreHorizontalCircle01Icon"
-                    phosphor="DotsThreeOutlineIcon"
-                    remixicon="RiMoreLine"
-                  />
+                  <DotsThreeVerticalIcon weight="bold" />
                   <span className="sr-only">Open menu</span>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">

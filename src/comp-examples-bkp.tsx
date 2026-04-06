@@ -33,10 +33,8 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
   SidebarProvider,
+  SidebarRail,
   SidebarSeparator,
   SidebarTrigger,
   useSidebar,
@@ -70,15 +68,10 @@ import TabsExample from "@/examples/tabs-example"
 import TextareaExample from "@/examples/textarea-example"
 import TooltipExample from "@/examples/tooltip-example"
 
-type ComponentSection = {
+type Section = {
   slug: string
   title: string
   component: ComponentType
-}
-
-type SectionGroup = {
-  title: string
-  sections: ComponentSection[]
 }
 
 type Theme = {
@@ -86,54 +79,35 @@ type Theme = {
   plataform: string
 }
 
-const sections: SectionGroup[] = [
-  {
-    title: "Components",
-    sections: [
-      { slug: "accordion", title: "Accordion", component: AccordionExample },
-      { slug: "avatar", title: "Avatar", component: AvatarExample },
-      { slug: "badge", title: "Badge", component: BadgeExample },
-      { slug: "button", title: "Button", component: ButtonExample },
-      { slug: "card", title: "Card", component: CardExample },
-      { slug: "checkbox", title: "Checkbox", component: CheckboxExample },
-      { slug: "combobox", title: "Combobox", component: ComboboxExample },
-      {
-        slug: "context-menu",
-        title: "Context Menu",
-        component: ContextMenuExample,
-      },
-      { slug: "dialog", title: "Dialog", component: DialogExample },
-      {
-        slug: "dropdown-menu",
-        title: "Dropdown Menu",
-        component: DropdownMenuExample,
-      },
-      { slug: "empty", title: "Empty", component: EmptyExample },
-      { slug: "input", title: "Input", component: InputExample },
-      { slug: "label", title: "Label", component: LabelExample },
-      { slug: "pagination", title: "Pagination", component: PaginationExample },
-      { slug: "popover", title: "Popover", component: PopoverExample },
-      { slug: "progress", title: "Progress", component: ProgressExample },
-      {
-        slug: "radio-group",
-        title: "Radio Group",
-        component: RadioGroupExample,
-      },
-      { slug: "select", title: "Select", component: SelectExample },
-      { slug: "sheet", title: "Sheet", component: SheetExample },
-      { slug: "sidebar", title: "Sidebar", component: SidebarExample },
-      { slug: "skeleton", title: "Skeleton", component: SkeletonExample },
-      { slug: "slider", title: "Slider", component: SliderExample },
-      { slug: "switch", title: "Switch", component: SwitchExample },
-      { slug: "table", title: "Table", component: TableExample },
-      { slug: "tabs", title: "Tabs", component: TabsExample },
-      { slug: "textarea", title: "Textarea", component: TextareaExample },
-      { slug: "tooltip", title: "Tooltip", component: TooltipExample },
-    ],
-  },
+const sections: Section[] = [
+  { slug: "accordion", title: "Accordion", component: AccordionExample },
+  { slug: "avatar", title: "Avatar", component: AvatarExample },
+  { slug: "badge", title: "Badge", component: BadgeExample },
+  { slug: "button", title: "Button", component: ButtonExample },
+  { slug: "card", title: "Card", component: CardExample },
+  { slug: "checkbox", title: "Checkbox", component: CheckboxExample },
+  { slug: "combobox", title: "Combobox", component: ComboboxExample },
+  { slug: "context-menu", title: "Context Menu", component: ContextMenuExample },
+  { slug: "dialog", title: "Dialog", component: DialogExample },
+  { slug: "dropdown-menu", title: "Dropdown Menu", component: DropdownMenuExample },
+  { slug: "empty", title: "Empty", component: EmptyExample },
+  { slug: "input", title: "Input", component: InputExample },
+  { slug: "label", title: "Label", component: LabelExample },
+  { slug: "pagination", title: "Pagination", component: PaginationExample },
+  { slug: "popover", title: "Popover", component: PopoverExample },
+  { slug: "progress", title: "Progress", component: ProgressExample },
+  { slug: "radio-group", title: "Radio Group", component: RadioGroupExample },
+  { slug: "select", title: "Select", component: SelectExample },
+  { slug: "sheet", title: "Sheet", component: SheetExample },
+  { slug: "sidebar", title: "Sidebar", component: SidebarExample },
+  { slug: "skeleton", title: "Skeleton", component: SkeletonExample },
+  { slug: "slider", title: "Slider", component: SliderExample },
+  { slug: "switch", title: "Switch", component: SwitchExample },
+  { slug: "table", title: "Table", component: TableExample },
+  { slug: "tabs", title: "Tabs", component: TabsExample },
+  { slug: "textarea", title: "Textarea", component: TextareaExample },
+  { slug: "tooltip", title: "Tooltip", component: TooltipExample },
 ]
-
-const allSections = sections.flatMap((section) => section.sections)
 
 const themes: Theme[] = [
   {
@@ -146,7 +120,7 @@ const themes: Theme[] = [
   },
 ]
 
-const defaultSection = allSections[0].slug
+const defaultSection = sections[0].slug
 const defaultTheme = themes[0]
 
 function getInitialSection() {
@@ -155,9 +129,7 @@ function getInitialSection() {
   }
 
   const slug = window.location.hash.replace(/^#/, "")
-  return allSections.some((section) => section.slug === slug)
-    ? slug
-    : defaultSection
+  return sections.some((section) => section.slug === slug) ? slug : defaultSection
 }
 
 function TeamSwitcher({
@@ -241,50 +213,51 @@ function ComponentsSidebar({
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Documentation</SidebarGroupLabel>
+
           <SidebarMenu>
-            {sections.map((section) => (
-              <Collapsible
-                key={section.title}
-                render={<SidebarMenuItem />}
-                defaultOpen
-              >
-                <CollapsibleTrigger
-                  render={<SidebarMenuButton tooltip={section.title} />}
-                >
-                  <BookOpenIcon />
-                  <span>{section.title}</span>
-                  <CaretRightIcon className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                </CollapsibleTrigger>
-                <SidebarMenuItem>
-                  <CollapsibleContent className="overflow-hidden pt-1">
-                    <SidebarMenuSub>
-                      {section.sections?.map((subSection) => (
-                        <SidebarMenuSubItem key={subSection.slug}>
-                          <SidebarMenuSubButton
-                            render={<span>{subSection.title}</span>}
-                            isActive={subSection.slug === activeSection}
-                            onClick={() => handleNavigate(subSection.slug)}
-                          >                            
-                          </SidebarMenuSubButton>
-                        </SidebarMenuSubItem>
-                      ))}
-                    </SidebarMenuSub>
-                  </CollapsibleContent>
-                </SidebarMenuItem>
-              </Collapsible>
-              ))}
+            
           </SidebarMenu>
+
+          <Collapsible defaultOpen>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <CollapsibleTrigger
+                  render={
+                    <SidebarMenuButton className="font-medium" />
+                  }
+                >
+                  <BookOpenIcon className="size-4" />
+                  <span>Components</span>
+                  <CaretRightIcon className="ml-auto size-4 transition-transform ui-expanded:rotate-90" />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="overflow-hidden pt-1">
+                  <div className="pl-2">
+                    <SidebarMenu className="gap-1">
+                      {sections.map((section) => (
+                        <SidebarMenuItem key={section.slug}>
+                          <SidebarMenuButton
+                            isActive={section.slug === activeSection}
+                            tooltip={section.title}
+                            onClick={() => handleNavigate(section.slug)}
+                          >
+                            <span>{section.title}</span>
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      ))}
+                    </SidebarMenu>
+                  </div>
+                </CollapsibleContent>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </Collapsible>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarRail />
     </Sidebar>
   )
 }
 
-function ShowcaseHeader({
-  currentSection,
-}: {
-  currentSection: ComponentSection
-}) {
+function ShowcaseHeader({ currentSection }: { currentSection: Section }) {
   return (
     <header className="flex h-16 shrink-0 items-center gap-3 border-b px-4 md:px-6">
       <SidebarTrigger className="-ml-1" />
@@ -318,9 +291,7 @@ export function ComponentShowcase() {
   }, [])
 
   const currentSection = useMemo(
-    () =>
-      allSections.find((section) => section.slug === activeSection) ??
-      allSections[0],
+    () => sections.find((section) => section.slug === activeSection) ?? sections[0],
     [activeSection]
   )
 
