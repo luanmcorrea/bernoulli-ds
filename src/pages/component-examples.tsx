@@ -1,3 +1,4 @@
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 import {
   Collapsible,
   CollapsibleContent,
@@ -7,8 +8,9 @@ import { useEffect, useMemo, useState, type ComponentType } from "react"
 import {
   BookOpenIcon,
   CaretRightIcon,
-  CaretUpDownIcon,
+  CaretDownIcon,
   CheckIcon,
+  SwatchesIcon,
 } from "@phosphor-icons/react"
 import {
   DropdownMenu,
@@ -37,7 +39,6 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarProvider,
-  SidebarSeparator,
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar"
@@ -69,6 +70,7 @@ import TableExample from "@/examples/table-example"
 import TabsExample from "@/examples/tabs-example"
 import TextareaExample from "@/examples/textarea-example"
 import TooltipExample from "@/examples/tooltip-example"
+import { Separator } from "@/components/ui/separator"
 
 type ComponentSection = {
   slug: string
@@ -78,17 +80,20 @@ type ComponentSection = {
 
 type SectionGroup = {
   title: string
+  icon: ComponentType
   sections: ComponentSection[]
 }
 
 type Theme = {
   name: string
   plataform: string
+  active: boolean
 }
 
 const sections: SectionGroup[] = [
   {
     title: "Components",
+    icon: BookOpenIcon,
     sections: [
       { slug: "accordion", title: "Accordion", component: AccordionExample },
       { slug: "avatar", title: "Avatar", component: AvatarExample },
@@ -97,28 +102,16 @@ const sections: SectionGroup[] = [
       { slug: "card", title: "Card", component: CardExample },
       { slug: "checkbox", title: "Checkbox", component: CheckboxExample },
       { slug: "combobox", title: "Combobox", component: ComboboxExample },
-      {
-        slug: "context-menu",
-        title: "Context Menu",
-        component: ContextMenuExample,
-      },
+      { slug: "context-menu", title: "Context Menu",component: ContextMenuExample },
       { slug: "dialog", title: "Dialog", component: DialogExample },
-      {
-        slug: "dropdown-menu",
-        title: "Dropdown Menu",
-        component: DropdownMenuExample,
-      },
+      { slug: "dropdown-menu", title: "Dropdown Menu", component: DropdownMenuExample },
       { slug: "empty", title: "Empty", component: EmptyExample },
       { slug: "input", title: "Input", component: InputExample },
       { slug: "label", title: "Label", component: LabelExample },
       { slug: "pagination", title: "Pagination", component: PaginationExample },
       { slug: "popover", title: "Popover", component: PopoverExample },
       { slug: "progress", title: "Progress", component: ProgressExample },
-      {
-        slug: "radio-group",
-        title: "Radio Group",
-        component: RadioGroupExample,
-      },
+      { slug: "radio-group", title: "Radio Group", component: RadioGroupExample },
       { slug: "select", title: "Select", component: SelectExample },
       { slug: "sheet", title: "Sheet", component: SheetExample },
       { slug: "sidebar", title: "Sidebar", component: SidebarExample },
@@ -139,10 +132,12 @@ const themes: Theme[] = [
   {
     name: "Multitude",
     plataform: "Adams",
+    active: true,
   },
   {
     name: "Bernoulli",
     plataform: "Meu Bernoulli",
+    active: false,
   },
 ]
 
@@ -173,19 +168,19 @@ function TeamSwitcher({
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
-              <SidebarMenuButton
-                size="lg"
-                className="data-open:bg-sidebar-accent data-open:text-sidebar-accent-foreground"
-              />
+              <SidebarMenuButton size="lg" />
             }
           >
-            <Item className="p-0" size="xs">
+            <Item className="gap-2">
+              <div className="flex size-8 items-center justify-center rounded-sm bg-sidebar-primary text-sidebar-primary-foreground">
+                <SwatchesIcon />
+              </div>
               <ItemContent>
-                <ItemTitle className="text-sm">{selectedTheme.name}</ItemTitle>
-                <ItemDescription>{selectedTheme.plataform}</ItemDescription>
+                <ItemTitle>{selectedTheme.name}</ItemTitle>
+                <ItemDescription className="text-xs">{selectedTheme.plataform}</ItemDescription>
               </ItemContent>
               <ItemActions>
-                <CaretUpDownIcon className="size-4" />
+                <CaretDownIcon className="size-4" />
               </ItemActions>
             </Item>
           </DropdownMenuTrigger>
@@ -194,6 +189,7 @@ function TeamSwitcher({
               <DropdownMenuItem
                 key={theme.name}
                 onSelect={() => onSelectTheme(theme)}
+                disabled={theme.active === false}
               >
                 <div className="flex flex-col">
                   <span>{theme.name}</span>
@@ -237,7 +233,6 @@ function ComponentsSidebar({
           onSelectTheme={setSelectedTheme}
         />
       </SidebarHeader>
-      <SidebarSeparator />
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Documentation</SidebarGroupLabel>
@@ -251,9 +246,9 @@ function ComponentsSidebar({
                 <CollapsibleTrigger
                   render={<SidebarMenuButton tooltip={section.title} />}
                 >
-                  <BookOpenIcon />
+                  {section.icon && <section.icon />}
                   <span>{section.title}</span>
-                  <CaretRightIcon className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                  <CaretRightIcon className="ml-auto transition-transform duration-200 group-data-open/menu-item:rotate-90" />
                 </CollapsibleTrigger>
                 <SidebarMenuItem>
                   <CollapsibleContent className="overflow-hidden pt-1">
@@ -261,7 +256,7 @@ function ComponentsSidebar({
                       {section.sections?.map((subSection) => (
                         <SidebarMenuSubItem key={subSection.slug}>
                           <SidebarMenuSubButton
-                            render={<span>{subSection.title}</span>}
+                            render={<a href={`#${subSection.slug}`}><span>{subSection.title}</span></a>}
                             isActive={subSection.slug === activeSection}
                             onClick={() => handleNavigate(subSection.slug)}
                           >                            
@@ -280,25 +275,31 @@ function ComponentsSidebar({
   )
 }
 
-function ShowcaseHeader({
+function PageHeader({
   currentSection,
 }: {
   currentSection: ComponentSection
 }) {
   return (
-    <header className="flex h-16 shrink-0 items-center gap-3 border-b px-4 md:px-6">
+    <header className="flex h-16 items-center gap-3 border-b px-4 md:px-6">
       <SidebarTrigger className="-ml-1" />
-      <div className="h-4 w-px bg-border" />
-      <nav
-        aria-label="Breadcrumb"
-        className="flex min-w-0 items-center gap-2 text-sm"
-      >
-        <span className="text-muted-foreground">Components</span>
-        <CaretRightIcon className="size-3.5 text-muted-foreground" />
-        <span className="truncate font-medium text-foreground">
-          {currentSection.title}
-        </span>
-      </nav>
+       <Separator
+              orientation="vertical"
+              className="mr-2 my-auto h-4"
+            />
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem className="hidden md:block">
+            <BreadcrumbLink href="#">
+              Components
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator className="hidden md:block" />
+          <BreadcrumbItem>
+            <BreadcrumbPage>{currentSection.title}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
     </header>
   )
 }
@@ -329,15 +330,15 @@ export function ComponentShowcase() {
   return (
     <SidebarProvider>
       <ComponentsSidebar activeSection={activeSection} />
-      <SidebarInset className="min-w-0">
-        <ShowcaseHeader currentSection={currentSection} />
+      <SidebarInset className=" max-h-screen">
+        <PageHeader currentSection={currentSection} />
         <div
           className={cn(
-            "flex min-h-0 flex-1 flex-col overflow-hidden",
+            "flex min-h-0 flex-1 flex-col no-scrollbar overflow-auto",
             currentSection.slug === "sidebar" && "bg-muted/20"
           )}
         >
-          <CurrentExample />
+          <CurrentExample/>
         </div>
       </SidebarInset>
     </SidebarProvider>

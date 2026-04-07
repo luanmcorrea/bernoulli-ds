@@ -1,4 +1,4 @@
-import { ComponentShowcase } from "@/component-examples"
+import { ComponentShowcase } from "@/pages/component-examples"
 
 export function App() {
   return <ComponentShowcase />
