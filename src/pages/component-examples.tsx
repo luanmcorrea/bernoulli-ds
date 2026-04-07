@@ -43,6 +43,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import { cn } from "@/lib/utils"
+import PreviewExample from "@/blocks/preview/index.tsx"
 import AccordionExample from "@/examples/accordion-example"
 import AlertDialogExample from "@/examples/alert-dialog-example"
 import AvatarExample from "@/examples/avatar-example"
@@ -96,6 +97,7 @@ const sections: SectionGroup[] = [
     title: "Components",
     icon: BookOpenIcon,
     sections: [
+      { slug: "preview", title: "Preview", component: PreviewExample },
       { slug: "accordion", title: "Accordion", component: AccordionExample },
       { slug: "alert-dialog", title: "Alert Dialog", component: AlertDialogExample },
       { slug: "avatar", title: "Avatar", component: AvatarExample },
