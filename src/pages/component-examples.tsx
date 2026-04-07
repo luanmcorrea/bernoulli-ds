@@ -44,6 +44,7 @@ import {
 } from "@/components/ui/sidebar"
 import { cn } from "@/lib/utils"
 import AccordionExample from "@/examples/accordion-example"
+import AlertDialogExample from "@/examples/alert-dialog-example"
 import AvatarExample from "@/examples/avatar-example"
 import BadgeExample from "@/examples/badge-example"
 import ButtonExample from "@/examples/button-example"
@@ -96,6 +97,7 @@ const sections: SectionGroup[] = [
     icon: BookOpenIcon,
     sections: [
       { slug: "accordion", title: "Accordion", component: AccordionExample },
+      { slug: "alert-dialog", title: "Alert Dialog", component: AlertDialogExample },
       { slug: "avatar", title: "Avatar", component: AvatarExample },
       { slug: "badge", title: "Badge", component: BadgeExample },
       { slug: "button", title: "Button", component: ButtonExample },
@@ -180,7 +182,7 @@ function TeamSwitcher({
                 <ItemDescription className="text-xs">{selectedTheme.plataform}</ItemDescription>
               </ItemContent>
               <ItemActions>
-                <CaretDownIcon className="size-4" />
+                <CaretDownIcon className="size-4 transition-transform duration-200 group-data-popup-open/menu-button:rotate-180" />
               </ItemActions>
             </Item>
           </DropdownMenuTrigger>
@@ -281,7 +283,7 @@ function PageHeader({
   currentSection: ComponentSection
 }) {
   return (
-    <header className="flex h-16 items-center gap-3 border-b px-4 md:px-6">
+    <header className="flex h-16 items-center gap-3 px-4 md:px-6">
       <SidebarTrigger className="-ml-1" />
        <Separator
               orientation="vertical"
