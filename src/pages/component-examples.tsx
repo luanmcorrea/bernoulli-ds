@@ -10,6 +10,7 @@ import {
   CaretRightIcon,
   CaretDownIcon,
   CheckIcon,
+  PaletteIcon,
   SwatchesIcon,
 } from "@phosphor-icons/react"
 import {
@@ -94,10 +95,16 @@ type Theme = {
 
 const sections: SectionGroup[] = [
   {
+    title: "Playground",
+    icon: PaletteIcon,
+    sections: [
+      { slug: "preview", title: "Preview 1", component: PreviewExample },
+    ],
+  },
+  {
     title: "Components",
     icon: BookOpenIcon,
     sections: [
-      { slug: "preview", title: "Preview", component: PreviewExample },
       { slug: "accordion", title: "Accordion", component: AccordionExample },
       { slug: "alert-dialog", title: "Alert Dialog", component: AlertDialogExample },
       { slug: "avatar", title: "Avatar", component: AvatarExample },
@@ -334,7 +341,7 @@ export function ComponentShowcase() {
   return (
     <SidebarProvider>
       <ComponentsSidebar activeSection={activeSection} />
-      <SidebarInset className=" max-h-screen">
+      <SidebarInset className="w-full overflow-x-hidden max-h-screen">
         <PageHeader currentSection={currentSection} />
         <div
           className={cn(

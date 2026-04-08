@@ -1,40 +1,39 @@
 "use client"
 
-import * as React from "react"
-
 import { Card, CardContent } from "@/components/ui/card"
-import { STYLES } from "@/registry/styles"
-import { FONTS } from "@/app/(create)/lib/fonts"
-import { useDesignSystemSearchParams } from "@/app/(create)/lib/search-params"
+import { useThemeFonts } from "@/blocks/preview/cards/theme-preview"
+
+const STYLE_TITLE = ""
+
+const COLOR_TOKENS = [
+  "--background",
+  "--foreground",
+  "--primary",
+  "--secondary",
+  "--muted",
+  "--accent",
+  "--border",
+  "--chart-1",
+  "--chart-2",
+  "--chart-3",
+  "--chart-4",
+  "--chart-5",
+] as const
 
 export function StyleOverview() {
-  const [params] = useDesignSystemSearchParams()
+  const fonts = useThemeFonts()
 
-  const currentFont = React.useMemo(
-    () => FONTS.find((font) => font.value === params.font),
-    [params.font]
-  )
-
-  const currentFontHeading = React.useMemo(
-    () => FONTS.find((font) => font.value === params.fontHeading),
-    [params.fontHeading]
-  )
-
-  const currentStyle = React.useMemo(
-    () => STYLES.find((style) => style.name === params.style),
-    [params.style]
-  )
+  const fontSummary =
+    fonts.heading === fonts.body
+      ? fonts.body
+      : `${fonts.heading} / ${fonts.body}`
 
   return (
     <Card>
       <CardContent className="flex flex-col gap-6 style-lyra:gap-4 style-mira:gap-4">
         <div className="flex flex-col gap-1">
           <div className="cn-font-heading text-2xl font-medium style-lyra:text-lg style-mira:text-lg">
-            {currentStyle?.title} -{" "}
-            {currentFontHeading?.name &&
-            currentFontHeading.name !== currentFont?.name
-              ? currentFontHeading.name
-              : currentFont?.name}
+            {STYLE_TITLE} {fontSummary}
           </div>
           <div className="line-clamp-2 text-base text-muted-foreground style-lyra:text-sm style-mira:text-sm">
             Designers love packing quirky glyphs into test phrases. This is a
@@ -42,20 +41,7 @@ export function StyleOverview() {
           </div>
         </div>
         <div className="grid grid-cols-6 gap-3">
-          {[
-            "--background",
-            "--foreground",
-            "--primary",
-            "--secondary",
-            "--muted",
-            "--accent",
-            "--border",
-            "--chart-1",
-            "--chart-2",
-            "--chart-3",
-            "--chart-4",
-            "--chart-5",
-          ].map((variant) => (
+          {COLOR_TOKENS.map((variant) => (
             <div
               key={variant}
               className="flex flex-col flex-wrap items-center gap-2"

@@ -1,7 +1,6 @@
 "use client"
 
-import * as React from "react"
-
+import { useThemeFonts } from "@/blocks/preview/cards/theme-preview"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import {
@@ -25,26 +24,12 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import { FONTS } from "@/app/(create)/lib/fonts"
-import { useDesignSystemSearchParams } from "@/app/(create)/lib/search-params"
 
 export function TypographySpecimen() {
-  const [params] = useDesignSystemSearchParams()
-
-  const currentFont = React.useMemo(
-    () => FONTS.find((font) => font.value === params.font),
-    [params.font]
-  )
-
-  const currentFontHeading = React.useMemo(
-    () => FONTS.find((font) => font.value === params.fontHeading),
-    [params.fontHeading]
-  )
+  const currentFont = useThemeFonts()
   const headingLabel =
-    currentFontHeading?.name && currentFontHeading.name !== currentFont?.name
-      ? currentFontHeading.name
-      : "Inherit"
-  const bodyLabel = currentFont?.name ?? "Default"
+    currentFont.heading !== currentFont.body ? currentFont.heading : "Inherit"
+  const bodyLabel = currentFont.body
 
   return (
     <Card>

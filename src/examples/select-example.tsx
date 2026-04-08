@@ -114,7 +114,7 @@ function SelectSides() {
           ] as const
         ).map((side) => (
           <Select key={side} items={items}>
-            <SelectTrigger className="w-28 capitalize">
+            <SelectTrigger className="w-38 capitalize">
               <SelectValue placeholder={side.replace("-", " ")} />
             </SelectTrigger>
             <SelectContent side={side} alignItemWithTrigger={false}>
