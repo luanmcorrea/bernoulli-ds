@@ -49,6 +49,7 @@ import { Slider } from "@/components/ui/slider"
 import { Switch } from "@/components/ui/switch"
 import { Textarea } from "@/components/ui/textarea"
 import { IconPlaceholder } from "@/components/ui/icon-placeholder"
+import { DotsThreeVerticalIcon } from "@phosphor-icons/react"
 
 export function UIElements() {
   const [sliderValue, setSliderValue] = React.useState<number[]>([500])
@@ -68,10 +69,10 @@ export function UIElements() {
       <CardContent className="flex flex-col gap-6">
         <div className="flex flex-col gap-4">
           <div className="flex flex-wrap gap-2">
-            <Button>Button</Button>
-            <Button variant="secondary">Secondary</Button>
-            <Button variant="outline">Outline</Button>
-            <Button variant="ghost">Ghost</Button>
+            <Button size="sm">Button</Button>
+            <Button size="sm" variant="secondary">Secondary</Button>
+            <Button size="sm" variant="outline">Outline</Button>
+            <Button size="sm" variant="ghost">Ghost</Button>
           </div>
           <Item variant="outline">
             <ItemContent>
@@ -158,13 +159,7 @@ export function UIElements() {
               <DropdownMenuTrigger
                 render={<Button variant="outline" size="icon" />}
               >
-                <IconPlaceholder
-                  lucide="ChevronUpIcon"
-                  tabler="IconChevronUp"
-                  hugeicons="ArrowUp01Icon"
-                  phosphor="CaretUpIcon"
-                  remixicon="RiArrowUpSLine"
-                />
+                <DotsThreeVerticalIcon weight="bold" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" side="top" className="w-40">
                 <DropdownMenuGroup>

@@ -4,12 +4,18 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-import { useEffect, useMemo, useState, type ComponentType } from "react"
+import {
+  useEffect,
+  useMemo,
+  useState,
+  type ComponentType,
+} from "react"
 import {
   BookOpenIcon,
   CaretRightIcon,
   CaretDownIcon,
   CheckIcon,
+  MagnifyingGlassIcon,
   PaletteIcon,
   SwatchesIcon,
 } from "@phosphor-icons/react"
@@ -26,6 +32,7 @@ import {
   ItemDescription,
   ItemTitle,
 } from "@/components/ui/item"
+import { Kbd } from "@/components/ui/kbd"
 import {
   Sidebar,
   SidebarContent,
@@ -44,8 +51,10 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import { cn } from "@/lib/utils"
-import PreviewExample from "@/blocks/preview/index.tsx"
+import PreviewExample from "@/blocks/preview"
+import PreviewExample02 from "@/blocks/preview-02"
 import AccordionExample from "@/examples/accordion-example"
+import AlertExample from "@/examples/alert-example"
 import AlertDialogExample from "@/examples/alert-dialog-example"
 import AvatarExample from "@/examples/avatar-example"
 import BadgeExample from "@/examples/badge-example"
@@ -53,6 +62,7 @@ import ButtonExample from "@/examples/button-example"
 import CardExample from "@/examples/card-example"
 import CheckboxExample from "@/examples/checkbox-example"
 import ComboboxExample from "@/examples/combobox-example"
+import CommandExample from "@/examples/command-example"
 import ContextMenuExample from "@/examples/context-menu-example"
 import DialogExample from "@/examples/dialog-example"
 import DropdownMenuExample from "@/examples/dropdown-menu-example"
@@ -73,7 +83,18 @@ import TableExample from "@/examples/table-example"
 import TabsExample from "@/examples/tabs-example"
 import TextareaExample from "@/examples/textarea-example"
 import TooltipExample from "@/examples/tooltip-example"
+import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
+import {
+  Command,
+  CommandDialog,
+  CommandInput,
+  CommandList,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+  CommandSeparator,
+} from "@/components/ui/command"
 
 type ComponentSection = {
   slug: string
@@ -98,7 +119,8 @@ const sections: SectionGroup[] = [
     title: "Playground",
     icon: PaletteIcon,
     sections: [
-      { slug: "preview", title: "Preview 1", component: PreviewExample },
+      { slug: "preview", title: "Preview 01", component: PreviewExample },
+      { slug: "preview-02", title: "Preview 02", component: PreviewExample02 },
     ],
   },
   {
@@ -106,6 +128,7 @@ const sections: SectionGroup[] = [
     icon: BookOpenIcon,
     sections: [
       { slug: "accordion", title: "Accordion", component: AccordionExample },
+      { slug: "alert", title: "Alert", component: AlertExample },
       { slug: "alert-dialog", title: "Alert Dialog", component: AlertDialogExample },
       { slug: "avatar", title: "Avatar", component: AvatarExample },
       { slug: "badge", title: "Badge", component: BadgeExample },
@@ -113,6 +136,7 @@ const sections: SectionGroup[] = [
       { slug: "card", title: "Card", component: CardExample },
       { slug: "checkbox", title: "Checkbox", component: CheckboxExample },
       { slug: "combobox", title: "Combobox", component: ComboboxExample },
+      { slug: "command", title: "Command", component: CommandExample },
       { slug: "context-menu", title: "Context Menu",component: ContextMenuExample },
       { slug: "dialog", title: "Dialog", component: DialogExample },
       { slug: "dropdown-menu", title: "Dropdown Menu", component: DropdownMenuExample },
@@ -182,11 +206,11 @@ function TeamSwitcher({
               <SidebarMenuButton size="lg" />
             }
           >
-            <Item className="gap-2">
+            <Item className="gap-2 p-0">
               <div className="flex size-8 items-center justify-center rounded-sm bg-sidebar-primary text-sidebar-primary-foreground">
                 <SwatchesIcon />
               </div>
-              <ItemContent>
+              <ItemContent className="gap-0">
                 <ItemTitle>{selectedTheme.name}</ItemTitle>
                 <ItemDescription className="text-xs">{selectedTheme.plataform}</ItemDescription>
               </ItemContent>
@@ -288,16 +312,34 @@ function ComponentsSidebar({
 
 function PageHeader({
   currentSection,
+  onNavigate,
 }: {
   currentSection: ComponentSection
+  onNavigate: (slug: string) => void
 }) {
+  const [open, setOpen] = useState(false)
+  const shortcutLabel = typeof navigator !== "undefined" && navigator.platform.includes("Mac") ? "⌘K" : "Ctrl+K"
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault()
+        setOpen((current) => !current)
+      }
+    }
+
+    window.addEventListener("keydown", onKeyDown)
+
+    return () => window.removeEventListener("keydown", onKeyDown)
+  }, [])
+
   return (
     <header className="flex h-16 items-center gap-3 px-4 md:px-6">
       <SidebarTrigger className="-ml-1" />
-       <Separator
-              orientation="vertical"
-              className="mr-2 my-auto h-4"
-            />
+      <Separator
+        orientation="vertical"
+        className="mr-2 my-auto h-4"
+      />
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem className="hidden md:block">
@@ -311,12 +353,54 @@ function PageHeader({
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
+      <Button
+        type="button"
+        onClick={() => setOpen(true)}
+        variant="ghost-neutral"
+        size="sm"
+        className="ml-auto border-border font-normal"
+      >
+        <MagnifyingGlassIcon />Search...<Kbd className="translate-x-2">{shortcutLabel}</Kbd>
+      </Button>
+      <CommandDialog open={open} onOpenChange={setOpen}>
+        <Command>
+          <CommandInput placeholder="Search..." />
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            {sections.map((sectionGroup, index) => (
+              <div key={sectionGroup.title}>
+                {index > 0 ? <CommandSeparator /> : null}
+                <CommandGroup heading={sectionGroup.title}>
+                  {sectionGroup.sections.map((section) => (
+                    <CommandItem
+                      key={section.slug}
+                      value={`${sectionGroup.title} ${section.title} ${section.slug}`}
+                      onSelect={() => {
+                        onNavigate(section.slug)
+                        setOpen(false)
+                      }}
+                    >
+                      <CaretRightIcon className="text-muted-foreground" />
+                      <span>{section.title}</span>
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              </div>
+            ))}
+          </CommandList>
+        </Command>
+      </CommandDialog>
     </header>
   )
 }
 
 export function ComponentShowcase() {
   const [activeSection, setActiveSection] = useState(getInitialSection)
+
+  const handleNavigate = (slug: string) => {
+    setActiveSection(slug)
+    window.location.hash = slug
+  }
 
   useEffect(() => {
     const onHashChange = () => {
@@ -342,10 +426,13 @@ export function ComponentShowcase() {
     <SidebarProvider>
       <ComponentsSidebar activeSection={activeSection} />
       <SidebarInset className="w-full overflow-x-hidden max-h-screen">
-        <PageHeader currentSection={currentSection} />
+        <PageHeader
+          currentSection={currentSection}
+          onNavigate={handleNavigate}
+        />
         <div
           className={cn(
-            "flex min-h-0 flex-1 flex-col no-scrollbar overflow-auto",
+            "flex min-h-0 flex-1 flex-col overflow-auto",
             currentSection.slug === "sidebar" && "bg-muted/20"
           )}
         >

@@ -111,7 +111,7 @@ export function UsageCard() {
             <Item
               key={item.name}
               size="xs"
-              className="px-0 group-hover/item-group:bg-transparent"
+              className="group-hover/item-group:bg-transparent"
               render={<a href="#" />}
             >
               <ItemMedia variant="icon" className="text-primary">

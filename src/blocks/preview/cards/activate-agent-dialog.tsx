@@ -68,7 +68,7 @@ export function ActivateAgentDialog() {
       <CardContent className="flex flex-col gap-4">
         <ItemGroup className="gap-0">
           {agentFeatures.map((feature) => (
-            <Item key={feature.id} size="xs" className="px-0">
+            <Item key={feature.id} size="xs">
               <ItemMedia variant="icon" className="self-start">
                 <IconPlaceholder
                   lucide="CheckCircle2Icon"
