@@ -16,7 +16,6 @@ import {
   ItemContent,
   ItemDescription,
   ItemGroup,
-  ItemMedia,
   ItemTitle,
 } from "@/components/ui/item"
 

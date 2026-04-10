@@ -1,13 +1,10 @@
-import { Button } from "@/components/ui/button"
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { IconPlaceholder } from "@/components/ui/icon-placeholder"
 
 export function IndexInvesting() {
   return (

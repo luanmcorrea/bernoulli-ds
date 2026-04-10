@@ -1,6 +1,6 @@
 "use client"
 
-import { Bar, BarChart, XAxis } from "recharts"
+import { Bar, BarChart } from "recharts"
 
 import { Button } from "@/components/ui/button"
 import {
