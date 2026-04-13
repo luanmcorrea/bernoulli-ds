@@ -22,17 +22,24 @@ function Tabs({
 }
 
 const tabsListVariants = cva(
-  "group/tabs-list inline-flex w-fit items-center justify-center rounded-full p-1 text-muted-foreground group-data-horizontal/tabs:h-9 group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col group-data-vertical/tabs:rounded-2xl data-[variant=line]:rounded-none",
+  "group/tabs-list inline-flex w-fit min-w-fit items-center justify-center rounded-full gap-1 bg-none p-0 text-muted-foreground group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col group-data-vertical/tabs:rounded-2xl data-[variant=line]:rounded-none",
   {
     variants: {
       variant: {
-        default: "bg-muted",
-        ghost: "bg-transparent p-0",
-        line: "gap-1 bg-transparent",
+        default: "bg-muted p-2",
+        ghost: "",
+        outline: "gap-2 [&_[data-slot=tabs-trigger]]:data-active:text-primary [&_[data-slot=tabs-trigger]]:data-active:bg-accent [&_[data-slot=tabs-trigger]]:border [&_[data-slot=tabs-trigger]]:data-active:border-primary [&_[data-slot=tabs-trigger]]:hover:not-data-active:border-secondary [&_[data-slot=tabs-trigger]]:data-active:dark:bg-accent/20",
+        line: "[&_[data-slot=tabs-trigger]]:data-active:text-primary [&_[data-slot=tabs-trigger]]:data-active:bg-transparent",
+      },
+      size: {
+        sm: "[&_[data-slot=tabs-trigger]]:h-8 [&_[data-slot=tabs-trigger]]:px-3 [&_[data-slot=tabs-trigger]]:text-sm data-[variant=line]:[&_[data-slot=tabs-trigger]]:p-2",
+        default: "[&_[data-slot=tabs-trigger]]:h-10 [&_[data-slot=tabs-trigger]]:px-4 data-[variant=line]:[&_[data-slot=tabs-trigger]]:p-2",
+        lg: "[&_[data-slot=tabs-trigger]]:h-12 [&_[data-slot=tabs-trigger]]:px-4 data-[variant=line]:[&_[data-slot=tabs-trigger]]:p-2.5",
       },
     },
     defaultVariants: {
       variant: "default",
+      size: "default",
     },
   }
 )
@@ -40,13 +47,15 @@ const tabsListVariants = cva(
 function TabsList({
   className,
   variant = "default",
+  size = "default",
   ...props
 }: TabsPrimitive.List.Props & VariantProps<typeof tabsListVariants>) {
   return (
     <TabsPrimitive.List
       data-slot="tabs-list"
       data-variant={variant}
-      className={cn(tabsListVariants({ variant }), className)}
+      data-size={size}
+      className={cn(tabsListVariants({ variant, size }), className)}
       {...props}
     />
   )
@@ -57,10 +66,9 @@ function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
     <TabsPrimitive.Tab
       data-slot="tabs-trigger"
       className={cn(
-        "relative inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-2 rounded-full px-3 py-1 text-sm font-medium whitespace-nowrap text-foreground/60 hover:not-data-active:text-foreground transition-all group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start group-data-vertical/tabs:rounded-2xl group-data-vertical/tabs:px-3 group-data-vertical/tabs:py-1.5 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 aria-disabled:pointer-events-none aria-disabled:opacity-50 dark:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-        "group-data-[variant=line]/tabs-list:data-active:text-primary group-data-[variant=line]/tabs-list:bg-transparent group-data-[variant=line]/tabs-list:data-active:bg-transparent dark:group-data-[variant=line]/tabs-list:data-active:bg-transparent",
-        "data-active:bg-primary data-active:text-primary-foreground dark:data-active:bg-input/30 dark:data-active:text-primary-foreground",
-        "after:absolute after:bg-primary after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-[-5px] group-data-horizontal/tabs:after:h-px group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-active:after:opacity-100",
+        "relative inline-flex flex-1 items-center justify-center gap-2 rounded-full font-bold whitespace-nowrap hover:not-data-active:text-secondary transition-all group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start group-data-vertical/tabs:py-1.5 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
+        "data-active:bg-primary data-active:text-primary-foreground dark:data-active:text-primary-foreground",
+        "after:absolute after:bg-primary after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-0 group-data-horizontal/tabs:after:h-px group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-active:after:opacity-100",
         className
       )}
       {...props}

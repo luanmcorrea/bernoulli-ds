@@ -15,6 +15,7 @@ import {
   CaretRightIcon,
   CaretDownIcon,
   CheckIcon,
+  CircleIcon,
   MagnifyingGlassIcon,
   PaletteIcon,
   SwatchesIcon,
@@ -58,6 +59,7 @@ import AlertExample from "@/examples/alert-example"
 import AlertDialogExample from "@/examples/alert-dialog-example"
 import AvatarExample from "@/examples/avatar-example"
 import BadgeExample from "@/examples/badge-example"
+import BreadcrumbExample from "@/examples/breadcrumb-example"
 import ButtonExample from "@/examples/button-example"
 import CardExample from "@/examples/card-example"
 import CheckboxExample from "@/examples/checkbox-example"
@@ -78,12 +80,21 @@ import SheetExample from "@/examples/sheet-example"
 import SidebarExample from "@/examples/sidebar-example"
 import SkeletonExample from "@/examples/skeleton-example"
 import SliderExample from "@/examples/slider-example"
+import SonnerExample from "@/examples/sonner-example"
 import SwitchExample from "@/examples/switch-example"
 import TableExample from "@/examples/table-example"
 import TabsExample from "@/examples/tabs-example"
 import TextareaExample from "@/examples/textarea-example"
 import TooltipExample from "@/examples/tooltip-example"
 import { Button } from "@/components/ui/button"
+import { useBrandTheme } from "@/components/brand-theme-provider"
+import {
+  brandThemeOptions,
+  getBrandThemeOption,
+  getProfileThemeOption,
+  profileThemeOptions,
+  type BrandThemeOption,
+} from "@/lib/brand-themes"
 import { Separator } from "@/components/ui/separator"
 import {
   Command,
@@ -95,6 +106,7 @@ import {
   CommandItem,
   CommandSeparator,
 } from "@/components/ui/command"
+import { Toaster } from "sonner"
 
 type ComponentSection = {
   slug: string
@@ -106,12 +118,6 @@ type SectionGroup = {
   title: string
   icon: ComponentType
   sections: ComponentSection[]
-}
-
-type Theme = {
-  name: string
-  plataform: string
-  active: boolean
 }
 
 const sections: SectionGroup[] = [
@@ -132,6 +138,7 @@ const sections: SectionGroup[] = [
       { slug: "alert-dialog", title: "Alert Dialog", component: AlertDialogExample },
       { slug: "avatar", title: "Avatar", component: AvatarExample },
       { slug: "badge", title: "Badge", component: BadgeExample },
+      { slug: "breadcrumb", title: "Breadcrumb", component: BreadcrumbExample },
       { slug: "button", title: "Button", component: ButtonExample },
       { slug: "card", title: "Card", component: CardExample },
       { slug: "checkbox", title: "Checkbox", component: CheckboxExample },
@@ -152,6 +159,7 @@ const sections: SectionGroup[] = [
       { slug: "sidebar", title: "Sidebar", component: SidebarExample },
       { slug: "skeleton", title: "Skeleton", component: SkeletonExample },
       { slug: "slider", title: "Slider", component: SliderExample },
+      { slug: "sonner", title: "Sonner", component: SonnerExample },
       { slug: "switch", title: "Switch", component: SwitchExample },
       { slug: "table", title: "Table", component: TableExample },
       { slug: "tabs", title: "Tabs", component: TabsExample },
@@ -163,21 +171,7 @@ const sections: SectionGroup[] = [
 
 const allSections = sections.flatMap((section) => section.sections)
 
-const themes: Theme[] = [
-  {
-    name: "Multitude",
-    plataform: "Adams",
-    active: true,
-  },
-  {
-    name: "Bernoulli",
-    plataform: "Meu Bernoulli",
-    active: false,
-  },
-]
-
 const defaultSection = allSections[0].slug
-const defaultTheme = themes[0]
 
 function getInitialSection() {
   if (typeof window === "undefined") {
@@ -194,8 +188,8 @@ function TeamSwitcher({
   selectedTheme,
   onSelectTheme,
 }: {
-  selectedTheme: Theme
-  onSelectTheme: (theme: Theme) => void
+  selectedTheme: BrandThemeOption
+  onSelectTheme: (theme: BrandThemeOption) => void
 }) {
   return (
     <SidebarMenu>
@@ -207,12 +201,12 @@ function TeamSwitcher({
             }
           >
             <Item className="gap-2 p-0">
-              <div className="flex size-8 items-center justify-center rounded-sm bg-sidebar-primary text-sidebar-primary-foreground">
+              <div className="flex size-8 items-center justify-center rounded-sm bg-primary text-primary-foreground">
                 <SwatchesIcon />
               </div>
               <ItemContent className="gap-0">
                 <ItemTitle>{selectedTheme.name}</ItemTitle>
-                <ItemDescription className="text-xs">{selectedTheme.plataform}</ItemDescription>
+                <ItemDescription className="text-xs">{selectedTheme.platform}</ItemDescription>
               </ItemContent>
               <ItemActions>
                 <CaretDownIcon className="size-4 transition-transform duration-200 group-data-popup-open/menu-button:rotate-180" />
@@ -220,23 +214,73 @@ function TeamSwitcher({
             </Item>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            {themes.map((theme) => (
+            {brandThemeOptions.map((theme) => (
               <DropdownMenuItem
-                key={theme.name}
-                onSelect={() => onSelectTheme(theme)}
-                disabled={theme.active === false}
+                key={theme.id}
+                onClick={() => onSelectTheme(theme)}
+                disabled={theme.available === false}
               >
                 <div className="flex flex-col">
                   <span>{theme.name}</span>
                   <span className="text-xs text-muted-foreground">
-                    {theme.plataform}
+                    {theme.platform}
                   </span>
                 </div>
-                {theme.name === selectedTheme.name ? (
+                {theme.id === selectedTheme.id ? (
                   <CheckIcon className="ml-auto size-4" />
                 ) : null}
               </DropdownMenuItem>
             ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </SidebarMenuItem>
+    </SidebarMenu>
+  )
+}
+
+function ProfileSwitcher() {
+  const { brandTheme, profileTheme, setProfileTheme } = useBrandTheme()
+  const selectedBrand = getBrandThemeOption(brandTheme)
+  const selectedProfile = getProfileThemeOption(profileTheme)
+
+  return (
+    <SidebarMenu>
+      <SidebarMenuItem>
+        <DropdownMenu>
+          <DropdownMenuTrigger render={<SidebarMenuButton />}>
+            <Item className="gap-2 p-0">
+              <div className="flex size-8 items-center justify-center">
+                <CircleIcon weight="fill" className="size-4 text-sidebar-primary" />
+              </div>
+              <ItemContent className="gap-0">
+                <ItemTitle>{selectedProfile.label}</ItemTitle>
+              </ItemContent>
+              <ItemActions>
+                <CaretDownIcon className="size-4 transition-transform duration-200 group-data-popup-open/menu-button:rotate-180" />
+              </ItemActions>
+            </Item>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            {profileThemeOptions.map((profile) => {
+              const isDisabled = !selectedBrand.supportedProfiles.includes(
+                profile.id
+              )
+
+              return (
+                <DropdownMenuItem
+                  key={profile.id}
+                  onClick={() => setProfileTheme(profile.id)}
+                  disabled={isDisabled}
+                >
+                  <div className="flex flex-col">
+                    <span>{profile.label}</span>
+                  </div>
+                  {profile.id === selectedProfile.id ? (
+                    <CheckIcon className="ml-auto size-4" />
+                  ) : null}
+                </DropdownMenuItem>
+              )
+            })}
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
@@ -250,7 +294,8 @@ function ComponentsSidebar({
   activeSection: string
 }) {
   const { isMobile, setOpenMobile } = useSidebar()
-  const [selectedTheme, setSelectedTheme] = useState(defaultTheme)
+  const { brandTheme, setBrandTheme } = useBrandTheme()
+  const selectedTheme = getBrandThemeOption(brandTheme)
 
   const handleNavigate = (slug: string) => {
     window.location.hash = slug
@@ -265,8 +310,9 @@ function ComponentsSidebar({
       <SidebarHeader>
         <TeamSwitcher
           selectedTheme={selectedTheme}
-          onSelectTheme={setSelectedTheme}
+          onSelectTheme={(theme) => setBrandTheme(theme.id)}
         />
+        <ProfileSwitcher />
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
@@ -318,7 +364,10 @@ function PageHeader({
   onNavigate: (slug: string) => void
 }) {
   const [open, setOpen] = useState(false)
-  const shortcutLabel = typeof navigator !== "undefined" && navigator.platform.includes("Mac") ? "⌘K" : "Ctrl+K"
+  const shortcutLabel =
+    typeof navigator !== "undefined" && navigator.platform.includes("Mac")
+      ? "Cmd+K"
+      : "Ctrl+K"
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -360,7 +409,7 @@ function PageHeader({
         size="sm"
         className="ml-auto border-border font-normal"
       >
-        <MagnifyingGlassIcon />Search...<Kbd className="translate-x-2">{shortcutLabel}</Kbd>
+        <MagnifyingGlassIcon />Search...<Kbd className="hidden md:flex translate-x-2">{shortcutLabel}</Kbd>
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <Command>
@@ -424,6 +473,7 @@ export function ComponentShowcase() {
 
   return (
     <SidebarProvider>
+      <Toaster position="top-center"/>
       <ComponentsSidebar activeSection={activeSection} />
       <SidebarInset className="w-full overflow-x-hidden max-h-screen">
         <PageHeader
@@ -441,4 +491,4 @@ export function ComponentShowcase() {
       </SidebarInset>
     </SidebarProvider>
   )
-}
+} 

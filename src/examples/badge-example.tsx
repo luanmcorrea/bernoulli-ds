@@ -37,7 +37,7 @@ function BadgeVariants() {
 
 function BadgeWithIconLeft() {
   return (
-    <Example title="Icon Left" className="max-w-fit">
+    <Example title="Icon Left">
       <div className="flex flex-wrap gap-2">
         <Badge>
           <IconPlaceholder
@@ -112,7 +112,7 @@ function BadgeWithIconLeft() {
 
 function BadgeWithIconRight() {
   return (
-    <Example title="Icon Right" className="max-w-fit">
+    <Example title="Icon Right">
       <div className="flex flex-wrap gap-2">
         <Badge>
           Default
@@ -187,7 +187,7 @@ function BadgeWithIconRight() {
 
 function BadgeWithSpinner() {
   return (
-    <Example title="With Spinner" className="max-w-fit">
+    <Example title="With Spinner">
       <div className="flex flex-wrap gap-2">
         <Badge>
           <Spinner data-icon="inline-start" />
@@ -304,7 +304,7 @@ function BadgeLongText() {
 
 function BadgeCustomColors() {
   return (
-    <Example title="Custom Colors" className="max-w-fit">
+    <Example title="Custom Colors">
       <div className="flex flex-wrap gap-2">
         <Badge className="bg-blue-600 text-blue-50 dark:bg-blue-600 dark:text-blue-50">
           Blue

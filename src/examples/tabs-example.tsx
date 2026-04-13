@@ -17,35 +17,64 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
-import { IconPlaceholder } from "@/components/ui/icon-placeholder"
+import { AppWindowIcon, CodeIcon, DotsThreeVerticalIcon, GearIcon, HouseIcon, MagnifyingGlassIcon, PlusIcon } from "@phosphor-icons/react"
 
 export default function TabsExample() {
   return (
     <ExampleWrapper>
-      <TabsBasic />
+      <TabsDefault />
+      <TabsGhost />
+      <TabsOutline />
       <TabsLine />
-      <TabsVariantsComparison />
       <TabsDisabled />
       <TabsWithIcons />
       <TabsIconOnly />
-      <TabsMultiple />
+      <TabsFullWidth />
       <TabsWithContent />
       <TabsLineWithContent />
-      <TabsLineDisabled />
-      <TabsWithDropdown />
+      <TabsWithOptions />
       <TabsVertical />
       <TabsWithInputAndButton />
     </ExampleWrapper>
   )
 }
 
-function TabsBasic() {
+function TabsDefault() {
   return (
-    <Example title="Basic">
-      <Tabs defaultValue="home">
+    <Example title="Default">
+      <Tabs defaultValue="overview">
         <TabsList>
-          <TabsTrigger value="home">Home</TabsTrigger>
-          <TabsTrigger value="settings">Settings</TabsTrigger>
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="analytics">Analytics</TabsTrigger>
+          <TabsTrigger value="reports">Reports</TabsTrigger>
+        </TabsList>
+      </Tabs>
+    </Example>
+  )
+}
+
+function TabsGhost() {
+  return (
+      <Example title="Ghost">
+      <Tabs defaultValue="overview">
+        <TabsList variant="ghost">
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="analytics">Analytics</TabsTrigger>
+          <TabsTrigger value="reports">Reports</TabsTrigger>
+        </TabsList>
+      </Tabs>
+    </Example>
+  )
+}
+
+function TabsOutline() {
+  return (
+    <Example title="Outline">
+      <Tabs defaultValue="overview">
+        <TabsList variant="outline">
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="analytics">Analytics</TabsTrigger>
+          <TabsTrigger value="reports">Reports</TabsTrigger>
         </TabsList>
       </Tabs>
     </Example>
@@ -66,35 +95,15 @@ function TabsLine() {
   )
 }
 
-function TabsVariantsComparison() {
-  return (
-    <Example title="Variants Alignment">
-      <div className="flex gap-4">
-        <Tabs defaultValue="overview">
-          <TabsList>
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="analytics">Analytics</TabsTrigger>
-          </TabsList>
-        </Tabs>
-        <Tabs defaultValue="overview">
-          <TabsList variant="line">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="analytics">Analytics</TabsTrigger>
-          </TabsList>
-        </Tabs>
-      </div>
-    </Example>
-  )
-}
-
 function TabsDisabled() {
   return (
     <Example title="Disabled">
-      <Tabs defaultValue="home">
+      <Tabs defaultValue="overview">
         <TabsList>
-          <TabsTrigger value="home">Home</TabsTrigger>
-          <TabsTrigger value="settings" disabled>
-            Disabled
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="analytics">Analytics</TabsTrigger>
+          <TabsTrigger value="reports" disabled>
+            Reports
           </TabsTrigger>
         </TabsList>
       </Tabs>
@@ -108,24 +117,10 @@ function TabsWithIcons() {
       <Tabs defaultValue="preview">
         <TabsList>
           <TabsTrigger value="preview">
-            <IconPlaceholder
-              lucide="AppWindowIcon"
-              tabler="IconAppWindow"
-              hugeicons="CursorInWindowIcon"
-              phosphor="AppWindowIcon"
-              remixicon="RiWindowLine"
-            />
-            Preview
+            <AppWindowIcon />Preview
           </TabsTrigger>
           <TabsTrigger value="code">
-            <IconPlaceholder
-              lucide="CodeIcon"
-              tabler="IconCode"
-              hugeicons="CodeIcon"
-              phosphor="CodeIcon"
-              remixicon="RiCodeLine"
-            />
-            Code
+            <CodeIcon />Code
           </TabsTrigger>
         </TabsList>
       </Tabs>
@@ -135,47 +130,87 @@ function TabsWithIcons() {
 
 function TabsIconOnly() {
   return (
-    <Example title="Icon Only">
-      <Tabs defaultValue="home">
-        <TabsList>
-          <TabsTrigger value="home">
-            <IconPlaceholder
-              lucide="HomeIcon"
-              tabler="IconHome"
-              hugeicons="HomeIcon"
-              phosphor="HouseIcon"
-              remixicon="RiHomeLine"
-            />
-          </TabsTrigger>
-          <TabsTrigger value="search">
-            <IconPlaceholder
-              lucide="SearchIcon"
-              tabler="IconSearch"
-              hugeicons="SearchIcon"
-              phosphor="MagnifyingGlassIcon"
-              remixicon="RiSearchLine"
-            />
-          </TabsTrigger>
-          <TabsTrigger value="settings">
-            <IconPlaceholder
-              lucide="SettingsIcon"
-              tabler="IconSettings"
-              hugeicons="SettingsIcon"
-              phosphor="GearIcon"
-              remixicon="RiSettingsLine"
-            />
-          </TabsTrigger>
-        </TabsList>
-      </Tabs>
+    <Example title="Icon Only" containerClassName="col-span-full">
+      <div className="flex flex-wrap items-center justify-center gap-8">
+        <Tabs defaultValue="home">
+          <TabsList size="lg">
+            <TabsTrigger value="home">
+              <HouseIcon />
+            </TabsTrigger>
+            <TabsTrigger value="search">
+              <MagnifyingGlassIcon />
+            </TabsTrigger>
+            <TabsTrigger value="settings">
+              <GearIcon />
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
+        <Tabs defaultValue="home">
+          <TabsList size="lg" variant="ghost">
+            <TabsTrigger value="home">
+              <HouseIcon />
+            </TabsTrigger>
+            <TabsTrigger value="search">
+              <MagnifyingGlassIcon />
+            </TabsTrigger>
+            <TabsTrigger value="settings">
+              <GearIcon />
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
+        <Tabs defaultValue="home">
+          <TabsList size="lg" variant="outline">
+            <TabsTrigger value="home">
+              <HouseIcon />
+            </TabsTrigger>
+            <TabsTrigger value="search">
+              <MagnifyingGlassIcon />
+            </TabsTrigger>
+            <TabsTrigger value="settings">
+              <GearIcon />
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
+        <Tabs defaultValue="home">
+          <TabsList size="lg" variant="line">
+            <TabsTrigger value="home">
+              <HouseIcon />
+            </TabsTrigger>
+            <TabsTrigger value="search">
+              <MagnifyingGlassIcon />
+            </TabsTrigger>
+            <TabsTrigger value="settings">
+              <GearIcon />
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
+      </div>
+      
     </Example>
   )
 }
 
-function TabsMultiple() {
+function TabsFullWidth() {
   return (
-    <Example title="Multiple">
+    <Example title="Full Width & Sizes" containerClassName="col-span-full">
       <Tabs defaultValue="overview">
-        <TabsList>
+        <TabsList className="w-full" size="sm">
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="analytics">Analytics</TabsTrigger>
+          <TabsTrigger value="reports">Reports</TabsTrigger>
+          <TabsTrigger value="settings">Settings</TabsTrigger>
+        </TabsList>
+      </Tabs>
+      <Tabs defaultValue="overview">
+        <TabsList className="w-full">
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="analytics">Analytics</TabsTrigger>
+          <TabsTrigger value="reports">Reports</TabsTrigger>
+          <TabsTrigger value="settings">Settings</TabsTrigger>
+        </TabsList>
+      </Tabs>
+      <Tabs defaultValue="overview">
+        <TabsList className="w-full" size="lg">
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="analytics">Analytics</TabsTrigger>
           <TabsTrigger value="reports">Reports</TabsTrigger>
@@ -195,7 +230,7 @@ function TabsWithContent() {
           <TabsTrigger value="password">Password</TabsTrigger>
           <TabsTrigger value="notifications">Notifications</TabsTrigger>
         </TabsList>
-        <div className="border rounded-lg p-6 style-nova:rounded-lg style-nova:p-4 style-lyra:rounded-none style-lyra:p-4 style-maia:rounded-xl style-maia:p-6 style-mira:rounded-md style-mira:p-4 style-luma:rounded-xl style-luma:p-6">
+        <div className="border rounded-lg p-6">
           <TabsContent value="account">
             Manage your account preferences and profile information.
           </TabsContent>
@@ -214,13 +249,13 @@ function TabsWithContent() {
 function TabsLineWithContent() {
   return (
     <Example title="Line With Content">
-      <Tabs defaultValue="account">
-        <TabsList variant="line">
+      <Tabs defaultValue="account" className="gap-0">
+        <TabsList variant="line" className="-mb-px">
           <TabsTrigger value="account">Account</TabsTrigger>
           <TabsTrigger value="password">Password</TabsTrigger>
           <TabsTrigger value="notifications">Notifications</TabsTrigger>
         </TabsList>
-        <div className="border rounded-lg p-6 style-nova:rounded-lg style-nova:p-4 style-lyra:rounded-none style-lyra:p-4 style-maia:rounded-xl style-maia:p-6 style-mira:rounded-md style-mira:p-4 style-luma:rounded-xl style-luma:p-6">
+        <div className="border-t pt-6">
           <TabsContent value="account">
             Manage your account preferences and profile information.
           </TabsContent>
@@ -236,44 +271,22 @@ function TabsLineWithContent() {
   )
 }
 
-function TabsLineDisabled() {
+function TabsWithOptions() {
   return (
-    <Example title="Line Disabled">
+    <Example title="With Add & Options">
       <Tabs defaultValue="overview">
-        <TabsList variant="line">
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="analytics">Analytics</TabsTrigger>
-          <TabsTrigger value="reports" disabled>
-            Reports
-          </TabsTrigger>
-        </TabsList>
-      </Tabs>
-    </Example>
-  )
-}
-
-function TabsWithDropdown() {
-  return (
-    <Example title="With Dropdown">
-      <Tabs defaultValue="overview">
-        <div className="flex items-center justify-between">
-          <TabsList>
+        <div className="flex items-center gap-2 w-full overflow-x-auto">
+          <TabsList variant="outline">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
             <TabsTrigger value="reports">Reports</TabsTrigger>
           </TabsList>
+          <Button variant="default" size="icon"><PlusIcon /></Button>
           <DropdownMenu>
             <DropdownMenuTrigger
-              render={<Button variant="ghost" size="icon" className="size-8" />}
+              render={<Button variant="outline" size="icon" />}
             >
-              <IconPlaceholder
-                lucide="MoreHorizontalIcon"
-                tabler="IconDots"
-                hugeicons="MoreHorizontalCircle01Icon"
-                phosphor="DotsThreeOutlineIcon"
-                remixicon="RiMoreLine"
-              />
-              <span className="sr-only">More options</span>
+              <DotsThreeVerticalIcon weight="bold"/>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem>Settings</DropdownMenuItem>
@@ -284,7 +297,7 @@ function TabsWithDropdown() {
           </DropdownMenu>
         </div>
 
-        <div className="border rounded-lg p-6 style-nova:rounded-lg style-nova:p-4 style-lyra:rounded-none style-lyra:p-4 style-maia:rounded-xl style-maia:p-6 style-mira:rounded-md style-mira:p-4 style-luma:rounded-xl style-luma:p-6">
+        <div className="border rounded-lg p-6">
           <TabsContent value="overview">
             View your dashboard metrics and key performance indicators.
           </TabsContent>
@@ -304,12 +317,12 @@ function TabsVertical() {
   return (
     <Example title="Vertical">
       <Tabs defaultValue="account" orientation="vertical">
-        <TabsList>
+        <TabsList variant="ghost" size="sm">
           <TabsTrigger value="account">Account</TabsTrigger>
           <TabsTrigger value="password">Password</TabsTrigger>
           <TabsTrigger value="notifications">Notifications</TabsTrigger>
         </TabsList>
-        <div className="border rounded-lg p-6 style-nova:rounded-lg style-nova:p-4 style-lyra:rounded-none style-lyra:p-4 style-maia:rounded-xl style-maia:p-6 style-mira:rounded-md style-mira:p-4 style-luma:rounded-xl style-luma:p-6">
+        <div className="border rounded-lg p-6">
           <TabsContent value="account">
             Manage your account preferences and profile information.
           </TabsContent>
@@ -330,17 +343,14 @@ function TabsVertical() {
 
 function TabsWithInputAndButton() {
   return (
-    <Example title="With Input and Button" containerClassName="col-span-full">
+    <Example title="With Input" containerClassName="col-span-full">
       <Tabs defaultValue="overview" className="mx-auto w-full max-w-lg">
-        <div className="flex items-center gap-4">
-          <TabsList>
+        <div className="flex flex-wrap items-center justify-start gap-4">
+          <TabsList size="sm" variant="ghost">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
           </TabsList>
-          <div className="ml-auto flex items-center gap-2">
-            <Input placeholder="Search..." className="w-44" />
-            <Button>Action</Button>
-          </div>
+          <Input placeholder="Search..." className="w-44" />
         </div>
         <div className="border rounded-lg p-6 style-nova:rounded-lg style-nova:p-4 style-lyra:rounded-none style-lyra:p-4 style-maia:rounded-xl style-maia:p-6 style-mira:rounded-md style-mira:p-4 style-luma:rounded-xl style-luma:p-6">
           <TabsContent value="overview">

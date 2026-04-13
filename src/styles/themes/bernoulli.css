@@ -1,0 +1,97 @@
+@import "@fontsource-variable/roboto";
+
+:root {
+  --brand-primary: oklch(58.251% 0.08977 188.191);
+  --brand-secondary: oklch(69.778% 0.10745 188.011);
+  --brand-accent: oklch(94.033% 0.03838 192.66);
+  --brand-ring: oklch(74.093% 0.10319 188.82);
+  --profile-primary: oklch(58.251% 0.08977 188.191);
+  --profile-accent: oklch(94.033% 0.03838 192.66);
+  --chart-brand-1: #C1EEE6;
+  --chart-brand-2: #75D7CD;
+  --chart-brand-3: #40C7BC;
+  --chart-brand-4: #019B92;
+  --chart-brand-5: #016A63;
+}
+
+:root[data-brand="bernoulli"] {
+  --brand-font: 'Roboto Variable';
+
+  --brand-primary: oklch(58.251% 0.08977 188.191);
+  --brand-secondary: oklch(69.778% 0.10745 188.011);
+  --brand-accent: oklch(94.033% 0.03838 192.66);
+  --brand-ring: oklch(74.093% 0.10319 188.82);
+}
+
+:root[data-brand="bernoulli"][data-profile="student"] {
+  --profile-primary: oklch(62.502% 0.17945 298.897);
+  --profile-accent: oklch(82.961% 0.09256 299.88);
+}
+
+:root[data-brand="bernoulli"][data-profile="family"] {
+  --profile-primary: oklch(69.594% 0.1157 168.518);
+  --profile-accent: oklch(87.925% 0.05196 173.287);
+}
+
+:root[data-brand="bernoulli"][data-profile="teacher"] {
+  --profile-primary: oklch(62.518% 0.16307 254.872);
+  --profile-accent: oklch(84.77% 0.06308 241.358);
+}
+
+:root[data-brand="bernoulli"][data-profile="school"] {
+  --profile-primary: oklch(49.614% 0.24008 270.706);
+  --profile-accent: oklch(76.651% 0.10274 282.462);
+}
+
+:root[data-brand="bernoulli"][data-profile="system"] {
+  --profile-primary: oklch(60.725% 0.16603 285.157);
+  --profile-accent: oklch(83.634% 0.07811 291.143);
+}
+
+:root.dark[data-brand="bernoulli"] {
+  --brand-primary: oklch(58.251% 0.08977 188.191);
+  --brand-secondary: oklch(69.778% 0.10745 188.011);
+  --brand-accent: oklch(50.936% 0.07172 190.139);
+  --brand-ring: oklch(74.093% 0.10319 188.82);
+}
+
+:root.dark[data-brand="bernoulli"][data-profile="student"] {
+  --profile-primary: oklch(62.502% 0.17945 298.897);
+  --profile-accent: oklch(30.318% 0.12127 295.882);
+}
+
+:root.dark[data-brand="bernoulli"][data-profile="family"] {
+  --profile-primary: oklch(69.594% 0.1157 168.518);
+  --profile-accent: oklch(35.698% 0.06511 167.009);
+}
+
+:root.dark[data-brand="bernoulli"][data-profile="teacher"] {
+  --profile-primary: oklch(62.518% 0.16307 254.872);
+  --profile-accent: oklch(30.857% 0.10462 256.207);
+}
+
+:root.dark[data-brand="bernoulli"][data-profile="school"] {
+  --profile-primary: oklch(49.614% 0.24008 270.706);
+  --profile-accent: oklch(28.783% 0.11645 273.254);
+}
+
+:root.dark[data-brand="bernoulli"][data-profile="system"] {
+  --profile-primary: oklch(60.725% 0.16603 285.157);
+  --profile-accent: oklch(30.282% 0.11036 282.461);
+}
+
+:root[data-brand="bernoulli"] {
+  --chart-brand-1: #C1EEE6;
+  --chart-brand-2: #75D7CD;
+  --chart-brand-3: #40C7BC;
+  --chart-brand-4: #019B92;
+  --chart-brand-5: #016A63;
+}
+
+:root.dark[data-brand="bernoulli"] {
+  --chart-brand-1: #C1EEE6;
+  --chart-brand-2: #75D7CD;
+  --chart-brand-3: #40C7BC;
+  --chart-brand-4: #019B92;
+  --chart-brand-5: #016A63;
+}

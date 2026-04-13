@@ -52,6 +52,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { IconPlaceholder } from "@/components/ui/icon-placeholder"
+import { DotsThreeVerticalIcon, PlusIcon } from "@phosphor-icons/react"
 
 export function CodespacesCard() {
   const [isCreatingCodespace, setIsCreatingCodespace] = React.useState(false)
@@ -74,13 +75,7 @@ export function CodespacesCard() {
                   <TooltipTrigger
                     render={<Button variant="ghost" size="icon-sm" />}
                   >
-                    <IconPlaceholder
-                      lucide="PlusIcon"
-                      tabler="IconPlus"
-                      hugeicons="PlusSignIcon"
-                      phosphor="PlusIcon"
-                      remixicon="RiAddLine"
-                    />
+                    <PlusIcon />
                   </TooltipTrigger>
                   <TooltipContent side="bottom">
                     Create a codespace on main
@@ -90,24 +85,12 @@ export function CodespacesCard() {
                   <DropdownMenuTrigger
                     render={<Button variant="ghost" size="icon-sm" />}
                   >
-                    <IconPlaceholder
-                      lucide="MoreHorizontalIcon"
-                      tabler="IconDots"
-                      hugeicons="MoreHorizontalCircle01Icon"
-                      phosphor="DotsThreeOutlineIcon"
-                      remixicon="RiMoreLine"
-                    />
+                    <DotsThreeVerticalIcon weight="bold" />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-56">
                     <DropdownMenuGroup>
                       <DropdownMenuItem>
-                        <IconPlaceholder
-                          lucide="PlusIcon"
-                          tabler="IconPlus"
-                          hugeicons="PlusSignIcon"
-                          phosphor="PlusIcon"
-                          remixicon="RiAddLine"
-                        />
+                        <PlusIcon />
                         New with options...
                       </DropdownMenuItem>
                       <DropdownMenuItem>

@@ -1,0 +1,97 @@
+@import "@fontsource-variable/nunito";
+
+:root {
+  --brand-primary: oklch(46.543% 0.21187 302.598);
+  --brand-secondary: oklch(65.85% 0.17482 304.969);
+  --brand-accent: oklch(88.865% 0.06939 306.654);
+  --brand-ring: oklch(70.77% 0.17579 305.234);
+  --profile-primary: oklch(46.543% 0.21187 302.598);
+  --profile-accent: oklch(88.865% 0.06939 306.654);
+  --chart-brand-1: #E2CEF9;
+  --chart-brand-2: #C7A1F0;
+  --chart-brand-3: #AB7CEA;
+  --chart-brand-4: #8248D7;
+  --chart-brand-5: #5630B8;
+}
+
+:root[data-brand="multitude"] {
+  --brand-font: 'Nunito Variable';
+
+  --brand-primary: oklch(46.543% 0.21187 302.598);
+  --brand-secondary: oklch(65.85% 0.17482 304.969);
+  --brand-accent: oklch(88.865% 0.06939 306.654);
+  --brand-ring: oklch(70.77% 0.17579 305.234);
+}
+
+:root[data-brand="multitude"][data-profile="student"] {
+  --profile-primary: oklch(56.02% 0.20143 304.52);
+  --profile-accent: oklch(88.676% 0.05949 307.145);
+}
+
+:root[data-brand="multitude"][data-profile="family"] {
+  --profile-primary: oklch(55.808% 0.20882 261.324);
+  --profile-accent: oklch(88.853% 0.0467 262.543);
+}
+
+:root[data-brand="multitude"][data-profile="teacher"] {
+  --profile-primary: oklch(51.072% 0.22803 278.287);
+  --profile-accent: oklch(86.232% 0.05946 285.072);
+}
+
+:root[data-brand="multitude"][data-profile="school"] {
+  --profile-primary: oklch(62.81% 0.13347 182.232);
+  --profile-accent: oklch(91.659% 0.04569 182.857);
+}
+
+:root[data-brand="multitude"][data-profile="system"] {
+  --profile-primary: oklch(44.598% 0.20745 285.924);
+  --profile-accent: oklch(86.626% 0.05976 294.685);
+}
+
+:root.dark[data-brand="multitude"] {
+  --brand-primary: oklch(46.543% 0.21187 302.598);
+  --brand-secondary: oklch(65.85% 0.17482 304.969);
+  --brand-accent: oklch(36.172% 0.05166 313.136);
+  --brand-ring: oklch(70.77% 0.17579 305.234);
+}
+
+:root.dark[data-brand="multitude"][data-profile="student"] {
+  --profile-primary: oklch(56.02% 0.20143 304.52);
+  --profile-accent: oklch(28.737% 0.12492 288.614);
+}
+
+:root.dark[data-brand="multitude"][data-profile="family"] {
+  --profile-primary: oklch(55.808% 0.20882 261.324);
+  --profile-accent: oklch(25.954% 0.13419 263.257);
+}
+
+:root.dark[data-brand="multitude"][data-profile="teacher"] {
+  --profile-primary: oklch(51.072% 0.22803 278.287);
+  --profile-accent: oklch(26.246% 0.1337 275.811);
+}
+
+:root.dark[data-brand="multitude"][data-profile="school"] {
+  --profile-primary: oklch(62.81% 0.13347 182.232);
+  --profile-accent: oklch(35.886% 0.06189 188.4);
+}
+
+:root.dark[data-brand="multitude"][data-profile="system"] {
+  --profile-primary: oklch(44.598% 0.20745 285.924);
+  --profile-accent: oklch(29.382% 0.11739 284.386);
+}
+
+:root[data-brand="multitude"] {
+  --chart-brand-1: #E2CEF9;
+  --chart-brand-2: #C7A1F0;
+  --chart-brand-3: #AB7CEA;
+  --chart-brand-4: #8248D7;
+  --chart-brand-5: #5630B8;
+}
+
+:root.dark[data-brand="multitude"] {
+  --chart-brand-1: #E2CEF9;
+  --chart-brand-2: #C7A1F0;
+  --chart-brand-3: #AB7CEA;
+  --chart-brand-4: #8248D7;
+  --chart-brand-5: #5630B8;
+}
