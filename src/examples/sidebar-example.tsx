@@ -5,49 +5,81 @@ import * as React from "react"
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import {
   Item,
-  ItemActions,
   ItemContent,
-  ItemDescription,
   ItemTitle,
 } from "@/components/ui/item"
-import { Label } from "@/components/ui/label"
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
-  SidebarInput,
   SidebarInset,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-  SidebarRail,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { IconPlaceholder } from "@/components/ui/icon-placeholder"
+import { BackpackIcon, BookOpenIcon, ChatCircleDotsIcon, FilesIcon, FolderOpenIcon, HouseIcon, NoteBlankIcon, QuestionIcon, UserPlusIcon } from "@phosphor-icons/react"
 
 export default function SidebarExample() {
   const data = {
-    versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
+    versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta"],
     navMain: [
       {
-        title: "Getting Started",
+        title: "Menu",
         url: "#",
         items: [
           {
-            title: "Installation",
+            title: "Início",
+            icon: HouseIcon,
+            url: "#",
+            isActive: true,
+          },
+          {
+            title: "Avaliações",
+            icon: FilesIcon,
             url: "#",
           },
           {
-            title: "Project Structure",
+            title: "Banco de questões",
+            icon: FolderOpenIcon,
+            url: "#",
+          },
+          {
+            title: "Componentes",
+            icon: BookOpenIcon,
+            url: "#",
+          },
+          {
+            title: "Comunicação",
+            icon: ChatCircleDotsIcon,
+            url: "#",
+          },
+          {
+            title: "Comunicados",
+            icon: NoteBlankIcon,
+            url: "#",
+          },
+          {
+            title: "Turmas",
+            icon: BackpackIcon,
+            url: "#",
+          },
+          {
+            title: "Usuários",
+            icon: UserPlusIcon,
             url: "#",
           },
         ],
@@ -57,108 +89,8 @@ export default function SidebarExample() {
         url: "#",
         items: [
           {
-            title: "Routing",
-            url: "#",
-          },
-          {
-            title: "Data Fetching",
-            url: "#",
-            isActive: true,
-          },
-          {
-            title: "Rendering",
-            url: "#",
-          },
-          {
-            title: "Caching",
-            url: "#",
-          },
-          {
-            title: "Styling",
-            url: "#",
-          },
-          {
-            title: "Optimizing",
-            url: "#",
-          },
-          {
-            title: "Configuring",
-            url: "#",
-          },
-          {
-            title: "Testing",
-            url: "#",
-          },
-          {
-            title: "Authentication",
-            url: "#",
-          },
-          {
-            title: "Deploying",
-            url: "#",
-          },
-          {
-            title: "Upgrading",
-            url: "#",
-          },
-          {
-            title: "Examples",
-            url: "#",
-          },
-        ],
-      },
-      {
-        title: "API Reference",
-        url: "#",
-        items: [
-          {
-            title: "Components",
-            url: "#",
-          },
-          {
-            title: "File Conventions",
-            url: "#",
-          },
-          {
-            title: "Functions",
-            url: "#",
-          },
-          {
-            title: "next.config.js Options",
-            url: "#",
-          },
-          {
-            title: "CLI",
-            url: "#",
-          },
-          {
-            title: "Edge Runtime",
-            url: "#",
-          },
-        ],
-      },
-      {
-        title: "Architecture",
-        url: "#",
-        items: [
-          {
-            title: "Accessibility",
-            url: "#",
-          },
-          {
-            title: "Fast Refresh",
-            url: "#",
-          },
-          {
-            title: "Next.js Compiler",
-            url: "#",
-          },
-          {
-            title: "Supported Browsers",
-            url: "#",
-          },
-          {
-            title: "Turbopack",
+            title: "Central de atendimento",
+            icon: QuestionIcon,
             url: "#",
           },
         ],
@@ -169,8 +101,8 @@ export default function SidebarExample() {
   const [selectedVersion, setSelectedVersion] = React.useState(data.versions[0])
 
   return (
-    <SidebarProvider className="relative">
-      <Sidebar className="absolute">
+    <SidebarProvider className="relative border border-border/60 rounded-xl shadow-xs m-auto overflow-hidden min-h-0 h-95/100 w-95/100">
+      <Sidebar collapsible="icon" className="absolute h-full">
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
@@ -179,20 +111,14 @@ export default function SidebarExample() {
                   render={
                     <SidebarMenuButton
                       size="lg"
-                      className="data-open:bg-sidebar-accent data-open:text-sidebar-accent-foreground"
+                      className="data-open:bg-accent data-open:text-accent-foreground"
                     />
                   }
                 >
                   <Item className="p-0" size="xs">
                     <ItemContent>
-                      <ItemTitle className="text-sm">Documentation</ItemTitle>
-                      <ItemDescription>v{selectedVersion}</ItemDescription>
+                      <ItemTitle className="text-base">Plataform</ItemTitle>
                     </ItemContent>
-                    <ItemActions>
-                      <IconPlaceholder
-                        phosphor="CaretUpDownIcon"
-                      />
-                    </ItemActions>
                   </Item>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
@@ -214,37 +140,21 @@ export default function SidebarExample() {
               </DropdownMenu>
             </SidebarMenuItem>
           </SidebarMenu>
-          <form>
-            <SidebarGroup className="py-0">
-              <SidebarGroupContent className="relative">
-                <Label htmlFor="search" className="sr-only">
-                  Search
-                </Label>
-                <SidebarInput
-                  id="search"
-                  placeholder="Search the docs..."
-                  className="pl-8"
-                />
-                <IconPlaceholder
-                  phosphor="MagnifyingGlassIcon"
-                  className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 opacity-50 select-none"
-                />
-              </SidebarGroupContent>
-            </SidebarGroup>
-          </form>
         </SidebarHeader>
         <SidebarContent>
           {data.navMain.map((item) => (
             <SidebarGroup key={item.title}>
-              <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
               <SidebarGroupContent>
                 <SidebarMenu>
                   {item.items.map((subItem) => (
                     <SidebarMenuItem key={subItem.title}>
                       <SidebarMenuButton
+                        size="lg"
+                        className="[&_svg]:size-6"
                         render={<a href={subItem.url} />}
                         isActive={subItem.isActive}
                       >
+                        {subItem.icon && <subItem.icon/>}
                         {subItem.title}
                       </SidebarMenuButton>
                     </SidebarMenuItem>
@@ -254,19 +164,88 @@ export default function SidebarExample() {
             </SidebarGroup>
           ))}
         </SidebarContent>
-        <SidebarRail />
+        <SidebarFooter>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  render={
+                    <SidebarMenuButton
+                      className="h-fit"
+                    />
+                  }
+                >
+                  <Avatar>
+                    <AvatarFallback>J</AvatarFallback>
+                  </Avatar>
+                  <div className="grid flex-1 text-left text-sm leading-tight">
+                    <span className="truncate font-semibold">Johnny</span>
+                    <span className="truncate text-xs text-muted-foreground">
+                      Profile name
+                    </span>
+                  </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-(--anchor-width) min-w-56">
+                  <DropdownMenuGroup>
+                    <DropdownMenuItem>
+                      <IconPlaceholder
+                        lucide="BadgeCheckIcon"
+                        tabler="IconRosetteDiscountCheck"
+                        hugeicons="CheckmarkBadgeIcon"
+                        phosphor="CheckCircleIcon"
+                        remixicon="RiCheckboxCircleLine"
+                      />
+                      Account
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <IconPlaceholder
+                        lucide="CreditCardIcon"
+                        tabler="IconCreditCard"
+                        hugeicons="CreditCardIcon"
+                        phosphor="CreditCardIcon"
+                        remixicon="RiBankCardLine"
+                      />
+                      Billing
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <IconPlaceholder
+                        lucide="BellIcon"
+                        tabler="IconBell"
+                        hugeicons="NotificationIcon"
+                        phosphor="BellIcon"
+                        remixicon="RiNotificationLine"
+                      />
+                      Notifications
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>
+                    <IconPlaceholder
+                      lucide="LogOutIcon"
+                      tabler="IconLogout"
+                      hugeicons="LogoutIcon"
+                      phosphor="SignOutIcon"
+                      remixicon="RiLogoutBoxLine"
+                    />
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarFooter>
       </Sidebar>
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 px-4">
+        <header className="flex h-16 shrink-0 items-center gap-2 px-10">
           <SidebarTrigger className="-ml-1" />
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-4">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
+        <div className="flex flex-1 flex-col gap-6 px-10 pt-2 pb-8">
+          <div className="grid auto-rows-min gap-6 md:grid-cols-3">
+            <div className="aspect-video rounded-xl bg-muted" />
+            <div className="aspect-video rounded-xl bg-muted" />
+            <div className="aspect-video rounded-xl bg-muted" />
           </div>
-          <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+          <div className="flex-1 rounded-xl bg-muted md:min-h-min" />
         </div>
       </SidebarInset>
     </SidebarProvider>
