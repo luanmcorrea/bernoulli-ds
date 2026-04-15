@@ -24,28 +24,28 @@
 }
 
 :root[data-brand="bernoulli"][data-profile="student"] {
-  --profile-primary: oklch(59.186% 0.17677 307.987);
-  --profile-accent: #D8BDEB;
+  --profile-primary: oklch(62.502% 0.17945 298.897);
+  --profile-accent: oklch(82.961% 0.09256 299.88);
 }
 
 :root[data-brand="bernoulli"][data-profile="family"] {
-  --profile-primary: oklch(55.67% 0.13925 298.512);
-  --profile-accent: oklch(82.138% 0.08855 299.954);
+  --profile-primary: oklch(69.594% 0.1157 168.518);
+  --profile-accent: oklch(87.925% 0.05196 173.287);
 }
 
 :root[data-brand="bernoulli"][data-profile="teacher"] {
-  --profile-primary: oklch(65.297% 0.09541 208.728);
-  --profile-accent: oklch(88.73% 0.05014 205.838);
+  --profile-primary: oklch(62.518% 0.16307 254.872);
+  --profile-accent: oklch(84.77% 0.06308 241.358);
 }
 
 :root[data-brand="bernoulli"][data-profile="school"] {
-  --profile-primary: oklch(49.621% 0.15711 271.016);
-  --profile-accent: oklch(85.285% 0.04089 276.247);
+  --profile-primary: oklch(49.614% 0.24008 270.706);
+  --profile-accent: oklch(76.651% 0.10274 282.462);
 }
 
 :root[data-brand="bernoulli"][data-profile="system"] {
-  --profile-primary: oklch(46.135% 0.15033 294.504);
-  --profile-accent: oklch(83.434% 0.07107 299.471);
+  --profile-primary: oklch(60.725% 0.16603 285.157);
+  --profile-accent: oklch(83.634% 0.07811 291.143);
 }
 
 :root.dark[data-brand="bernoulli"] {
@@ -56,28 +56,28 @@
 }
 
 :root.dark[data-brand="bernoulli"][data-profile="student"] {
-  --profile-primary: oklch(59.186% 0.17677 307.987);
-  --profile-accent: oklch(34.403% 0.10861 308.532);
+  --profile-primary: oklch(62.502% 0.17945 298.897);
+  --profile-accent: oklch(30.318% 0.12127 295.882);
 }
 
 :root.dark[data-brand="bernoulli"][data-profile="family"] {
-  --profile-primary: oklch(55.67% 0.13925 298.512);
-  --profile-accent: oklch(34.725% 0.09234 297.63);
+  --profile-primary: oklch(69.594% 0.1157 168.518);
+  --profile-accent: oklch(35.698% 0.06511 167.009);
 }
 
 :root.dark[data-brand="bernoulli"][data-profile="teacher"] {
-  --profile-primary: oklch(65.297% 0.09541 208.728);
-  --profile-accent: oklch(34.341% 0.0511 209.02);
+  --profile-primary: oklch(62.518% 0.16307 254.872);
+  --profile-accent: oklch(30.857% 0.10462 256.207);
 }
 
 :root.dark[data-brand="bernoulli"][data-profile="school"] {
-  --profile-primary: oklch(49.621% 0.15711 271.016);
-  --profile-accent: oklch(30.513% 0.10509 270.31);
+  --profile-primary: oklch(49.614% 0.24008 270.706);
+  --profile-accent: oklch(28.783% 0.11645 273.254);
 }
 
 :root.dark[data-brand="bernoulli"][data-profile="system"] {
-  --profile-primary: oklch(46.135% 0.15033 294.504);
-  --profile-accent: oklch(31.9% 0.10365 294.098);
+  --profile-primary: oklch(60.725% 0.16603 285.157);
+  --profile-accent: oklch(30.282% 0.11036 282.461);
 }
 
 :root[data-brand="bernoulli"] {
