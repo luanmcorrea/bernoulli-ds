@@ -67,9 +67,11 @@ import ComboboxExample from "@/examples/combobox-example"
 import CommandExample from "@/examples/command-example"
 import ContextMenuExample from "@/examples/context-menu-example"
 import DialogExample from "@/examples/dialog-example"
+import DrawerExample from "@/examples/drawer-example"
 import DropdownMenuExample from "@/examples/dropdown-menu-example"
 import EmptyExample from "@/examples/empty-example"
 import InputExample from "@/examples/input-example"
+import InputOTPExample from "@/examples/input-otp-example"
 import LabelExample from "@/examples/label-example"
 import PaginationExample from "@/examples/pagination-example"
 import PopoverExample from "@/examples/popover-example"
@@ -146,9 +148,11 @@ const sections: SectionGroup[] = [
       { slug: "command", title: "Command", component: CommandExample },
       { slug: "context-menu", title: "Context Menu",component: ContextMenuExample },
       { slug: "dialog", title: "Dialog", component: DialogExample },
+      { slug: "drawer", title: "Drawer", component: DrawerExample },
       { slug: "dropdown-menu", title: "Dropdown Menu", component: DropdownMenuExample },
       { slug: "empty", title: "Empty", component: EmptyExample },
       { slug: "input", title: "Input", component: InputExample },
+      { slug: "input-otp", title: "Input OTP", component: InputOTPExample },
       { slug: "label", title: "Label", component: LabelExample },
       { slug: "pagination", title: "Pagination", component: PaginationExample },
       { slug: "popover", title: "Popover", component: PopoverExample },
