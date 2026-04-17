@@ -108,7 +108,7 @@ function AvatarProgressLevel({
     <span
       data-slot="avatar-progress-level"
       className={cn(
-        "pointer-events-none absolute scale-130 rotate-32",
+        "pointer-events-none absolute scale-131 rotate-32",
         className
       )}
       {...props}
