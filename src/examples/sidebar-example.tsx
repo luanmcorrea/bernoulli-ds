@@ -82,12 +82,6 @@ export default function SidebarExample() {
             icon: UserPlusIcon,
             url: "#",
           },
-        ],
-      },
-      {
-        title: "Build Your Application",
-        url: "#",
-        items: [
           {
             title: "Central de atendimento",
             icon: QuestionIcon,
@@ -155,7 +149,7 @@ export default function SidebarExample() {
                         isActive={subItem.isActive}
                       >
                         {subItem.icon && <subItem.icon/>}
-                        {subItem.title}
+                        <span>{subItem.title}</span>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                   ))}
