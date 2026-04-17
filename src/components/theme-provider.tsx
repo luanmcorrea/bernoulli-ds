@@ -81,7 +81,7 @@ export function ThemeProvider({
   children,
   defaultTheme = "light",
   storageKey = "theme",
-  disableTransitionOnChange = true,
+  disableTransitionOnChange = false,
   ...props
 }: ThemeProviderProps) {
   const [theme, setThemeState] = React.useState<Theme>(() => {

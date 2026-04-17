@@ -9,7 +9,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/60 disabled:bg-muted aria-expanded:bg-primary/80",
-        outline: "border-primary text-primary hover:opacity-60 disabled:border-muted-foreground aria-expanded:bg-accent aria-expanded:text-primary",
+        outline: "border-primary/30 text-primary hover:opacity-60 disabled:border-muted-foreground aria-expanded:bg-accent aria-expanded:text-primary",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground", // remove secondary?
         ghost: "text-primary hover:bg-muted hover:opacity-60 aria-expanded:bg-accent aria-expanded:text-primary",
         "ghost-neutral": "text-foreground hover:bg-muted hover:opacity-60 aria-expanded:bg-muted aria-expanded:text-primary",
@@ -17,7 +17,7 @@ const buttonVariants = cva(
         "destructive-outline": "border-destructive text-destructive hover:opacity-60 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 disabled:border-muted-foreground",
         "destructive-ghost": "text-destructive hover:opacity-60 focus-visible:border-destructive/40 focus-visible:ring-destructive/20",
         "destructive-link": "text-destructive underline-offset-4 hover:underline focus-visible:border-destructive/40 focus-visible:ring-destructive/20 !p-0 !h-auto",
-        link: "text-primary underline-offset-4 hover:underline p-0! h-auto!",
+        link: "text-primary underline-offset-4 hover:underline p-0! h-fit! w-fit!",
       },
       size: {
         default: "h-10 gap-2 px-4 has-data-[icon=inline-end]:pr-3.5 has-data-[icon=inline-start]:pl-3.5 [&_svg:not([class*='size-'])]:size-5",

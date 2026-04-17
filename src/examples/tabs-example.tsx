@@ -284,7 +284,7 @@ function TabsWithOptions() {
           <Button variant="default" size="icon"><PlusIcon /></Button>
           <DropdownMenu>
             <DropdownMenuTrigger
-              render={<Button variant="outline" size="icon" />}
+              render={<Button variant="ghost-neutral" size="icon" className="ml-auto" />}
             >
               <DotsThreeVerticalIcon weight="bold"/>
             </DropdownMenuTrigger>

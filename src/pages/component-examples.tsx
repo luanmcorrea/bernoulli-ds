@@ -1,3 +1,4 @@
+import { useTheme } from "@/components/theme-provider"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 import {
   Collapsible,
@@ -19,6 +20,8 @@ import {
   MagnifyingGlassIcon,
   PaletteIcon,
   SwatchesIcon,
+  MoonIcon,
+  SunDimIcon,
 } from "@phosphor-icons/react"
 import {
   DropdownMenu,
@@ -70,6 +73,7 @@ import DialogExample from "@/examples/dialog-example"
 import DrawerExample from "@/examples/drawer-example"
 import DropdownMenuExample from "@/examples/dropdown-menu-example"
 import EmptyExample from "@/examples/empty-example"
+import FieldExample from "@/examples/field-example"
 import InputExample from "@/examples/input-example"
 import InputOTPExample from "@/examples/input-otp-example"
 import LabelExample from "@/examples/label-example"
@@ -151,6 +155,7 @@ const sections: SectionGroup[] = [
       { slug: "drawer", title: "Drawer", component: DrawerExample },
       { slug: "dropdown-menu", title: "Dropdown Menu", component: DropdownMenuExample },
       { slug: "empty", title: "Empty", component: EmptyExample },
+      { slug: "field", title: "Field", component: FieldExample },
       { slug: "input", title: "Input", component: InputExample },
       { slug: "input-otp", title: "Input OTP", component: InputOTPExample },
       { slug: "label", title: "Label", component: LabelExample },
@@ -373,6 +378,9 @@ function PageHeader({
       ? "Cmd+K"
       : "Ctrl+K"
 
+  const { theme, setTheme } = useTheme()
+  const toggleTheme = () => {setTheme(theme === "dark" ? "light" : "dark")}
+
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
@@ -406,12 +414,16 @@ function PageHeader({
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
+      <Button variant="ghost-neutral" size="icon-sm" className="border-border ml-auto" onClick={toggleTheme}>
+        <SunDimIcon className="transition-all dark:scale-0 dark:-rotate-90" />
+        <MoonIcon className="absolute scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+      </Button>
       <Button
         type="button"
         onClick={() => setOpen(true)}
         variant="ghost-neutral"
         size="sm"
-        className="ml-auto border-border font-normal"
+        className="border-border font-normal"
       >
         <MagnifyingGlassIcon />Search...<Kbd className="hidden md:flex translate-x-2">{shortcutLabel}</Kbd>
       </Button>

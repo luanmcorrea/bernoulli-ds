@@ -77,7 +77,7 @@ export function RecentTransactions() {
                       lucide="MoreHorizontalIcon"
                       tabler="IconDotsVertical"
                       hugeicons="MoreVerticalCircle01Icon"
-                      phosphor="DotsThreeIcon"
+                      phosphor="DotsThreeIcon" weight="bold"
                       remixicon="RiMore2Line"
                     />
                   </DropdownMenuTrigger>
@@ -129,7 +129,7 @@ export function RecentTransactions() {
                       lucide="MoreHorizontalIcon"
                       tabler="IconDotsVertical"
                       hugeicons="MoreVerticalCircle01Icon"
-                      phosphor="DotsThreeIcon"
+                      phosphor="DotsThreeIcon" weight="bold"
                       remixicon="RiMore2Line"
                     />
                   </DropdownMenuTrigger>
@@ -179,7 +179,7 @@ export function RecentTransactions() {
                       lucide="MoreHorizontalIcon"
                       tabler="IconDotsVertical"
                       hugeicons="MoreVerticalCircle01Icon"
-                      phosphor="DotsThreeIcon"
+                      phosphor="DotsThreeIcon" weight="bold"
                       remixicon="RiMore2Line"
                     />
                   </DropdownMenuTrigger>
@@ -231,7 +231,7 @@ export function RecentTransactions() {
                       lucide="MoreHorizontalIcon"
                       tabler="IconDotsVertical"
                       hugeicons="MoreVerticalCircle01Icon"
-                      phosphor="DotsThreeIcon"
+                      phosphor="DotsThreeIcon" weight="bold"
                       remixicon="RiMore2Line"
                     />
                   </DropdownMenuTrigger>
@@ -283,7 +283,7 @@ export function RecentTransactions() {
                       lucide="MoreHorizontalIcon"
                       tabler="IconDotsVertical"
                       hugeicons="MoreVerticalCircle01Icon"
-                      phosphor="DotsThreeIcon"
+                      phosphor="DotsThreeIcon" weight="bold"
                       remixicon="RiMore2Line"
                     />
                   </DropdownMenuTrigger>

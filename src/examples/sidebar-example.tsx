@@ -29,7 +29,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Avatar, AvatarBadgeLevel, AvatarFallback, AvatarProgressLevel } from "@/components/ui/avatar"
 import { IconPlaceholder } from "@/components/ui/icon-placeholder"
 import { BackpackIcon, BookOpenIcon, ChatCircleDotsIcon, FilesIcon, FolderOpenIcon, HouseIcon, NoteBlankIcon, QuestionIcon, UserPlusIcon } from "@phosphor-icons/react"
 
@@ -165,12 +165,16 @@ export default function SidebarExample() {
                 <DropdownMenuTrigger
                   render={
                     <SidebarMenuButton
-                      className="h-fit"
+                      className="gap-3 h-12"
                     />
                   }
                 >
                   <Avatar>
                     <AvatarFallback>J</AvatarFallback>
+                    <AvatarBadgeLevel>
+                      14
+                    </AvatarBadgeLevel>
+                    <AvatarProgressLevel />
                   </Avatar>
                   <div className="grid flex-1 text-left text-sm leading-tight">
                     <span className="truncate font-semibold">Johnny</span>

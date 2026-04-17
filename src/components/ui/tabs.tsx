@@ -26,7 +26,7 @@ const tabsListVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-muted p-2",
+        default: "bg-muted p-1.5",
         ghost: "",
         outline: "gap-2 [&_[data-slot=tabs-trigger]]:data-active:text-primary [&_[data-slot=tabs-trigger]]:data-active:bg-accent [&_[data-slot=tabs-trigger]]:border [&_[data-slot=tabs-trigger]]:data-active:border-primary [&_[data-slot=tabs-trigger]]:hover:not-data-active:border-secondary [&_[data-slot=tabs-trigger]]:data-active:dark:bg-accent/20",
         line: "[&_[data-slot=tabs-trigger]]:data-active:text-primary [&_[data-slot=tabs-trigger]]:data-active:bg-transparent",

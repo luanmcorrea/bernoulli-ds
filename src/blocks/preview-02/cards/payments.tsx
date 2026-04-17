@@ -46,7 +46,7 @@ export function Payments() {
                     lucide="MoreHorizontalIcon"
                     tabler="IconDots"
                     hugeicons="MoreHorizontalCircle01Icon"
-                    phosphor="DotsThreeIcon"
+                    phosphor="DotsThreeIcon" weight="bold"
                     remixicon="RiMoreLine"
                   />
                   <span className="sr-only">Account options</span>

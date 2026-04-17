@@ -1,4 +1,4 @@
-import type { Icon } from "@phosphor-icons/react"
+import type { Icon, IconProps } from "@phosphor-icons/react"
 import {
   ActivityIcon,
   AppWindowIcon,
@@ -297,7 +297,7 @@ const iconMap = {
   XIcon,
 } satisfies Record<string, Icon>
 
-type IconPlaceholderProps = React.ComponentProps<"svg"> & {
+type IconPlaceholderProps = IconProps & {
   phosphor?: keyof typeof iconMap | string
   lucide?: string
   tabler?: string
