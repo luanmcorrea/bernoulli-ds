@@ -5,7 +5,7 @@ import { toast } from "sonner"
 import {
   Example,
   ExampleWrapper,
-} from "@/components/doc/example"
+} from "@/components/example"
 import { Button } from "@/components/ui/button"
 
 export default function SonnerExample() {
@@ -22,6 +22,17 @@ function SonnerGeneral() {
       <div className="flex flex-wrap justify-center gap-2">
         <Button variant="outline" onClick={() => toast("Event has been created")}>
           Default
+        </Button>
+        <Button variant="outline" onClick={() => toast("Event has been created", {
+              description: "Sunday, December 03, 2023 at 9:00 AM",
+              action: {
+                label: "Undo",
+                onClick: () => console.log("Undo"),
+              },
+            })
+          }
+        >
+          Description
         </Button>
         <Button
           variant="outline"

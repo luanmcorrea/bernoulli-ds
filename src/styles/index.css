@@ -75,7 +75,7 @@
     --chart-5: var(--chart-brand-5);
     --radius: 0.625rem;
     --sidebar: oklch(1 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-foreground: var(--color-neutral-800);
     --sidebar-primary: var(--profile-primary);
     --sidebar-primary-foreground: oklch(1 0 0);
     --sidebar-accent: var(--profile-accent);
@@ -101,7 +101,7 @@
     --accent-foreground: oklch(0.977 0.014 308.299);
     --destructive: oklch(0.704 0.191 22.216);
     --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
+    --input: oklch(1 0 0 / 8%);
     --ring: var(--brand-ring);
     --chart-1: var(--chart-brand-1);
     --chart-2: var(--chart-brand-2);

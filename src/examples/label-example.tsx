@@ -1,7 +1,7 @@
 import {
   Example,
   ExampleWrapper,
-} from "@/components/doc/example"
+} from "@/components/example"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Field } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"

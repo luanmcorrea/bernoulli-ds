@@ -5,7 +5,7 @@ import * as React from "react"
 import {
   Example,
   ExampleWrapper,
-} from "@/components/doc/example"
+} from "@/components/example"
 import { Checkbox } from "@/components/ui/checkbox"
 import {
   Field,

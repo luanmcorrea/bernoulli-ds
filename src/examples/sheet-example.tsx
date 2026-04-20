@@ -1,7 +1,7 @@
 import {
   Example,
   ExampleWrapper,
-} from "@/components/doc/example"
+} from "@/components/example"
 import { Button } from "@/components/ui/button"
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"

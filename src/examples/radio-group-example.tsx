@@ -1,7 +1,7 @@
 import {
   Example,
   ExampleWrapper,
-} from "@/components/doc/example"
+} from "@/components/example"
 import {
   Field,
   FieldContent,

@@ -55,8 +55,8 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import { cn } from "@/lib/utils"
-import PreviewExample from "@/blocks/preview"
-import PreviewExample02 from "@/blocks/preview-02"
+import PreviewExample from "@/examples/preview"
+import PreviewExample02 from "@/examples/preview-02"
 import AccordionExample from "@/examples/accordion-example"
 import AlertExample from "@/examples/alert-example"
 import AlertDialogExample from "@/examples/alert-dialog-example"
@@ -112,7 +112,7 @@ import {
   CommandItem,
   CommandSeparator,
 } from "@/components/ui/command"
-import { Toaster } from "sonner"
+import { Toaster } from "@/components/ui/sonner"
 
 type ComponentSection = {
   slug: string
@@ -395,7 +395,8 @@ function PageHeader({
   }, [])
 
   return (
-    <header className="flex h-16 items-center gap-3 px-4 md:px-6">
+    <header className="flex h-16 items-center gap-3 px-4 md:px-6">      
+      <Toaster richColors={true} position="top-center"/>
       <SidebarTrigger className="-ml-1" />
       <Separator
         orientation="vertical"
@@ -489,7 +490,6 @@ export function ComponentShowcase() {
 
   return (
     <SidebarProvider>
-      <Toaster position="top-center"/>
       <ComponentsSidebar activeSection={activeSection} />
       <SidebarInset className="w-full overflow-x-hidden max-h-screen">
         <PageHeader

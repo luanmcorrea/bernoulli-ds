@@ -1,6 +1,6 @@
 "use client"
 
-import { Example, ExampleWrapper } from "@/components/doc/example"
+import { Example, ExampleWrapper } from "@/components/example"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Spinner } from "@/components/ui/spinner"
 import { ArrowRightIcon, PlusIcon, FloppyDiskIcon, TelegramLogoIcon, TrashIcon } from "@phosphor-icons/react"

@@ -5,7 +5,7 @@ import * as React from "react"
 import {
   Example,
   ExampleWrapper,
-} from "@/components/doc/example"
+} from "@/components/example"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import {
@@ -277,7 +277,7 @@ function DialogChatSettings() {
         <DialogTrigger render={<Button variant="outline" />}>
           Chat Settings
         </DialogTrigger>
-        <DialogContent className="min-w-md">
+        <DialogContent className="sm:min-w-lg flex flex-col">
           <DialogHeader>
             <DialogTitle>Chat Settings</DialogTitle>
             <DialogDescription>
@@ -285,17 +285,19 @@ function DialogChatSettings() {
               language, voice, personality, and custom instructions.
             </DialogDescription>
           </DialogHeader>
-          <div className="flex flex-col gap-4">
+          <div className="h-full">
             <Tabs value={tab} onValueChange={setTab}>
-              <TabsList className="w-full md:flex">
-                <TabsTrigger value="general">General</TabsTrigger>
-                <TabsTrigger value="notifications">Notifications</TabsTrigger>
-                <TabsTrigger value="personalization">
-                  Personalization
-                </TabsTrigger>
-                <TabsTrigger value="security">Security</TabsTrigger>
-              </TabsList>
-              <div className="border min-h-[550px] rounded-lg p-6 style-nova:min-h-[460px] style-nova:rounded-lg style-nova:p-4 style-lyra:min-h-[450px] style-lyra:rounded-none style-lyra:p-4 style-maia:min-h-[550px] style-maia:rounded-xl style-maia:p-6 style-mira:min-h-[450px] style-mira:rounded-md style-mira:p-4 style-luma:min-h-[550px] style-luma:rounded-xl style-luma:p-6 [&_[data-slot=select-trigger]]:min-w-[125px]">
+              <div className="w-full overflow-x-auto">
+                <TabsList className="w-full">
+                  <TabsTrigger value="general">General</TabsTrigger>
+                  <TabsTrigger value="notifications">Notifications</TabsTrigger>
+                  <TabsTrigger value="personalization">
+                    Personalization
+                  </TabsTrigger>
+                  <TabsTrigger value="security">Security</TabsTrigger>
+                </TabsList>
+              </div>                
+              <div className="border rounded-lg p-6 max-h-[55vh] w-full overflow-y-auto **:data-[slot=select-trigger]:min-w-32">
                 <TabsContent value="general">
                   <FieldSet>
                     <FieldGroup>

@@ -1,7 +1,7 @@
 import {
   Example,
   ExampleWrapper,
-} from "@/components/doc/example"
+} from "@/components/example"
 import { Badge } from "@/components/ui/badge"
 import { Spinner } from "@/components/ui/spinner"
 import { IconPlaceholder } from "@/components/ui/icon-placeholder"

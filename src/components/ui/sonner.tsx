@@ -1,4 +1,4 @@
-import { useTheme } from "next-themes"
+import { useTheme } from "@/components/theme-provider"
 import { Toaster as Sonner, type ToasterProps } from "sonner"
 import { CheckCircleIcon, InfoIcon, WarningIcon, XCircleIcon } from "@phosphor-icons/react"
 import { Spinner } from "@/components/ui/spinner"
@@ -29,15 +29,28 @@ const Toaster = ({ ...props }: ToasterProps) => {
       }}
       style={
         {
-          "--normal-bg": "var(--popover)",
-          "--normal-text": "var(--popover-foreground)",
-          "--normal-border": "var(--border)",
-          "--border-radius": "var(--radius)",
+          "--border-radius": "var(--radius-xl)",          
+          "--normal-bg": "var(--foreground)",
+          "--normal-text": "var(--background)",
+          "--normal-border": "none",
+
+          "--success-bg": "var(--color-green-600)",
+          "--success-text": "var(--primary-foreground)",
+
+          "--info-bg": "var(--color-sky-600)",
+          "--info-text": "var(--primary-foreground)",
+          
+          "--warning-bg": "var(--color-amber-600)",
+          "--warning-text": "var(--primary-foreground)",
+
+          "--error-bg": "var(--color-red-600)",
+          "--error-text": "var(--primary-foreground)",
+
         } as React.CSSProperties
       }
       toastOptions={{
         classNames: {
-          toast: "cn-toast",
+          toast: "cn-toast!",
         },
       }}
       {...props}

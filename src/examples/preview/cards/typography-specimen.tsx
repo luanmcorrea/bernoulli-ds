@@ -1,6 +1,6 @@
 "use client"
 
-import { useThemeFonts } from "@/blocks/preview/cards/theme-preview"
+import { useThemeFonts } from "@/examples/preview/cards/theme-preview"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import {

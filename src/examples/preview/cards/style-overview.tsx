@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { useThemeFonts } from "@/blocks/preview/cards/theme-preview"
+import { useThemeFonts } from "@/examples/preview/cards/theme-preview"
 
 const STYLE_TITLE = ""
 
@@ -16,8 +16,8 @@ const COLOR_TOKENS = [
   "--chart-1",
   "--chart-2",
   "--chart-3",
-  "--chart-4",
-  "--chart-5",
+  "--sidebar-primary",
+  "--sidebar-accent",
 ] as const
 
 export function StyleOverview() {

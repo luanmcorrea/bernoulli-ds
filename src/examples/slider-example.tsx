@@ -5,7 +5,7 @@ import * as React from "react"
 import {
   Example,
   ExampleWrapper,
-} from "@/components/doc/example"
+} from "@/components/example"
 import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
 

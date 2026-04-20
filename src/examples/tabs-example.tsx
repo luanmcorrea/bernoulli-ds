@@ -1,7 +1,7 @@
 import {
   Example,
   ExampleWrapper,
-} from "@/components/doc/example"
+} from "@/components/example"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -211,10 +211,10 @@ function TabsFullWidth() {
       </Tabs>
       <Tabs defaultValue="overview">
         <TabsList className="w-full" size="lg">
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="analytics">Analytics</TabsTrigger>
-          <TabsTrigger value="reports">Reports</TabsTrigger>
-          <TabsTrigger value="settings">Settings</TabsTrigger>
+            <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="analytics">Analytics</TabsTrigger>
+            <TabsTrigger value="reports">Reports</TabsTrigger>
+            <TabsTrigger value="settings">Settings</TabsTrigger>
         </TabsList>
       </Tabs>
     </Example>
