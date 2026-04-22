@@ -433,6 +433,12 @@ function NativeSelectFields() {
 }
 
 function CheckboxFields() {
+  const options = [
+    { label: "Social Media", value: "social-media", },
+    { label: "Search Engine", value: "search-engine", },
+    { label: "Referral", value: "referral", },
+    { label: "Other", value: "other", },
+  ]
   return (
     <Example title="Checkbox Fields">
       <FieldGroup>
@@ -502,6 +508,36 @@ function CheckboxFields() {
             Disabled checkbox
           </FieldLabel>
         </Field>
+      </FieldGroup>
+      <FieldGroup>
+        <FieldSet className="gap-4">
+          <FieldLegend>How did you hear about us?</FieldLegend>
+          <FieldDescription className="line-clamp-1">
+            Select the option that best describes how you heard about us.
+          </FieldDescription>
+          <FieldGroup className="flex flex-row flex-wrap gap-2">
+            {options.map((option) => (
+              <FieldLabel
+                htmlFor={option.value}
+                key={option.value}
+                className="w-fit!"
+              >
+                <Field
+                  orientation="horizontal"
+                  className="overflow-hidden  px-3! py-1.5! transition-all has-data-checked:px-2! has-data-checked:gap-1.5"
+                >
+                  <Checkbox
+                    value={option.value}
+                    id={option.value}
+                    defaultChecked={option.value === "social-media"}
+                    className="-ml-6 rounded-full -translate-x-2 transition-all has-data-checked:ml-0 has-data-checked:translate-x-0"
+                  />
+                  <FieldTitle>{option.label}</FieldTitle>
+                </Field>
+              </FieldLabel>
+            ))}
+          </FieldGroup>
+        </FieldSet>
       </FieldGroup>
     </Example>
   )

@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils"
+import { Card } from "@/components/ui/card"
 
 function ExampleWrapper({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -39,15 +40,15 @@ function Example({
           {title}
         </div>
       ) : null}
-      <div
+      <Card
         data-slot="example-content"
         className={cn(
-          "flex min-w-0 flex-1 flex-col items-start gap-6 rounded-xl bg-card p-10 text-foreground overflow-x-auto *:[div:not([class*='w-'])]:w-full",
+          "flex min-w-0 flex-1 flex-col items-start gap-6d bg-card shadow-sm p-10 text-foreground overflow-x-auto *:[div:not([class*='w-'])]:w-full",
           className
         )}
       >
         {children}
-      </div>
+      </Card>
     </div>
   )
 }

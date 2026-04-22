@@ -1,13 +1,9 @@
 const CLARITY_PROJECT_ID = "wdc0n9r5tf"
 
 function initializeClarity() {
-  if (typeof window === "undefined" || typeof document === "undefined") {
-    return
-  }
-
-  if (window.__clarityInitialized) {
-    return
-  }
+  if (typeof window === "undefined" || typeof document === "undefined") { return }
+  if (window.location.host.includes("localhost")) { return }
+  if (window.__clarityInitialized) { return }
 
   ;(function (c, l, a, r, i, t, y) {
     c[a] =

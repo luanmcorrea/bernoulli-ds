@@ -178,7 +178,6 @@ export function CodespacesCard() {
                       setIsCreatingCodespace(false)
                     }, 2000)
                   }}
-                  disabled={isCreatingCodespace}
                 >
                   {isCreatingCodespace ? (
                     <Spinner data-icon="inline-start" />

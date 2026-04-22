@@ -1,21 +1,14 @@
 @import "@fontsource-variable/nunito";
 
 :root {
-  --brand-primary: oklch(46.543% 0.21187 302.598);
-  --brand-secondary: oklch(65.85% 0.17482 304.969);
-  --brand-accent: oklch(88.865% 0.06939 306.654);
-  --brand-ring: oklch(70.77% 0.17579 305.234);
   --profile-primary: oklch(46.543% 0.21187 302.598);
   --profile-accent: oklch(88.865% 0.06939 306.654);
-  --chart-brand-1: #E2CEF9;
-  --chart-brand-2: #C7A1F0;
-  --chart-brand-3: #AB7CEA;
-  --chart-brand-4: #8248D7;
-  --chart-brand-5: #5630B8;
 }
 
 :root[data-brand="multitude"] {
-  --brand-font: 'Nunito Variable';
+  --brand-font-heading: 'Nunito Variable';
+  --brand-font-sans: 'Nunito Variable';
+  --brand-font-weight-bold: 700;
 
   --brand-primary: oklch(46.543% 0.21187 302.598);
   --brand-secondary: oklch(65.85% 0.17482 304.969);

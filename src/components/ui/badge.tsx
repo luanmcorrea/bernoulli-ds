@@ -18,10 +18,10 @@ const badgeVariants = cva(
           "destructive-ghost": "text-destructive [a]:hover:opacity-60 focus-visible:border-destructive/40 focus-visible:ring-destructive/20",
           "destructive-link": "text-destructive underline-offset-4 [a]:hover:underline focus-visible:border-destructive/40 focus-visible:ring-destructive/20 !p-0 !h-auto",
         outline:
-          "border-primary text-primary [a]:hover:bg-muted [a]:hover:text-muted-foreground",
+          "border-primary text-primary [a]:hover:bg-muted [a]:hover:text-muted-foreground dark:text-secondary dark:border-secondary",
         ghost:
           "hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50",
-        link: "text-primary underline-offset-4 hover:underline",
+        link: "text-primary underline-offset-4 hover:underline dark:text-secondary",
       },
       rounded: {
         true: "rounded-full",

@@ -1,21 +1,15 @@
 @import "@fontsource-variable/roboto";
+@import "@fontsource-variable/outfit";
 
 :root {
-  --brand-primary: oklch(58.251% 0.08977 188.191);
-  --brand-secondary: oklch(69.778% 0.10745 188.011);
-  --brand-accent: oklch(94.033% 0.03838 192.66);
-  --brand-ring: oklch(74.093% 0.10319 188.82);
   --profile-primary: oklch(58.251% 0.08977 188.191);
   --profile-accent: oklch(94.033% 0.03838 192.66);
-  --chart-brand-1: #C1EEE6;
-  --chart-brand-2: #75D7CD;
-  --chart-brand-3: #40C7BC;
-  --chart-brand-4: #019B92;
-  --chart-brand-5: #016A63;
 }
 
 :root[data-brand="bernoulli"] {
-  --brand-font: 'Roboto Variable';
+  --brand-font-heading: 'Outfit Variable';
+  --brand-font-sans: 'Roboto Variable';
+  --brand-font-weight-bold: 500;
 
   --brand-primary: oklch(58.251% 0.08977 188.191);
   --brand-secondary: oklch(69.778% 0.10745 188.011);

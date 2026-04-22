@@ -3,14 +3,14 @@
 import { Example, ExampleWrapper } from "@/components/example"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Spinner } from "@/components/ui/spinner"
-import { ArrowRightIcon, PlusIcon, FloppyDiskIcon, TelegramLogoIcon, TrashIcon } from "@phosphor-icons/react"
+import { ArrowRightIcon, PlusIcon, FloppyDiskIcon, TelegramLogoIcon, TrashIcon, ArrowLeftIcon, ArrowUpRightIcon } from "@phosphor-icons/react"
 
 export default function ButtonExample() {
   return (
     <ExampleWrapper className="lg:grid-cols-1 2xl:grid-cols-1">
       <ButtonVariantsAndSizes />
-      <ButtonIconRight />
       <ButtonIconLeft />
+      <ButtonIconRight />
       <ButtonIconOnly />
       <ButtonLoading />
       <ButtonDestructive />
@@ -51,37 +51,6 @@ function ButtonVariantsAndSizes() {
   )
 }
 
-function ButtonIconRight() {
-  return (
-    <Example title="Icon Right">
-      <div className="flex flex-wrap items-center gap-4">
-        <Button size="sm">Default<ArrowRightIcon/></Button>
-        <Button size="sm" variant="outline">Outline<ArrowRightIcon/></Button>
-        <Button size="sm" variant="ghost">Ghost<ArrowRightIcon/></Button>
-        <Button size="sm" variant="link">Link<ArrowRightIcon/></Button>
-      </div>
-      <div className="flex flex-wrap items-center gap-4">
-        <Button>Default<ArrowRightIcon/></Button>
-        <Button variant="outline">Outline<ArrowRightIcon/></Button>
-        <Button variant="ghost">Ghost<ArrowRightIcon/></Button>
-        <Button variant="link">Link<ArrowRightIcon/></Button>
-      </div>
-      <div className="flex flex-wrap items-center gap-4">
-        <Button size="lg">Default<ArrowRightIcon/></Button>
-        <Button size="lg" variant="outline">Outline<ArrowRightIcon/></Button>
-        <Button size="lg" variant="ghost">Ghost<ArrowRightIcon/></Button>
-        <Button size="lg" variant="link">Link<ArrowRightIcon/></Button>
-      </div>
-      <div className="flex flex-wrap items-center gap-4">
-        <Button size="xl">Default<ArrowRightIcon/></Button>
-        <Button size="xl" variant="outline">Outline<ArrowRightIcon/></Button>
-        <Button size="xl" variant="ghost">Ghost<ArrowRightIcon/></Button>
-        <Button size="xl" variant="link">Link<ArrowRightIcon/></Button>
-      </div>
-    </Example>
-  )
-}
-
 function ButtonIconLeft() {
   return (
     <Example title="Icon Left">
@@ -108,6 +77,37 @@ function ButtonIconLeft() {
         <Button size="xl" variant="outline"><PlusIcon/>Outline</Button>
         <Button size="xl" variant="ghost"><PlusIcon/>Ghost</Button>
         <Button size="xl" variant="link"><PlusIcon/>Link</Button>
+      </div>
+    </Example>
+  )
+}
+
+function ButtonIconRight() {
+  return (
+    <Example title="Icon Right">
+      <div className="flex flex-wrap items-center gap-4">
+        <Button size="sm">Default<ArrowRightIcon/></Button>
+        <Button size="sm" variant="outline">Outline<ArrowRightIcon/></Button>
+        <Button size="sm" variant="ghost">Ghost<ArrowRightIcon/></Button>
+        <Button size="sm" variant="link">Link<ArrowRightIcon/></Button>
+      </div>
+      <div className="flex flex-wrap items-center gap-4">
+        <Button>Default<ArrowRightIcon/></Button>
+        <Button variant="outline">Outline<ArrowRightIcon/></Button>
+        <Button variant="ghost">Ghost<ArrowRightIcon/></Button>
+        <Button variant="link">Link<ArrowRightIcon/></Button>
+      </div>
+      <div className="flex flex-wrap items-center gap-4">
+        <Button size="lg">Default<ArrowRightIcon/></Button>
+        <Button size="lg" variant="outline">Outline<ArrowRightIcon/></Button>
+        <Button size="lg" variant="ghost">Ghost<ArrowRightIcon/></Button>
+        <Button size="lg" variant="link">Link<ArrowRightIcon/></Button>
+      </div>
+      <div className="flex flex-wrap items-center gap-4">
+        <Button size="xl">Default<ArrowRightIcon/></Button>
+        <Button size="xl" variant="outline">Outline<ArrowRightIcon/></Button>
+        <Button size="xl" variant="ghost">Ghost<ArrowRightIcon/></Button>
+        <Button size="xl" variant="link">Link<ArrowRightIcon/></Button>
       </div>
     </Example>
   )
@@ -203,9 +203,11 @@ function ButtonExamples() {
       <div className="flex flex-wrap items-center gap-3">
         <Button variant="outline"><FloppyDiskIcon/>Save draft</Button>
         <Button><TelegramLogoIcon/>Publish</Button>
-        <Button variant="destructive"><TrashIcon/>Delete</Button>
+        <Button variant="ghost"><PlusIcon/>Add item</Button>
+        <Button size="icon"><ArrowLeftIcon/></Button>
         <Button size="icon"><ArrowRightIcon/></Button>
-        <a href="#button" className={buttonVariants({variant:"link"})}>Link</a>
+        <Button variant="destructive"><TrashIcon/>Delete</Button>
+        <a href="#button" className={buttonVariants({variant:"link"})}>External link <ArrowUpRightIcon /></a>
       </div>
     </Example>
   )
