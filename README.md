@@ -1,6 +1,10 @@
 # React + TypeScript + Vite + shadcn/ui
 
-This is a template for a new Vite project with React, TypeScript, and shadcn/ui.
+This is a template for a new Vite project with React, TypeScript, and shadcn/ui. This project was initiated using the new shadcn creation tool, which generated the following preset (includes initial settings for style, theme, font, icon library...):
+
+```tsx
+npx shadcn@latest init --preset b4OW9WSnY --base base --template vite
+```
 
 ## Adding components
 
