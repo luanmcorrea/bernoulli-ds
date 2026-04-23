@@ -18,6 +18,7 @@ const buttonVariants = cva(
         "destructive-ghost": "text-destructive hover:bg-destructive/20 hover:opacity-60 focus-visible:border-destructive/40 focus-visible:ring-destructive/20",
         "destructive-link": "text-destructive underline-offset-4 hover:underline focus-visible:border-destructive/40 focus-visible:ring-destructive/20 !p-0 !h-auto",
         link: "text-primary underline-offset-4 hover:underline p-0! h-fit! w-fit! dark:text-secondary",
+        "link-neutral": "text-foreground underline-offset-4 hover:underline p-0! h-fit! w-fit!",
       },
       size: {
         default: "h-10 gap-2 px-4 has-data-[icon=inline-end]:pr-3.5 has-data-[icon=inline-start]:pl-3.5 [&_svg:not([class*='size-'])]:size-5",

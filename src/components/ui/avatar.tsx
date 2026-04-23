@@ -95,7 +95,7 @@ function AvatarProgressLevel({
   value = 40,
   strokeWidth = 8,
   ...props
-}: React.ComponentProps<"span"> & {
+}: React.ComponentProps<"svg"> & {
   value?: number
   strokeWidth?: number
 }) {
@@ -105,44 +105,40 @@ function AvatarProgressLevel({
   const offset = circumference * ((100 - value) / 100)
 
   return (
-    <span
+    <svg
       data-slot="avatar-progress-level"
       className={cn(
-        "pointer-events-none absolute scale-131 rotate-32",
+        "pointer-events-none absolute size-full! scale-131 rotate-32",
         className
       )}
       {...props}
+      viewBox="0 0 100 100"
     >
-      <svg
-        className="h-full! w-full!"
-        viewBox="0 0 100 100"
-      >
-        {/* Base track */}
-        <circle
-          cx={size/2}
-          cy={size/2}
-          r={radius}
-          fill="none"
-          stroke="currentColor"
-          className="text-muted"
-          strokeWidth={strokeWidth}
-        />
+      {/* Base track */}
+      <circle
+        cx={size/2}
+        cy={size/2}
+        r={radius}
+        fill="none"
+        stroke="currentColor"
+        className="text-muted"
+        strokeWidth={strokeWidth}
+      />
 
-        {/* Progress */}
-        <circle
-          cx={size/2}
-          cy={size/2}
-          r={radius}
-          fill="none"
-          stroke="currentColor"
-          className="text-sidebar-primary/50"
-          strokeWidth={strokeWidth}
-          strokeDasharray={circumference}
-          strokeDashoffset={offset}
-          strokeLinecap="round"
-        />
-      </svg>
-    </span>
+      {/* Progress */}
+      <circle
+        cx={size/2}
+        cy={size/2}
+        r={radius}
+        fill="none"
+        stroke="currentColor"
+        className="text-sidebar-primary/50 transition-all duration-600"
+        strokeWidth={strokeWidth}
+        strokeDasharray={circumference}
+        strokeDashoffset={offset}
+        strokeLinecap="round"
+      />
+    </svg>
   )
 }
 

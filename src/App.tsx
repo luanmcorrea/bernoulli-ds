@@ -1,7 +1,7 @@
-import { ComponentShowcase } from "@/pages/component-examples"
+import { ComponentExamplesPage } from "@/pages/component-examples/page"
 
 export function App() {
-  return <ComponentShowcase />
+  return <ComponentExamplesPage />
 }
 
 export default App

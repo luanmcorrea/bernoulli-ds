@@ -28,8 +28,8 @@ const tabsListVariants = cva(
       variant: {
         default: "bg-muted p-1.5",
         ghost: "",
-        outline: "gap-2 [&_[data-slot=tabs-trigger]]:data-active:text-primary [&_[data-slot=tabs-trigger]]:data-active:bg-accent [&_[data-slot=tabs-trigger]]:border [&_[data-slot=tabs-trigger]]:data-active:border-primary [&_[data-slot=tabs-trigger]]:hover:not-data-active:border-secondary [&_[data-slot=tabs-trigger]]:data-active:dark:bg-accent/20",
-        line: "[&_[data-slot=tabs-trigger]]:data-active:text-primary [&_[data-slot=tabs-trigger]]:data-active:bg-transparent",
+        outline: "gap-2 [&_[data-slot=tabs-trigger]]:data-active:text-primary [&_[data-slot=tabs-trigger]]:data-active:bg-accent [&_[data-slot=tabs-trigger]]:border [&_[data-slot=tabs-trigger]]:data-active:border-primary [&_[data-slot=tabs-trigger]]:hover:not-data-active:border-secondary [&_[data-slot=tabs-trigger]]:data-active:dark:bg-accent/30 [&_[data-slot=tabs-trigger]]:data-active:dark:border-secondary [&_[data-slot=tabs-trigger]]:data-active:dark:text-secondary",
+        line: "[&_[data-slot=tabs-trigger]]:data-active:text-primary [&_[data-slot=tabs-trigger]]:data-active:bg-transparent [&_[data-slot=tabs-trigger]]:data-active:dark:text-secondary",
       },
       size: {
         sm: "[&_[data-slot=tabs-trigger]]:h-8 [&_[data-slot=tabs-trigger]]:px-3 [&_[data-slot=tabs-trigger]]:text-sm data-[variant=line]:[&_[data-slot=tabs-trigger]]:p-2",
@@ -68,7 +68,7 @@ function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
       className={cn(
         "relative inline-flex flex-1 items-center justify-center gap-2 rounded-full font-bold whitespace-nowrap hover:not-data-active:text-secondary transition-all group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start group-data-vertical/tabs:py-1.5 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
         "data-active:bg-primary data-active:text-primary-foreground dark:data-active:text-primary-foreground",
-        "after:absolute after:bg-primary after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-0 group-data-horizontal/tabs:after:h-px group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-active:after:opacity-100",
+        "after:absolute after:bg-primary after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-0 group-data-horizontal/tabs:after:h-px group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-active:after:opacity-100 dark:after:bg-secondary",
         className
       )}
       {...props}
