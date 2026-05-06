@@ -1,6 +1,6 @@
 "use client"
 
-import { useBrandTheme } from "@/components/brand-theme-provider"
+import { useBrandTheme } from "@/components/providers/brand-theme-provider"
 import { getBrandThemeOption } from "@/lib/brand-themes"
 import {
   Sidebar,

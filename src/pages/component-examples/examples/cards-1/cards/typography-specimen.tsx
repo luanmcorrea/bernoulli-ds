@@ -1,6 +1,6 @@
 "use client"
 
-import { useThemeFonts } from "@/pages/component-examples/examples/preview/cards/theme-preview"
+import { useThemeFonts } from "@/pages/component-examples/examples/cards-1/cards/theme-preview"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import {
@@ -37,7 +37,7 @@ export function TypographySpecimen() {
         <div className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
           {headingLabel} - {bodyLabel}
         </div>
-        <p className="cn-font-heading text-2xl font-medium">
+        <p className="font-heading text-2xl">
           Designing with rhythm and hierarchy.
         </p>
         <p className="text-sm leading-relaxed text-muted-foreground">

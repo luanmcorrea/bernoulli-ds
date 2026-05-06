@@ -21,6 +21,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import type { SectionGroup } from "@/pages/component-examples/routes"
+import { Badge } from "@/components/ui/badge"
 
 type NavMainProps = {
   items: SectionGroup[]
@@ -91,6 +92,9 @@ export function NavMain({
                               onClick={(event) => handleLinkClick(event, section.slug)}
                             >
                               <span>{section.title}</span>
+                              {section.extra === true && (
+                                <Badge className="ml-auto" variant="secondary-neutral">Extra</Badge>
+                              )}
                             </a>
                           }
                           isActive={section.slug === activeSection}

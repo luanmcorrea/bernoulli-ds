@@ -70,7 +70,7 @@ export function useThemeFonts() {
 
     observer.observe(root, {
       attributes: true,
-      attributeFilter: ["class", "style"],
+      attributeFilter: ["class", "style", "data-brand", "data-profile"],
     })
 
     return () => {

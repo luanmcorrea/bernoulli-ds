@@ -1,4 +1,4 @@
-import { useTheme } from "@/components/theme-provider"
+import { useTheme } from "@/components/providers/theme-provider"
 import { Toaster as Sonner, type ToasterProps } from "sonner"
 import { CheckCircleIcon, InfoIcon, WarningCircleIcon, XCircleIcon } from "@phosphor-icons/react"
 import { Spinner } from "@/components/ui/spinner"

@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { useThemeFonts } from "@/pages/component-examples/examples/preview/cards/theme-preview"
+import { useThemeFonts } from "@/pages/component-examples/examples/cards-1/cards/theme-preview"
 
 const STYLE_TITLE = ""
 
@@ -32,7 +32,7 @@ export function StyleOverview() {
     <Card>
       <CardContent className="flex flex-col gap-6 style-lyra:gap-4 style-mira:gap-4">
         <div className="flex flex-col gap-1">
-          <div className="cn-font-heading text-2xl font-medium style-lyra:text-lg style-mira:text-lg">
+          <div className="font-heading text-2xl style-lyra:text-lg style-mira:text-lg">
             {STYLE_TITLE} {fontSummary}
           </div>
           <div className="line-clamp-2 text-base text-muted-foreground style-lyra:text-sm style-mira:text-sm">

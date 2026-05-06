@@ -84,7 +84,7 @@ export function ContributionHistory() {
               <ItemDescription className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
                 Upcoming
               </ItemDescription>
-              <span className="cn-font-heading text-lg font-semibold">
+              <span className="font-heading text-lg font-semibold">
                 May 25, 2024
               </span>
               <span className="text-sm text-muted-foreground">
@@ -97,7 +97,7 @@ export function ContributionHistory() {
               <ItemDescription className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
                 Auto-Save Plan
               </ItemDescription>
-              <span className="cn-font-heading text-lg font-semibold">
+              <span className="font-heading text-lg">
                 Accelerated
               </span>
               <span className="text-sm text-muted-foreground">

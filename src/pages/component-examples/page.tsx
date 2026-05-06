@@ -13,7 +13,7 @@ import {
   SunDimIcon,
 } from "@phosphor-icons/react"
 
-import { useTheme } from "@/components/theme-provider"
+import { useTheme } from "@/components/providers/theme-provider"
 import { Button } from "@/components/ui/button"
 import {
   Breadcrumb,
@@ -225,7 +225,7 @@ export function ComponentExamplesPage() {
         activeSection={activeSection.slug}
         onNavigate={(slug) => handleNavigate(slug)}
       />
-      <SidebarInset className="max-h-screen w-full overflow-x-hidden">
+      <SidebarInset className="max-h-screen w-full overflow-hidden">
         <PageHeader
           currentSection={activeSection}
           onNavigate={(slug) => handleNavigate(slug)}

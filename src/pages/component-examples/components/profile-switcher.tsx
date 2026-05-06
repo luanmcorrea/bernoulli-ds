@@ -2,7 +2,7 @@
 
 import { CaretDownIcon, CheckIcon, CircleIcon } from "@phosphor-icons/react"
 
-import { useBrandTheme } from "@/components/brand-theme-provider"
+import { useBrandTheme } from "@/components/providers/brand-theme-provider"
 import {
   DropdownMenu,
   DropdownMenuContent,

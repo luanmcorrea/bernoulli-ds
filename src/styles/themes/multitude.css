@@ -8,7 +8,9 @@
 :root[data-brand="multitude"] {
   --brand-font-heading: 'Nunito Variable';
   --brand-font-sans: 'Nunito Variable';
-  --brand-font-weight-bold: 700;
+  --brand-font-weight-heading: 700;
+  --brand-font-cta: var(--brand-font-heading), var(--brand-font-sans);
+  --brand-font-weight-cta: 700;
 
   --brand-primary: oklch(46.543% 0.21187 302.598);
   --brand-secondary: oklch(65.85% 0.17482 304.969);

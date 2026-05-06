@@ -1,5 +1,8 @@
 @import "@fontsource-variable/roboto";
-@import "@fontsource-variable/outfit";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
 
 :root {
   --profile-primary: oklch(58.251% 0.08977 188.191);
@@ -7,9 +10,11 @@
 }
 
 :root[data-brand="bernoulli"] {
-  --brand-font-heading: 'Outfit Variable';
+  --brand-font-heading: 'Poppins';
   --brand-font-sans: 'Roboto Variable';
-  --brand-font-weight-bold: 500;
+  --brand-font-weight-heading: 600;
+  --brand-font-cta: var(--brand-font-heading), var(--brand-font-sans);
+  --brand-font-weight-cta: 500;
 
   --brand-primary: oklch(58.251% 0.08977 188.191);
   --brand-secondary: oklch(69.778% 0.10745 188.011);

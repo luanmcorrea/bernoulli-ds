@@ -23,11 +23,12 @@ import FieldExample from "@/pages/component-examples/examples/field-example"
 import InputOTPExample from "@/pages/component-examples/examples/input-otp-example"
 import InputExample from "@/pages/component-examples/examples/input-example"
 import LabelExample from "@/pages/component-examples/examples/label-example"
+import MultiselectExample from "@/pages/component-examples/examples/multiselect-example"
 import PaginationExample from "@/pages/component-examples/examples/pagination-example"
 import PopoverExample from "@/pages/component-examples/examples/popover-example"
 import Page from "@/pages/component-examples/examples/dashboard/page"
-import PreviewExample02 from "@/pages/component-examples/examples/preview-02"
-import PreviewExample from "@/pages/component-examples/examples/preview"
+import CardsExample1 from "@/pages/component-examples/examples/cards-1"
+import CardsExample2 from "@/pages/component-examples/examples/cards-2"
 import ProgressExample from "@/pages/component-examples/examples/progress-example"
 import RadioGroupExample from "@/pages/component-examples/examples/radio-group-example"
 import SelectExample from "@/pages/component-examples/examples/select-example"
@@ -45,6 +46,7 @@ import TooltipExample from "@/pages/component-examples/examples/tooltip-example"
 export type ComponentRoute = {
   slug: string
   title: string
+  extra: boolean
   path: string
   component: ComponentType
 }
@@ -60,50 +62,51 @@ export const sections: SectionGroup[] = [
     title: "Playground",
     icon: PaletteIcon,
     sections: [
-      { slug: "dashboard", title: "Dashboard", path: "/dashboard", component: Page, },
-      { slug: "preview", title: "Preview 01", path: "/preview", component: PreviewExample, },
-      { slug: "preview-02", title: "Preview 02", path: "/preview-02", component: PreviewExample02, },
+      { slug: "cards-1", title: "Cards 1", extra: false, path: "/cards-01", component: CardsExample1, },
+      { slug: "cards-2", title: "Cards 2", extra: false, path: "/cards-02", component: CardsExample2, },
+      { slug: "dashboard", title: "Dashboard", extra: false, path: "/dashboard", component: Page, },
     ],
   },
   {
     title: "Components",
     icon: CubeIcon,
     sections: [
-      { slug: "accordion", title: "Accordion", path: "/accordion", component: AccordionExample, },
-      { slug: "alert", title: "Alert", path: "/alert", component: AlertExample, },
-      { slug: "alert-dialog", title: "Alert Dialog", path: "/alert-dialog", component: AlertDialogExample, },
-      { slug: "avatar", title: "Avatar", path: "/avatar", component: AvatarExample, },
-      { slug: "badge", title: "Badge", path: "/badge", component: BadgeExample, },
-      { slug: "breadcrumb", title: "Breadcrumb", path: "/breadcrumb", component: BreadcrumbExample, },
-      { slug: "button", title: "Button", path: "/button", component: ButtonExample, },
-      { slug: "card", title: "Card", path: "/card", component: CardExample, },
-      { slug: "checkbox", title: "Checkbox", path: "/checkbox", component: CheckboxExample, },
-      { slug: "combobox", title: "Combobox", path: "/combobox", component: ComboboxExample, },
-      { slug: "command", title: "Command", path: "/command", component: CommandExample, },
-      { slug: "context-menu", title: "Context Menu", path: "/context-menu", component: ContextMenuExample, },
-      { slug: "dialog", title: "Dialog", path: "/dialog", component: DialogExample, },
-      { slug: "drawer", title: "Drawer", path: "/drawer", component: DrawerExample, },
-      { slug: "dropdown-menu", title: "Dropdown Menu", path: "/dropdown-menu", component: DropdownMenuExample, },
-      { slug: "empty", title: "Empty", path: "/empty", component: EmptyExample, },
-      { slug: "field", title: "Field", path: "/field", component: FieldExample, },
-      { slug: "input", title: "Input", path: "/input", component: InputExample, },
-      { slug: "input-otp", title: "Input OTP", path: "/input-otp", component: InputOTPExample, },
-      { slug: "label", title: "Label", path: "/label", component: LabelExample, },
-      { slug: "pagination", title: "Pagination", path: "/pagination", component: PaginationExample, },
-      { slug: "popover", title: "Popover", path: "/popover", component: PopoverExample, },
-      { slug: "progress", title: "Progress", path: "/progress", component: ProgressExample, },
-      { slug: "radio-group", title: "Radio Group", path: "/radio-group", component: RadioGroupExample, },
-      { slug: "select", title: "Select", path: "/select", component: SelectExample, },
-      { slug: "sheet", title: "Sheet", path: "/sheet", component: SheetExample, },
-      { slug: "sidebar", title: "Sidebar", path: "/sidebar", component: SidebarExample, },
-      { slug: "skeleton", title: "Skeleton", path: "/skeleton", component: SkeletonExample, },
-      { slug: "slider", title: "Slider", path: "/slider", component: SliderExample, },
-      { slug: "sonner", title: "Sonner", path: "/sonner", component: SonnerExample, },
-      { slug: "switch", title: "Switch", path: "/switch", component: SwitchExample, },
-      { slug: "table", title: "Table", path: "/table", component: TableExample, },
-      { slug: "tabs", title: "Tabs", path: "/tabs", component: TabsExample, },
-      { slug: "textarea", title: "Textarea", path: "/textarea", component: TextareaExample, },
-      { slug: "tooltip", title: "Tooltip", path: "/tooltip", component: TooltipExample, },
+      { slug: "accordion", title: "Accordion", extra: false, path: "/accordion", component: AccordionExample, },
+      { slug: "alert", title: "Alert", extra: false, path: "/alert", component: AlertExample, },
+      { slug: "alert-dialog", title: "Alert Dialog", extra: false, path: "/alert-dialog", component: AlertDialogExample, },
+      { slug: "avatar", title: "Avatar", extra: false, path: "/avatar", component: AvatarExample, },
+      { slug: "badge", title: "Badge", extra: false, path: "/badge", component: BadgeExample, },
+      { slug: "breadcrumb", title: "Breadcrumb", extra: false, path: "/breadcrumb", component: BreadcrumbExample, },
+      { slug: "button", title: "Button", extra: false, path: "/button", component: ButtonExample, },
+      { slug: "card", title: "Card", extra: false, path: "/card", component: CardExample, },
+      { slug: "checkbox", title: "Checkbox", extra: false, path: "/checkbox", component: CheckboxExample, },
+      { slug: "combobox", title: "Combobox", extra: false, path: "/combobox", component: ComboboxExample, },
+      { slug: "command", title: "Command", extra: false, path: "/command", component: CommandExample, },
+      { slug: "context-menu", title: "Context Menu", extra: false, path: "/context-menu", component: ContextMenuExample, },
+      { slug: "dialog", title: "Dialog", extra: false, path: "/dialog", component: DialogExample, },
+      { slug: "drawer", title: "Drawer", extra: false, path: "/drawer", component: DrawerExample, },
+      { slug: "dropdown-menu", title: "Dropdown Menu", extra: false, path: "/dropdown-menu", component: DropdownMenuExample, },
+      { slug: "empty", title: "Empty", extra: false, path: "/empty", component: EmptyExample, },
+      { slug: "field", title: "Field", extra: false, path: "/field", component: FieldExample, },
+      { slug: "input", title: "Input", extra: false, path: "/input", component: InputExample, },
+      { slug: "input-otp", title: "Input OTP", extra: false, path: "/input-otp", component: InputOTPExample, },
+      { slug: "label", title: "Label", extra: false, path: "/label", component: LabelExample, },
+      { slug: "multiselect", title: "Multiselect", extra: true, path: "/multiselect", component: MultiselectExample, },
+      { slug: "pagination", title: "Pagination", extra: false, path: "/pagination", component: PaginationExample, },
+      { slug: "popover", title: "Popover", extra: false, path: "/popover", component: PopoverExample, },
+      { slug: "progress", title: "Progress", extra: false, path: "/progress", component: ProgressExample, },
+      { slug: "radio-group", title: "Radio Group", extra: false, path: "/radio-group", component: RadioGroupExample, },
+      { slug: "select", title: "Select", extra: false, path: "/select", component: SelectExample, },
+      { slug: "sheet", title: "Sheet", extra: false, path: "/sheet", component: SheetExample, },
+      { slug: "sidebar", title: "Sidebar", extra: false, path: "/sidebar", component: SidebarExample, },
+      { slug: "skeleton", title: "Skeleton", extra: false, path: "/skeleton", component: SkeletonExample, },
+      { slug: "slider", title: "Slider", extra: false, path: "/slider", component: SliderExample, },
+      { slug: "sonner", title: "Sonner", extra: false, path: "/sonner", component: SonnerExample, },
+      { slug: "switch", title: "Switch", extra: false, path: "/switch", component: SwitchExample, },
+      { slug: "table", title: "Table", extra: false, path: "/table", component: TableExample, },
+      { slug: "tabs", title: "Tabs", extra: false, path: "/tabs", component: TabsExample, },
+      { slug: "textarea", title: "Textarea", extra: false, path: "/textarea", component: TextareaExample, },
+      { slug: "tooltip", title: "Tooltip", extra: false, path: "/tooltip", component: TooltipExample, },
     ],
   },
 ]
