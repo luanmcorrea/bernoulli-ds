@@ -70,7 +70,7 @@ function CommandInput({
 }: React.ComponentProps<typeof CommandPrimitive.Input>) {
   return (
     <div data-slot="command-input-wrapper" className="p-1 pb-0">
-      <InputGroup className="h-9 bg-input/50">
+      <InputGroup className="h-9 bg-input">
         <CommandPrimitive.Input
           data-slot="command-input"
           className={cn(
@@ -80,7 +80,7 @@ function CommandInput({
           {...props}
         />
         <InputGroupAddon>
-          <MagnifyingGlassIcon className="size-4 shrink-0 opacity-50" />
+          <MagnifyingGlassIcon className="size-4 shrink-0" />
         </InputGroupAddon>
       </InputGroup>
     </div>

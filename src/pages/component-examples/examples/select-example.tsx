@@ -1,5 +1,7 @@
 "use client"
 
+import * as React from "react"
+
 import {
   Example,
   ExampleWrapper,
@@ -46,8 +48,8 @@ export default function SelectExample() {
   return (
     <ExampleWrapper>
       <SelectBasic />
-      <SelectSides />
       <SelectWithIcons />
+      <SelectSides />
       <SelectWithGroups />
       <SelectLargeList />
       <SelectMultiple />
@@ -89,46 +91,6 @@ function SelectBasic() {
           </SelectGroup>
         </SelectContent>
       </Select>
-    </Example>
-  )
-}
-
-function SelectSides() {
-  const items = [
-    { label: "Select", value: null },
-    { label: "Apple", value: "apple" },
-    { label: "Banana", value: "banana" },
-    { label: "Blueberry", value: "blueberry" },
-  ]
-  return (
-    <Example title="Sides" containerClassName="col-span-2">
-      <div className="flex flex-wrap justify-center gap-2">
-        {(
-          [
-            "inline-start",
-            "left",
-            "top",
-            "bottom",
-            "right",
-            "inline-end",
-          ] as const
-        ).map((side) => (
-          <Select key={side} items={items}>
-            <SelectTrigger className="w-38 capitalize">
-              <SelectValue placeholder={side.replace("-", " ")} />
-            </SelectTrigger>
-            <SelectContent side={side} alignItemWithTrigger={false}>
-              <SelectGroup>
-                {items.map((item) => (
-                  <SelectItem key={item.value} value={item.value}>
-                    {item.label}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        ))}
-      </div>
     </Example>
   )
 }
@@ -227,6 +189,45 @@ function SelectWithIcons() {
             </SelectGroup>
           </SelectContent>
         </Select>
+      </div>
+    </Example>
+  )
+}
+
+function SelectSides() {
+  const items = [
+    { label: "Apple", value: "apple" },
+    { label: "Banana", value: "banana" },
+    { label: "Blueberry", value: "blueberry" },
+  ]
+  return (
+    <Example title="Sides" containerClassName="col-span-2">
+      <div className="flex flex-wrap justify-center gap-2">
+        {(
+          [
+            "inline-start",
+            "left",
+            "top",
+            "bottom",
+            "right",
+            "inline-end",
+          ] as const
+        ).map((side) => (
+          <Select key={side} items={items}>
+            <SelectTrigger className="w-38 capitalize">
+              <SelectValue placeholder={side.replace("-", " ")} />
+            </SelectTrigger>
+            <SelectContent side={side} alignItemWithTrigger={false}>
+              <SelectGroup>
+                {items.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        ))}
       </div>
     </Example>
   )
@@ -529,7 +530,7 @@ function SelectInline() {
       <div className="flex items-center gap-2">
         <Input placeholder="Search..." className="flex-1" />
         <Select items={items}>
-          <SelectTrigger className="w-[140px]">
+          <SelectTrigger className="w-35">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -542,7 +543,7 @@ function SelectInline() {
             </SelectGroup>
           </SelectContent>
         </Select>
-        <NativeSelect className="w-[140px]">
+        <NativeSelect className="w-35">
           <NativeSelectOption value="">Sort by</NativeSelectOption>
           <NativeSelectOption value="name">Name</NativeSelectOption>
           <NativeSelectOption value="date">Date</NativeSelectOption>
@@ -653,17 +654,8 @@ function SelectMultiple() {
   return (
     <Example title="Multiple Selection">
       <Select items={items} multiple defaultValue={[]}>
-        <SelectTrigger className="w-72">
-          <SelectValue>
-            {(value: string[]) => {
-              if (value.length === 0) {
-                return "Select fruits"
-              }
-              if (value.length === 1) {
-                return items.find((item) => item.value === value[0])?.label
-              }
-              return `${value.length} fruits selected`
-            }}
+        <SelectTrigger className="w-full max-w-72">
+          <SelectValue placeholder="Select fruits">
           </SelectValue>
         </SelectTrigger>
         <SelectContent>

@@ -64,6 +64,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { IconPlaceholder } from "@/components/ui/icon-placeholder"
+import { MagnifyingGlassIcon } from "@phosphor-icons/react"
 
 export default function ComboboxExample() {
   return (
@@ -916,7 +917,11 @@ function ComboboxInPopup() {
           <ComboboxValue />
         </ComboboxTrigger>
         <ComboboxContent>
-          <ComboboxInput showTrigger={false} placeholder="Search" />
+          <ComboboxInput showTrigger={false} placeholder="Search">
+            <InputGroupAddon>
+              <MagnifyingGlassIcon />
+            </InputGroupAddon>
+          </ComboboxInput>
           <ComboboxEmpty>No items found.</ComboboxEmpty>
           <ComboboxList>
             {(item) => (
@@ -940,7 +945,7 @@ function ComboboxMultiple() {
         multiple
         autoHighlight
         items={frameworks}
-        defaultValue={[frameworks[0], frameworks[1]]}
+        defaultValue={[frameworks[0], frameworks[1], frameworks[2]]}
       >
         <ComboboxChips ref={anchor}>
           <ComboboxValue>
@@ -949,7 +954,7 @@ function ComboboxMultiple() {
                 {values.map((value: string) => (
                   <ComboboxChip key={value}>{value}</ComboboxChip>
                 ))}
-                <ComboboxChipsInput />
+                <ComboboxChipsInput placeholder="Search..." />
               </React.Fragment>
             )}
           </ComboboxValue>
@@ -1173,7 +1178,7 @@ function ComboboxInDialog() {
         <DialogTrigger render={<Button variant="outline" />}>
           Open Dialog
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="sm:max-w-106.25">
           <DialogHeader>
             <DialogTitle>Select Framework</DialogTitle>
             <DialogDescription>

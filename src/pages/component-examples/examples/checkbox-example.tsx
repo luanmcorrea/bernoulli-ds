@@ -271,7 +271,7 @@ function CheckboxCustom() {
     { label: "Other", value: "other", },
   ]
   return (
-    <Example title="Custom">
+    <Example title="* Custom">
       <FieldGroup>
         <FieldSet className="gap-4">
           <FieldLegend>How did you hear about us?</FieldLegend>

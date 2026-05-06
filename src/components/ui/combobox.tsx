@@ -2,6 +2,7 @@ import * as React from "react"
 import { Combobox as ComboboxPrimitive } from "@base-ui/react"
 
 import { cn } from "@/lib/utils"
+import { debounce } from "@/lib/debounce"
 import { Button } from "@/components/ui/button"
 import {
   InputGroup,
@@ -9,10 +10,11 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/components/ui/input-group"
-import { CaretDownIcon, XIcon, XCircleIcon, CheckIcon } from "@phosphor-icons/react"
+import { CaretDownIcon, XCircleIcon, CheckIcon, XIcon } from "@phosphor-icons/react"
 import { Badge } from "./badge"
 
 const Combobox = ComboboxPrimitive.Root
+type ComboboxOverflowBehavior = "wrap" | "wrap-when-open" | "cutoff"
 
 function ComboboxValue({ ...props }: ComboboxPrimitive.Value.Props) {
   return <ComboboxPrimitive.Value data-slot="combobox-value" {...props} />
@@ -26,7 +28,7 @@ function ComboboxTrigger({
   return (
     <ComboboxPrimitive.Trigger
       data-slot="combobox-trigger"
-      className={cn("[&_svg:not([class*='size-'])]:size-4", className)}
+      className={cn("[&_svg:not([class*='size-'])]:size-4 has-disabled:cursor-not-allowed", className)}
       {...props}
     >
       {children}
@@ -139,7 +141,7 @@ function ComboboxItem({
     <ComboboxPrimitive.Item
       data-slot="combobox-item"
       className={cn(
-        "relative flex w-full cursor-default items-center gap-2.5 rounded-2xl py-2 pr-8 pl-3 text-sm font-medium outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground not-data-[variant=destructive]:data-highlighted:**:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "relative flex w-full cursor-default items-center gap-2.5 rounded-2xl py-2 pr-8 pl-3 text-sm font-medium outline-hidden select-none transition-all duration-100 ease-out active:scale-97 data-highlighted:bg-accent data-highlighted:text-accent-foreground not-data-[variant=destructive]:data-highlighted:**:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}
@@ -211,22 +213,153 @@ function ComboboxSeparator({
   )
 }
 
-function ComboboxChips({
-  className,
-  ...props
-}: React.ComponentPropsWithRef<typeof ComboboxPrimitive.Chips> &
-  ComboboxPrimitive.Chips.Props) {
+const ComboboxChips = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentPropsWithRef<typeof ComboboxPrimitive.Chips> &
+    ComboboxPrimitive.Chips.Props & {
+      overflowBehavior?: ComboboxOverflowBehavior
+    }
+>(function ComboboxChips(
+  {
+    className,
+    children,
+    overflowBehavior = "cutoff",
+    ...props
+  },
+  forwardedRef,
+) {
+  const [overflowAmount, setOverflowAmount] = React.useState(0)
+  const [popupOpen, setPopupOpen] = React.useState(false)
+  const containerRef = React.useRef<HTMLDivElement | null>(null)
+  const overflowRef = React.useRef<HTMLDivElement | null>(null)
+
+  const updateOverflow = React.useCallback(() => {
+    const containerElement = containerRef.current
+    if (containerElement == null) return
+
+    const inputElement = containerElement.querySelector<HTMLInputElement>(
+      "[data-slot='combobox-chip-input']",
+    )
+    const chipElements = containerElement.querySelectorAll<HTMLElement>(
+      "[data-slot='combobox-chip']",
+    )
+    const overflowElement = overflowRef.current
+
+    const nextPopupOpen = inputElement?.hasAttribute("data-popup-open") ?? false
+    const nextShouldWrap =
+      overflowBehavior === "wrap" ||
+      (overflowBehavior === "wrap-when-open" && nextPopupOpen)
+
+    setPopupOpen(nextPopupOpen)
+
+    if (overflowElement != null) overflowElement.style.display = "none"
+    chipElements.forEach(chip => chip.style.removeProperty("display"))
+
+    if (nextShouldWrap) {
+      setOverflowAmount(0)
+      return
+    }
+
+    let amount = 0
+    for (let i = chipElements.length - 1; i >= 0; i--) {
+      if (containerElement.scrollWidth <= containerElement.clientWidth) {
+        break
+      }
+
+      amount = chipElements.length - i
+      chipElements[i]!.style.display = "none"
+      overflowElement?.style.removeProperty("display")
+    }
+
+    setOverflowAmount(amount)
+  }, [overflowBehavior])
+
+  const shouldWrap =
+    overflowBehavior === "wrap" ||
+    (overflowBehavior === "wrap-when-open" && popupOpen)
+
+  const setRefs = React.useCallback(
+    (node: HTMLDivElement | null) => {
+      containerRef.current = node
+
+      if (typeof forwardedRef === "function") {
+        forwardedRef(node)
+      } else if (forwardedRef != null) {
+        forwardedRef.current = node
+      }
+    },
+    [forwardedRef],
+  )
+
+  React.useEffect(() => {
+    const node = containerRef.current
+    if (node == null) return
+
+    const observer = new ResizeObserver(debounce(updateOverflow, 100))
+    const mutationObserver = new MutationObserver(updateOverflow)
+    const inputElement = node.querySelector<HTMLInputElement>(
+      "[data-slot='combobox-chip-input']",
+    )
+    const inputObserver =
+      inputElement == null
+        ? null
+        : new MutationObserver(() => {
+            updateOverflow()
+          })
+
+    observer.observe(node)
+    mutationObserver.observe(node, {
+      childList: true,
+      subtree: true,
+    })
+    if (inputElement != null && inputObserver != null) {
+      observer.observe(inputElement)
+      inputObserver.observe(inputElement, {
+        attributes: true,
+        attributeFilter: ["data-popup-open"],
+      })
+    }
+
+    updateOverflow()
+
+    return () => {
+      observer.disconnect()
+      mutationObserver.disconnect()
+      inputObserver?.disconnect()
+    }
+  }, [updateOverflow])
+
+  React.useEffect(() => {
+    updateOverflow()
+  }, [updateOverflow, children])
+
   return (
     <ComboboxPrimitive.Chips
+      ref={setRefs}
       data-slot="combobox-chips"
+      data-overflow-behavior={overflowBehavior}
       className={cn(
-        "flex min-h-9 flex-wrap items-center gap-1.5 rounded-3xl border bg-input bg-clip-padding px-3 py-1.5 text-sm transition-[color,box-shadow,background-color] focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/30 has-aria-invalid:border-destructive has-aria-invalid:ring-3 has-aria-invalid:ring-destructive/20 has-data-[slot=combobox-chip]:px-3 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:ring-destructive/40",
+        "flex min-h-9 w-full min-w-0 items-center gap-1 overflow-hidden rounded-3xl border bg-input bg-clip-padding px-3 py-1.5 text-sm transition-[color,box-shadow,background-color] focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/30 has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:bg-muted has-disabled:opacity-50 has-aria-invalid:border-destructive has-aria-invalid:ring-3 has-aria-invalid:ring-destructive/20 has-data-[slot=combobox-chip]:px-3 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:ring-destructive/40",
+        shouldWrap && "h-full flex-wrap overflow-visible",
         className
       )}
       {...props}
-    />
+    >
+      {children}
+      <Badge
+        ref={overflowRef}
+        variant="secondary-neutral"
+        data-slot="combobox-chip-overflow"
+        className="order-1 px-1 shrink-0"
+        style={{
+          display: overflowAmount > 0 && !shouldWrap ? "block" : "none",
+        }}
+      >
+        +{overflowAmount}
+      </Badge>
+    </ComboboxPrimitive.Chips>
   )
-}
+})
 
 function ComboboxChip({
   className,
@@ -241,16 +374,16 @@ function ComboboxChip({
       render={<Badge variant="secondary" />}
       data-slot="combobox-chip"
       className={cn(
-        "whitespace-nowrap has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:opacity-50 has-data-[slot=combobox-chip-remove]:pr-0",
+        "not-data-disabled:has-data-[slot=combobox-chip-remove]:pr-0",
         className
       )}
       {...props}
     >
-      {children}
+      <span className="max-w-26 truncate">{children}</span>      
       {showRemove && (
         <ComboboxPrimitive.ChipRemove
           render={<Button variant="ghost" size="icon-xs" />}
-          className="-ml-1 text-inherit hover:opacity-100"
+          className="-ml-1 text-inherit! data-disabled:hidden"
           data-slot="combobox-chip-remove"
         >
           <XCircleIcon className="pointer-events-none" />
@@ -267,7 +400,7 @@ function ComboboxChipsInput({
   return (
     <ComboboxPrimitive.Input
       data-slot="combobox-chip-input"
-      className={cn("min-w-16 flex-1 outline-none", className)}
+      className={cn("order-3 min-w-16 w-full outline-none", className)}
       {...props}
     />
   )
