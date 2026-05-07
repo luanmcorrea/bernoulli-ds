@@ -28,11 +28,11 @@ function ComboboxTrigger({
   return (
     <ComboboxPrimitive.Trigger
       data-slot="combobox-trigger"
-      className={cn("[&_svg:not([class*='size-'])]:size-4 has-disabled:cursor-not-allowed", className)}
+      className={cn("group/combobox-trigger [&_svg:not([class*='size-'])]:size-4 has-disabled:cursor-not-allowed", className)}
       {...props}
     >
       {children}
-      <CaretDownIcon className="pointer-events-none size-4" />
+      <CaretDownIcon className="pointer-events-none size-4 transition-transform duration-200 group-data-popup-open/combobox-trigger:rotate-180" />
     </ComboboxPrimitive.Trigger>
   )
 }
@@ -56,15 +56,17 @@ function ComboboxInput({
   disabled = false,
   showTrigger = true,
   showClear = false,
+  size = "default",
   ...props
-}: ComboboxPrimitive.Input.Props & {
+}: Omit<ComboboxPrimitive.Input.Props, "size"> & {
   showTrigger?: boolean
   showClear?: boolean
+  size?: "sm" | "default" | "lg"
 }) {
   return (
-    <InputGroup className={cn("w-auto", className)}>
+    <InputGroup size={size} className={cn("w-auto", className)}>
       <ComboboxPrimitive.Input
-        render={<InputGroupInput disabled={disabled} />}
+        render={<InputGroupInput size={size} disabled={disabled} />}
         {...props}
       />
       <InputGroupAddon align="inline-end">
@@ -215,15 +217,20 @@ function ComboboxSeparator({
 
 const ComboboxChips = React.forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithRef<typeof ComboboxPrimitive.Chips> &
-    ComboboxPrimitive.Chips.Props & {
-      overflowBehavior?: ComboboxOverflowBehavior
-    }
+  Omit<
+    React.ComponentPropsWithRef<typeof ComboboxPrimitive.Chips> &
+      ComboboxPrimitive.Chips.Props,
+    "size"
+  > & {
+    overflowBehavior?: ComboboxOverflowBehavior
+    size?: "sm" | "default" | "lg"
+  }
 >(function ComboboxChips(
   {
     className,
     children,
-    overflowBehavior = "cutoff",
+    overflowBehavior = "wrap",
+    size = "default",
     ...props
   },
   forwardedRef,
@@ -338,9 +345,10 @@ const ComboboxChips = React.forwardRef<
       ref={setRefs}
       data-slot="combobox-chips"
       data-overflow-behavior={overflowBehavior}
+      data-size={size}
       className={cn(
-        "flex min-h-9 w-full min-w-0 items-center gap-1 overflow-hidden rounded-3xl border bg-input bg-clip-padding px-3 py-1.5 text-sm transition-[color,box-shadow,background-color] focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/30 has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:bg-muted has-disabled:opacity-50 has-aria-invalid:border-destructive has-aria-invalid:ring-3 has-aria-invalid:ring-destructive/20 has-data-[slot=combobox-chip]:px-3 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:ring-destructive/40",
-        shouldWrap && "h-full flex-wrap overflow-visible",
+        "flex w-full min-w-0 items-center gap-1 overflow-hidden rounded-3xl border bg-input bg-clip-padding px-3 py-1.5 text-sm transition-[color,box-shadow,background-color] data-[size=sm]:min-h-8 data-[size=default]:min-h-10 data-[size=lg]:min-h-12 focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/30 has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:bg-muted has-disabled:opacity-50 has-aria-invalid:border-destructive has-aria-invalid:ring-3 has-aria-invalid:ring-destructive/20 has-data-[slot=combobox-chip]:px-3 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:ring-destructive/40",
+        shouldWrap && "h-fit flex-wrap overflow-visible",
         className
       )}
       {...props}
@@ -400,7 +408,7 @@ function ComboboxChipsInput({
   return (
     <ComboboxPrimitive.Input
       data-slot="combobox-chip-input"
-      className={cn("order-3 min-w-16 w-full outline-none", className)}
+      className={cn("order-3 min-w-8 max-w-20 outline-none", className)}
       {...props}
     />
   )

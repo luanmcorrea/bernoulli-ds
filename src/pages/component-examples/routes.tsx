@@ -20,6 +20,7 @@ import DrawerExample from "@/pages/component-examples/examples/drawer-example"
 import DropdownMenuExample from "@/pages/component-examples/examples/dropdown-menu-example"
 import EmptyExample from "@/pages/component-examples/examples/empty-example"
 import FieldExample from "@/pages/component-examples/examples/field-example"
+import InputGroupExample from "@/pages/component-examples/examples/input-group-example"
 import InputOTPExample from "@/pages/component-examples/examples/input-otp-example"
 import InputExample from "@/pages/component-examples/examples/input-example"
 import LabelExample from "@/pages/component-examples/examples/label-example"
@@ -89,6 +90,7 @@ export const sections: SectionGroup[] = [
       { slug: "empty", title: "Empty", extra: false, path: "/empty", component: EmptyExample, },
       { slug: "field", title: "Field", extra: false, path: "/field", component: FieldExample, },
       { slug: "input", title: "Input", extra: false, path: "/input", component: InputExample, },
+      { slug: "input-group", title: "Input Group", extra: false, path: "/input", component: InputGroupExample, },
       { slug: "input-otp", title: "Input OTP", extra: false, path: "/input-otp", component: InputOTPExample, },
       { slug: "label", title: "Label", extra: false, path: "/label", component: LabelExample, },
       { slug: "multiselect", title: "Multiselect", extra: true, path: "/multiselect", component: MultiselectExample, },

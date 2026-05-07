@@ -1,5 +1,6 @@
 "use client"
 
+import { BasketIcon } from "@phosphor-icons/react"
 import {
   Example,
   ExampleWrapper,
@@ -83,7 +84,7 @@ function MultiselectWithGroups() {
       <Multiselect>
         <MultiselectTrigger className="w-full max-w-72">
           <MultiselectValue placeholder="Select fruits" />
-        </MultiselectTrigger >
+        </MultiselectTrigger>
         <MultiselectContent selectAll={{ label: "Select all" }}>
           <MultiselectGroup>
             <MultiselectLabel>Fruits</MultiselectLabel>

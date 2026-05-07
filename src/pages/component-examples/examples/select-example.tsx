@@ -41,14 +41,16 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { IconPlaceholder } from "@/components/ui/icon-placeholder"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 export default function SelectExample() {
   return (
     <ExampleWrapper>
       <SelectBasic />
       <SelectWithIcons />
-      <SelectSides />
+      <SelectWithAvatar />
       <SelectWithGroups />
+      <SelectSides />
       <SelectLargeList />
       <SelectMultiple />
       <SelectSizes />
@@ -157,10 +159,10 @@ function SelectWithIcons() {
     },
   ]
   return (
-    <Example title="With Icons">
+    <Example title="With Icons & Sizes">
       <div className="flex flex-col gap-4">
         <Select items={items}>
-          <SelectTrigger size="sm">
+          <SelectTrigger size="sm" className="w-full max-w-72">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -174,7 +176,21 @@ function SelectWithIcons() {
           </SelectContent>
         </Select>
         <Select items={items}>
-          <SelectTrigger size="default">
+          <SelectTrigger size="default" className="w-full max-w-72">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              {items.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+        <Select items={items}>
+          <SelectTrigger size="lg" className="w-full max-w-72">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -192,41 +208,68 @@ function SelectWithIcons() {
   )
 }
 
-function SelectSides() {
+function SelectWithAvatar() {
   const items = [
-    { label: "Apple", value: "apple" },
-    { label: "Banana", value: "banana" },
-    { label: "Blueberry", value: "blueberry" },
+    {
+      label: (<>Select a user</>),
+      value: null,
+    },
+    {
+      label: (<>
+        <Avatar size="sm">
+          <AvatarImage src="https://github.com/jorgezreik.png" alt="@jorgezreik" />
+          <AvatarFallback>J</AvatarFallback>
+        </Avatar>
+        Jorge Zreik
+      </>),
+      value: "jorgezreik",
+    },
+    {
+      label: (<>
+        <Avatar size="sm">
+          <AvatarFallback>J</AvatarFallback>
+        </Avatar>
+        John Doe
+      </>),
+      value: "johndoe",
+    },
+    {
+      label: (<>
+        <Avatar size="sm">
+          <AvatarImage src="https://github.com/pranathip.png" alt="@pranathip" />
+          <AvatarFallback>P</AvatarFallback>
+        </Avatar>
+        Pranathip
+      </>),
+      value: "shadcn",
+    },
+    {
+      label: (<>
+        <Avatar size="sm">
+          <AvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
+          <AvatarFallback>M</AvatarFallback>
+        </Avatar>
+        Max Leiter
+      </>),
+      value: "vercel",
+    },
   ]
   return (
-    <Example title="Sides" containerClassName="col-span-2">
-      <div className="flex flex-wrap justify-center gap-2">
-        {(
-          [
-            "inline-start",
-            "left",
-            "top",
-            "bottom",
-            "right",
-            "inline-end",
-          ] as const
-        ).map((side) => (
-          <Select key={side} items={items}>
-            <SelectTrigger className="w-38 capitalize">
-              <SelectValue placeholder={side.replace("-", " ")} />
-            </SelectTrigger>
-            <SelectContent side={side} alignItemWithTrigger={false}>
-              <SelectGroup>
-                {items.map((item) => (
-                  <SelectItem key={item.value} value={item.value}>
-                    {item.label}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        ))}
-      </div>
+    <Example title="With Avatar">
+      <Select items={items} defaultValue="johndoe">
+        <SelectTrigger className="w-full max-w-72">
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            {items.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
+          </SelectGroup>
+        </SelectContent>
+      </Select>
     </Example>
   )
 }
@@ -277,6 +320,45 @@ function SelectWithGroups() {
   )
 }
 
+function SelectSides() {
+  const items = [
+    { label: "Apple", value: "apple" },
+    { label: "Banana", value: "banana" },
+    { label: "Blueberry", value: "blueberry" },
+  ]
+  return (
+    <Example title="Sides" containerClassName="col-span-2">
+      <div className="flex flex-wrap justify-center gap-2">
+        {(
+          [
+            "inline-start",
+            "left",
+            "top",
+            "bottom",
+            "right",
+            "inline-end",
+          ] as const
+        ).map((side) => (
+          <Select key={side} items={items}>
+            <SelectTrigger className="w-38 capitalize">
+              <SelectValue placeholder={side.replace("-", " ")} />
+            </SelectTrigger>
+            <SelectContent side={side} alignItemWithTrigger={false}>
+              <SelectGroup>
+                {items.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        ))}
+      </div>
+    </Example>
+  )
+}
+
 function SelectLargeList() {
   const items = [
     { label: "Select an item", value: null },
@@ -286,12 +368,15 @@ function SelectLargeList() {
     })),
   ]
   return (
-    <Example title="Large List">
+    <Example title="Large List & Search">
       <Select items={items}>
-        <SelectTrigger>
+        <SelectTrigger className="w-full max-w-72">
           <SelectValue />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent search={{
+            emptyMessage: "No items found.",
+            placeholder: "Search",
+          }}>
           <SelectGroup>
             {items.map((item) => (
               <SelectItem key={item.value} value={item.value}>

@@ -132,7 +132,7 @@ function Multiselect({
 }
 
 function MultiselectTrigger({ className, size = "default", children, ...props }: MultiselectPrimitive.Trigger.Props & {
-  size?: "sm" | "default"
+  size?: "sm" | "default" | "lg"
 }) {
   const { selectedValues, setSelectedValues } = useMultiselectContext()
   const hasValues = selectedValues.length > 0
@@ -142,7 +142,7 @@ function MultiselectTrigger({ className, size = "default", children, ...props }:
       data-slot="multiselect-trigger"
       data-size={size}
       className={cn(
-        "group/multiselect-trigger flex w-fit items-center justify-between gap-1.5 rounded-3xl border bg-input px-3 py-2 text-sm whitespace-nowrap transition-[color,box-shadow,background] outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30 disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-muted aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 data-placeholder:text-muted-foreground data-[size=default]:h-9 data-[size=sm]:h-8 dark:aria-invalid:ring-destructive/40",
+        "group/multiselect-trigger flex w-fit items-center gap-1.5 rounded-3xl border bg-input px-3 py-2 text-sm whitespace-nowrap transition-[color,box-shadow,background] outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30 disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-muted aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 data-placeholder:text-muted-foreground data-[size=default]:h-10 data-[size=sm]:h-8 data-[size=lg]:h-12 data-[size=lg]:text-xl data-[size=lg]:p-4 dark:aria-invalid:ring-destructive/40 [&>svg:not([class*='size-'])]:size-4 data-[size=lg]:[&>svg:not([class*='size-'])]:size-5",
         className,
       )}
       {...props}
@@ -151,7 +151,7 @@ function MultiselectTrigger({ className, size = "default", children, ...props }:
       {hasValues && (
         <Button
           variant="ghost-neutral" size="icon-xs"
-          className="-ml-1 rounded-full group-disabled/multiselect-trigger:hidden text-muted-foreground"
+          className="ml-auto -mr-1 rounded-full group-disabled/multiselect-trigger:hidden text-muted-foreground"
           onClick={e => {
             e.stopPropagation()
             setSelectedValues([])
@@ -165,9 +165,9 @@ function MultiselectTrigger({ className, size = "default", children, ...props }:
           <Button
             variant="ghost"
             size="icon-xs"
-            className="-mx-1 rounded-full"
+            className="-mr-1 ml-auto rounded-full"
           >
-            <CaretDownIcon className="pointer-events-none size-4" />
+            <CaretDownIcon className="pointer-events-none size-4 transition-transform duration-200 group-data-popup-open/multiselect-trigger:rotate-180" />
           </Button>
         }
       />
@@ -266,7 +266,7 @@ function MultiselectValue({
             data-selected-item
             key={value}  
           >
-            {items.get(value)}
+            <span className="max-w-26 truncate">{items.get(value)}</span>
             {clickToRemove && (
               <Button 
                 data-slot="multiselect-value-remove"
