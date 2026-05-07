@@ -1,6 +1,5 @@
 "use client"
 
-import { BasketIcon } from "@phosphor-icons/react"
 import {
   Example,
   ExampleWrapper,
