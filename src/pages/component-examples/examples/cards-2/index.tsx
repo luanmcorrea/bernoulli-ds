@@ -34,7 +34,7 @@ import { UpcomingPayments } from "@/pages/component-examples/examples/cards-2/ca
 
 export default function CardsExample2() {
   return (
-    <div className="w-full overflow-auto [--gap:--spacing(4)] 3xl:[--gap:--spacing(12)] md:[--gap:--spacing(10)]">
+    <div className="w-full [--gap:--spacing(4)] 3xl:[--gap:--spacing(12)] md:[--gap:--spacing(10)]">
       <div className="flex w-full min-w-max justify-center">
         <div
           className="grid w-600 grid-cols-7 items-start gap-(--gap) p-(--gap) md:w-750 dark:bg-background *:[div]:gap-(--gap)"

@@ -66,7 +66,7 @@ function ComboboxInput({
   return (
     <InputGroup size={size} className={cn("w-auto", className)}>
       <ComboboxPrimitive.Input
-        render={<InputGroupInput size={size} disabled={disabled} />}
+        render={<InputGroupInput disabled={disabled} />}
         {...props}
       />
       <InputGroupAddon align="inline-end">

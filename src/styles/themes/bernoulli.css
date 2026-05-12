@@ -14,7 +14,7 @@
   --brand-font-sans: 'Roboto Variable';
   --brand-font-weight-heading: 600;
   --brand-font-cta: var(--brand-font-heading), var(--brand-font-sans);
-  --brand-font-weight-cta: 500;
+  --brand-font-weight-cta: 600;
 
   --brand-primary: oklch(58.251% 0.08977 188.191);
   --brand-secondary: oklch(69.778% 0.10745 188.011);

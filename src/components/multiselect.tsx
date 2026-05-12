@@ -340,7 +340,7 @@ function MultiselectContent({
           {...props}
         >
           {canSearch && (
-            <InputGroup className="w-auto mx-2 mt-2 h-8 flex items-center">
+            <InputGroup size="sm" className="w-auto mx-2 mt-2 flex items-center">
               <InputGroupAddon >
                 <MagnifyingGlassIcon />
               </InputGroupAddon>
