@@ -396,21 +396,12 @@ function ContextMenuWithSides() {
   return (
     <Example title="With Sides" containerClassName="col-span-2">
       <div className="flex flex-wrap justify-center gap-2">
-        {(
-          [
-            "inline-start",
-            "left",
-            "top",
-            "bottom",
-            "right",
-            "inline-end",
-          ] as const
-        ).map((side) => (
+        {(["left", "top", "bottom", "right"] as const).map((side) => (
           <ContextMenu key={side}>
             <ContextMenuTrigger className="flex aspect-[2/0.5] items-center justify-center rounded-lg border p-4 text-sm capitalize">
               {side.replace("-", " ")}
             </ContextMenuTrigger>
-            <ContextMenuContent side={side}>
+            <ContextMenuContent>
               <ContextMenuGroup>
                 <ContextMenuItem>Back</ContextMenuItem>
                 <ContextMenuItem>Forward</ContextMenuItem>
@@ -428,9 +419,9 @@ function ContextMenuInDialog() {
   return (
     <Example title="In Dialog">
       <Dialog>
-        <DialogTrigger render={<Button variant="outline" />}>
+        <DialogTrigger asChild><Button variant="outline">
           Open Dialog
-        </DialogTrigger>
+        </Button></DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Context Menu Example</DialogTitle>

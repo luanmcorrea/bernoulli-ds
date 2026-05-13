@@ -102,19 +102,15 @@ export default function SidebarExample() {
             <SidebarMenuItem>
               <DropdownMenu>
                 <DropdownMenuTrigger
-                  render={
-                    <SidebarMenuButton
+                 asChild><SidebarMenuButton
                       size="lg"
-                      className="data-open:bg-accent data-open:text-accent-foreground"
-                    />
-                  }
-                >
+                      className="data-[state=open]:bg-accent data-[state=open]:text-accent-foreground">
                   <Item className="p-0" size="xs">
                     <ItemContent>
                       <ItemTitle className="text-base">Plataform</ItemTitle>
                     </ItemContent>
                   </Item>
-                </DropdownMenuTrigger>
+                </SidebarMenuButton></DropdownMenuTrigger>
                 <DropdownMenuContent>
                   {data.versions.map((version) => (
                     <DropdownMenuItem
@@ -145,12 +141,11 @@ export default function SidebarExample() {
                       <SidebarMenuButton
                         size="lg"
                         className="[&_svg]:size-6"
-                        render={<a href={subItem.url} />}
                         isActive={subItem.isActive}
-                      >
+                       asChild><a href={subItem.url}>
                         {subItem.icon && <subItem.icon/>}
                         <span>{subItem.title}</span>
-                      </SidebarMenuButton>
+                      </a></SidebarMenuButton>
                     </SidebarMenuItem>
                   ))}
                 </SidebarMenu>
@@ -163,12 +158,8 @@ export default function SidebarExample() {
             <SidebarMenuItem>
               <DropdownMenu>
                 <DropdownMenuTrigger
-                  render={
-                    <SidebarMenuButton
-                      className="gap-3 h-12"
-                    />
-                  }
-                >
+                 asChild><SidebarMenuButton
+                      className="gap-3 h-12">
                   <Avatar>
                     <AvatarFallback>J</AvatarFallback>
                     <AvatarBadgeLevel>
@@ -182,7 +173,7 @@ export default function SidebarExample() {
                       Profile name
                     </span>
                   </div>
-                </DropdownMenuTrigger>
+                </SidebarMenuButton></DropdownMenuTrigger>
                 <DropdownMenuContent className="w-(--anchor-width) min-w-56">
                   <DropdownMenuGroup>
                     <DropdownMenuItem>

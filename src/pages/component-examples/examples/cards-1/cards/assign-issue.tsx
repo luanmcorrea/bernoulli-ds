@@ -58,8 +58,7 @@ export function AssignIssue() {
         <CardAction>
           <Tooltip>
             <TooltipTrigger
-              render={<Button variant="outline" size="icon-xs" />}
-            >
+             asChild><Button variant="outline" size="icon-xs">
               <IconPlaceholder
                 lucide="PlusIcon"
                 tabler="IconPlus"
@@ -67,7 +66,7 @@ export function AssignIssue() {
                 phosphor="PlusIcon"
                 remixicon="RiAddLine"
               />
-            </TooltipTrigger>
+            </Button></TooltipTrigger>
             <TooltipContent>Add user</TooltipContent>
           </Tooltip>
         </CardAction>
@@ -76,7 +75,6 @@ export function AssignIssue() {
         <Combobox
           multiple
           autoHighlight
-          items={users}
           defaultValue={[users[0]]}
         >
           <ComboboxChips ref={anchor}>

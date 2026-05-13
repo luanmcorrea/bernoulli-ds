@@ -65,10 +65,9 @@ function DropdownMenuBasic() {
     <Example title="Basic">
       <DropdownMenu>
         <DropdownMenuTrigger
-          render={<Button variant="outline" className="w-fit" />}
-        >
+         asChild><Button variant="outline" className="w-fit">
           Open
-        </DropdownMenuTrigger>
+        </Button></DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuGroup>
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -90,22 +89,12 @@ function DropdownMenuSides() {
   return (
     <Example title="Sides" containerClassName="col-span-2">
       <div className="flex flex-wrap justify-center gap-2">
-        {(
-          [
-            "inline-start",
-            "left",
-            "top",
-            "bottom",
-            "right",
-            "inline-end",
-          ] as const
-        ).map((side) => (
+        {(["left", "top", "bottom", "right"] as const).map((side) => (
           <DropdownMenu key={side}>
             <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-fit capitalize" />}
-            >
+             asChild><Button variant="outline" className="w-fit capitalize">
               {side.replace("-", " ")}
-            </DropdownMenuTrigger>
+            </Button></DropdownMenuTrigger>
             <DropdownMenuContent side={side}>
               <DropdownMenuGroup>
                 <DropdownMenuItem>Profile</DropdownMenuItem>
@@ -125,10 +114,9 @@ function DropdownMenuWithIcons() {
     <Example title="With Icons">
       <DropdownMenu>
         <DropdownMenuTrigger
-          render={<Button variant="outline" className="w-fit" />}
-        >
+         asChild><Button variant="outline" className="w-fit">
           Open
-        </DropdownMenuTrigger>
+        </Button></DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem>
             <IconPlaceholder
@@ -182,10 +170,9 @@ function DropdownMenuWithShortcuts() {
     <Example title="With Shortcuts">
       <DropdownMenu>
         <DropdownMenuTrigger
-          render={<Button variant="outline" className="w-fit" />}
-        >
+         asChild><Button variant="outline" className="w-fit">
           Open
-        </DropdownMenuTrigger>
+        </Button></DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuGroup>
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -222,10 +209,9 @@ function DropdownMenuWithSubmenu() {
     <Example title="With Submenu">
       <DropdownMenu>
         <DropdownMenuTrigger
-          render={<Button variant="outline" className="w-fit" />}
-        >
+         asChild><Button variant="outline" className="w-fit">
           Open
-        </DropdownMenuTrigger>
+        </Button></DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuGroup>
             <DropdownMenuItem>Team</DropdownMenuItem>
@@ -260,10 +246,9 @@ function DropdownMenuWithCheckboxes() {
     <Example title="With Checkboxes">
       <DropdownMenu>
         <DropdownMenuTrigger
-          render={<Button variant="outline" className="w-fit" />}
-        >
+         asChild><Button variant="outline" className="w-fit">
           Checkboxes
-        </DropdownMenuTrigger>
+        </Button></DropdownMenuTrigger>
         <DropdownMenuContent className="min-w-40">
           <DropdownMenuGroup>
             <DropdownMenuLabel>Appearance</DropdownMenuLabel>
@@ -321,10 +306,9 @@ function DropdownMenuWithRadio() {
     <Example title="With Radio Group">
       <DropdownMenu>
         <DropdownMenuTrigger
-          render={<Button variant="outline" className="w-fit" />}
-        >
+         asChild><Button variant="outline" className="w-fit">
           Radio Group
-        </DropdownMenuTrigger>
+        </Button></DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuGroup>
             <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
@@ -381,10 +365,9 @@ function DropdownMenuWithCheckboxesIcons() {
     <Example title="Checkboxes with Icons">
       <DropdownMenu>
         <DropdownMenuTrigger
-          render={<Button variant="outline" className="w-fit" />}
-        >
+         asChild><Button variant="outline" className="w-fit">
           Notifications
-        </DropdownMenuTrigger>
+        </Button></DropdownMenuTrigger>
         <DropdownMenuContent className="min-w-56">
           <DropdownMenuGroup>
             <DropdownMenuLabel>Notification Preferences</DropdownMenuLabel>
@@ -447,10 +430,9 @@ function DropdownMenuWithRadioIcons() {
     <Example title="Radio with Icons">
       <DropdownMenu>
         <DropdownMenuTrigger
-          render={<Button variant="outline" className="w-fit" />}
-        >
+         asChild><Button variant="outline" className="w-fit">
           Payment Method
-        </DropdownMenuTrigger>
+        </Button></DropdownMenuTrigger>
         <DropdownMenuContent className="min-w-56">
           <DropdownMenuGroup>
             <DropdownMenuLabel>Select Payment Method</DropdownMenuLabel>
@@ -501,10 +483,9 @@ function DropdownMenuWithDestructive() {
     <Example title="With Destructive Items">
       <DropdownMenu>
         <DropdownMenuTrigger
-          render={<Button variant="outline" className="w-fit" />}
-        >
+         asChild><Button variant="outline" className="w-fit">
           Actions
-        </DropdownMenuTrigger>
+        </Button></DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem>
             <IconPlaceholder
@@ -607,13 +588,9 @@ function DropdownMenuWithAvatar() {
       <div className="flex items-center justify-between gap-4">
         <DropdownMenu>
           <DropdownMenuTrigger
-            render={
-              <Button
+           asChild><Button
                 variant="outline"
-                className="h-12 justify-start px-2 md:max-w-[200px]"
-              />
-            }
-          >
+                className="h-12 justify-start px-2 md:max-w-[200px]">
             <Avatar>
               <AvatarImage src="https://github.com/shadcn.png" alt="Shadcn" />
               <AvatarFallback className="rounded-lg">CN</AvatarFallback>
@@ -632,22 +609,19 @@ function DropdownMenuWithAvatar() {
               remixicon="RiArrowUpDownLine"
               className="ml-auto text-muted-foreground"
             />
-          </DropdownMenuTrigger>
+          </Button></DropdownMenuTrigger>
           <DropdownMenuContent className="w-(--anchor-width) min-w-56">
             {menuContent}
           </DropdownMenuContent>
         </DropdownMenu>
         <DropdownMenu>
           <DropdownMenuTrigger
-            render={
-              <Button variant="ghost" size="icon" className="rounded-full" />
-            }
-          >
+           asChild><Button variant="ghost" size="icon" className="rounded-full">
             <Avatar>
               <AvatarImage src="https://github.com/shadcn.png" alt="shadcn" />
               <AvatarFallback>LR</AvatarFallback>
             </Avatar>
-          </DropdownMenuTrigger>
+          </Button></DropdownMenuTrigger>
           <DropdownMenuContent align="end" side="top">
             {menuContent}
           </DropdownMenuContent>
@@ -661,9 +635,9 @@ function DropdownMenuInDialog() {
   return (
     <Example title="In Dialog">
       <Dialog>
-        <DialogTrigger render={<Button variant="outline" />}>
+        <DialogTrigger asChild><Button variant="outline">
           Open Dialog
-        </DialogTrigger>
+        </Button></DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Dropdown Menu Example</DialogTitle>
@@ -673,10 +647,9 @@ function DropdownMenuInDialog() {
           </DialogHeader>
           <DropdownMenu>
             <DropdownMenuTrigger
-              render={<Button variant="outline" className="w-fit" />}
-            >
+             asChild><Button variant="outline" className="w-fit">
               Open Menu
-            </DropdownMenuTrigger>
+            </Button></DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem>
                 <IconPlaceholder
@@ -749,10 +722,9 @@ function DropdownMenuWithInset() {
     <Example title="With Inset">
       <DropdownMenu>
         <DropdownMenuTrigger
-          render={<Button variant="outline" className="w-fit" />}
-        >
+         asChild><Button variant="outline" className="w-fit">
           Open
-        </DropdownMenuTrigger>
+        </Button></DropdownMenuTrigger>
         <DropdownMenuContent className="w-44">
           <DropdownMenuGroup>
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
@@ -837,10 +809,9 @@ function DropdownMenuComplex() {
     <Example title="Complex">
       <DropdownMenu>
         <DropdownMenuTrigger
-          render={<Button variant="outline" className="w-fit" />}
-        >
+         asChild><Button variant="outline" className="w-fit">
           Complex Menu
-        </DropdownMenuTrigger>
+        </Button></DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
           <DropdownMenuGroup>
             <DropdownMenuLabel>My Account</DropdownMenuLabel>

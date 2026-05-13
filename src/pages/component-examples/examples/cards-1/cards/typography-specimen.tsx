@@ -52,10 +52,9 @@ export function TypographySpecimen() {
       <CardFooter>
         <Dialog>
           <DialogTrigger
-            render={<Button variant="outline" className="w-full" />}
-          >
+           asChild><Button variant="outline" className="w-full">
             Share Feedback
-          </DialogTrigger>
+          </Button></DialogTrigger>
           <DialogContent>
             <DialogHeader>
               <DialogTitle>Share Feedback</DialogTitle>
@@ -81,12 +80,6 @@ export function TypographySpecimen() {
               <Field>
                 <FieldLabel htmlFor="feedback-category">Category</FieldLabel>
                 <Select
-                  items={[
-                    { label: "General", value: "general" },
-                    { label: "Bug Report", value: "bug" },
-                    { label: "Feature Request", value: "feature" },
-                    { label: "Improvement", value: "improvement" },
-                  ]}
                   defaultValue="general"
                 >
                   <SelectTrigger id="feedback-category" className="w-full">
@@ -112,9 +105,9 @@ export function TypographySpecimen() {
               </Field>
             </FieldGroup>
             <DialogFooter>
-              <DialogClose render={<Button variant="outline" />}>
+              <DialogClose asChild><Button variant="outline">
                 Cancel
-              </DialogClose>
+              </Button></DialogClose>
               <Button>Submit</Button>
             </DialogFooter>
           </DialogContent>

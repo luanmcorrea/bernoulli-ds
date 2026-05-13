@@ -40,7 +40,6 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { Toaster } from "@/components/ui/sonner"
 import { cn } from "@/lib/utils"
 import { AppSidebar } from "@/pages/component-examples/components/app-sidebar"
 import {
@@ -89,7 +88,6 @@ function PageHeader({ currentSection, onNavigate }: PageHeaderProps) {
 
   return (
     <header className="sticky left-0 top-0 z-1 flex h-16 items-center gap-3 bg-background/60 supports-backdrop-filter:backdrop-blur-md px-4 md:px-6">
-      <Toaster richColors position="top-center" />
       <SidebarTrigger className="-ml-1" />
       <Separator orientation="vertical" className="my-auto mr-2 h-4" />
       <Breadcrumb>

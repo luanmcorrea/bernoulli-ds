@@ -65,7 +65,7 @@ export function PayoutThreshold() {
             <FieldLabel htmlFor="preferred-currency">
               Preferred Currency
             </FieldLabel>
-            <Select items={CURRENCIES} defaultValue="usd">
+            <Select defaultValue="usd">
               <SelectTrigger id="preferred-currency" className="w-full">
                 <SelectValue />
               </SelectTrigger>

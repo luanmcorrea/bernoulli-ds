@@ -71,8 +71,7 @@ export function RecentTransactions() {
               <TableCell className="w-8">
                 <DropdownMenu>
                   <DropdownMenuTrigger
-                    render={<Button variant="ghost" size="icon-sm" />}
-                  >
+                   asChild><Button variant="ghost" size="icon-sm">
                     <IconPlaceholder
                       lucide="MoreHorizontalIcon"
                       tabler="IconDotsVertical"
@@ -80,7 +79,7 @@ export function RecentTransactions() {
                       phosphor="DotsThreeIcon" weight="bold"
                       remixicon="RiMore2Line"
                     />
-                  </DropdownMenuTrigger>
+                  </Button></DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
                     <DropdownMenuItem>View details</DropdownMenuItem>
                     <DropdownMenuItem>Add note</DropdownMenuItem>
@@ -123,8 +122,7 @@ export function RecentTransactions() {
               <TableCell className="w-8">
                 <DropdownMenu>
                   <DropdownMenuTrigger
-                    render={<Button variant="ghost" size="icon-sm" />}
-                  >
+                   asChild><Button variant="ghost" size="icon-sm">
                     <IconPlaceholder
                       lucide="MoreHorizontalIcon"
                       tabler="IconDotsVertical"
@@ -132,7 +130,7 @@ export function RecentTransactions() {
                       phosphor="DotsThreeIcon" weight="bold"
                       remixicon="RiMore2Line"
                     />
-                  </DropdownMenuTrigger>
+                  </Button></DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
                     <DropdownMenuItem>View details</DropdownMenuItem>
                     <DropdownMenuItem>Add note</DropdownMenuItem>
@@ -173,8 +171,7 @@ export function RecentTransactions() {
               <TableCell className="w-8">
                 <DropdownMenu>
                   <DropdownMenuTrigger
-                    render={<Button variant="ghost" size="icon-sm" />}
-                  >
+                   asChild><Button variant="ghost" size="icon-sm">
                     <IconPlaceholder
                       lucide="MoreHorizontalIcon"
                       tabler="IconDotsVertical"
@@ -182,7 +179,7 @@ export function RecentTransactions() {
                       phosphor="DotsThreeIcon" weight="bold"
                       remixicon="RiMore2Line"
                     />
-                  </DropdownMenuTrigger>
+                  </Button></DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
                     <DropdownMenuItem>View details</DropdownMenuItem>
                     <DropdownMenuItem>Add note</DropdownMenuItem>
@@ -225,8 +222,7 @@ export function RecentTransactions() {
               <TableCell className="w-8">
                 <DropdownMenu>
                   <DropdownMenuTrigger
-                    render={<Button variant="ghost" size="icon-sm" />}
-                  >
+                   asChild><Button variant="ghost" size="icon-sm">
                     <IconPlaceholder
                       lucide="MoreHorizontalIcon"
                       tabler="IconDotsVertical"
@@ -234,7 +230,7 @@ export function RecentTransactions() {
                       phosphor="DotsThreeIcon" weight="bold"
                       remixicon="RiMore2Line"
                     />
-                  </DropdownMenuTrigger>
+                  </Button></DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
                     <DropdownMenuItem>View details</DropdownMenuItem>
                     <DropdownMenuItem>Add note</DropdownMenuItem>
@@ -277,8 +273,7 @@ export function RecentTransactions() {
               <TableCell className="w-8">
                 <DropdownMenu>
                   <DropdownMenuTrigger
-                    render={<Button variant="ghost" size="icon-sm" />}
-                  >
+                   asChild><Button variant="ghost" size="icon-sm">
                     <IconPlaceholder
                       lucide="MoreHorizontalIcon"
                       tabler="IconDotsVertical"
@@ -286,7 +281,7 @@ export function RecentTransactions() {
                       phosphor="DotsThreeIcon" weight="bold"
                       remixicon="RiMore2Line"
                     />
-                  </DropdownMenuTrigger>
+                  </Button></DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
                     <DropdownMenuItem>View details</DropdownMenuItem>
                     <DropdownMenuItem>Add note</DropdownMenuItem>

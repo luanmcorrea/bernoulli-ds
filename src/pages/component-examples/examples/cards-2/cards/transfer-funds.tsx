@@ -72,7 +72,7 @@ export function TransferFunds() {
           </Field>
           <Field>
             <FieldLabel htmlFor="from-account">From Account</FieldLabel>
-            <Select items={FROM_ACCOUNTS} defaultValue="checking">
+            <Select defaultValue="checking">
               <SelectTrigger id="from-account" className="w-full">
                 <SelectValue />
               </SelectTrigger>
@@ -89,7 +89,7 @@ export function TransferFunds() {
           </Field>
           <Field>
             <FieldLabel htmlFor="to-account">To Account</FieldLabel>
-            <Select items={TO_ACCOUNTS} defaultValue="savings">
+            <Select defaultValue="savings">
               <SelectTrigger id="to-account" className="w-full">
                 <SelectValue />
               </SelectTrigger>

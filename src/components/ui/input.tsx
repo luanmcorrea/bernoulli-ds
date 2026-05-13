@@ -1,5 +1,4 @@
 import * as React from "react"
-import { Input as InputPrimitive } from "@base-ui/react/input"
 
 import { cn } from "@/lib/utils"
 
@@ -12,7 +11,7 @@ function Input({
   size?: "sm" | "default" | "lg"
 }) {
   return (
-    <InputPrimitive
+    <input
       type={type}
       data-slot="input"
       data-size={size}

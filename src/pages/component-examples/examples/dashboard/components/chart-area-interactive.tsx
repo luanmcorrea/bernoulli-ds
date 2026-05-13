@@ -176,9 +176,9 @@ export function ChartAreaInteractive() {
         </CardDescription>
         <CardAction>
           <ToggleGroup
-            multiple={false}
+            type="multiple"
             value={timeRange ? [timeRange] : []}
-            onValueChange={(value) => {
+            onValueChange={(value: string[]) => {
               setTimeRange(value[0] ?? "7d")
             }}
             variant="outline"

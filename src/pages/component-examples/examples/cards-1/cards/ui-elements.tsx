@@ -135,10 +135,10 @@ export function UIElements() {
         </div>
         <div className="flex items-center gap-4">
           <AlertDialog>
-            <AlertDialogTrigger render={<Button variant="outline" size="sm" />}>
+            <AlertDialogTrigger asChild><Button variant="outline" size="sm">
               <span className="hidden md:block">Alert Dialog</span>
               <span className="block md:hidden">Dialog</span>
-            </AlertDialogTrigger>
+            </Button></AlertDialogTrigger>
             <AlertDialogContent size="sm">
               <AlertDialogHeader>
                 <AlertDialogTitle>Allow accessory to connect?</AlertDialogTitle>
@@ -157,10 +157,9 @@ export function UIElements() {
             <Button variant="outline" size="sm">Button Group</Button>
             <DropdownMenu>
               <DropdownMenuTrigger
-                render={<Button variant="outline" size="icon-sm" />}
-              >
+               asChild><Button variant="outline" size="icon-sm">
                 <DotsThreeVerticalIcon weight="bold" />
-              </DropdownMenuTrigger>
+              </Button></DropdownMenuTrigger>
               <DropdownMenuContent align="end" side="top" className="w-40">
                 <DropdownMenuGroup>
                   <DropdownMenuLabel>Quick Actions</DropdownMenuLabel>

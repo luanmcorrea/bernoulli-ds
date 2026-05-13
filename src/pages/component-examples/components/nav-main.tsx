@@ -70,35 +70,38 @@ export function NavMain({
           {items.map((item) => (
             <Collapsible
               key={item.title}
-              render={<SidebarMenuItem />}
+              asChild
               defaultOpen
+              className="group/collapsible"
             >
-              <CollapsibleTrigger
-                render={<SidebarMenuButton tooltip={item.title} />}
-              >
-                <item.icon />
-                <span>{item.title}</span>
-                <CaretRightIcon className="ml-auto transition-transform duration-200 group-data-open/menu-item:rotate-90" />
-              </CollapsibleTrigger>
               <SidebarMenuItem>
+                <CollapsibleTrigger asChild>
+                  <SidebarMenuButton tooltip={item.title}>
+                    <item.icon />
+                    <span>{item.title}</span>
+                    <CaretRightIcon className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                  </SidebarMenuButton>
+                </CollapsibleTrigger>
                 <CollapsibleContent className="overflow-hidden pt-1">
                   <SidebarMenuSub>
                     {item.sections.map((section) => (
                       <SidebarMenuSubItem key={section.slug}>
                         <SidebarMenuSubButton
-                          render={
-                            <a
-                              href={section.path}
-                              onClick={(event) => handleLinkClick(event, section.slug)}
-                            >
-                              <span>{section.title}</span>
-                              {section.extra === true && (
-                                <Badge className="ml-auto" variant="secondary-neutral">Extra</Badge>
-                              )}
-                            </a>
-                          }
+                          asChild
                           isActive={section.slug === activeSection}
-                        />
+                        >
+                          <a
+                            href={section.path}
+                            onClick={(event) => handleLinkClick(event, section.slug)}
+                          >
+                            <span>{section.title}</span>
+                            {section.extra === true && (
+                              <Badge className="ml-auto" variant="secondary-neutral">
+                                Extra
+                              </Badge>
+                            )}
+                          </a>
+                        </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     ))}
                   </SidebarMenuSub>

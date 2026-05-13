@@ -35,7 +35,7 @@ export function ProfileSwitcher() {
     <SidebarMenu>
       <SidebarMenuItem>
         <DropdownMenu>
-          <DropdownMenuTrigger render={<SidebarMenuButton />}>
+          <DropdownMenuTrigger asChild><SidebarMenuButton>
             <Item className="gap-2 p-0">
               <div className="flex size-8 items-center justify-center">
                 <CircleIcon
@@ -47,10 +47,10 @@ export function ProfileSwitcher() {
                 <ItemTitle>{selectedProfile.label}</ItemTitle>
               </ItemContent>
               <ItemActions>
-                <CaretDownIcon className="size-4 transition-transform duration-200 group-data-popup-open/menu-button:rotate-180" />
+                <CaretDownIcon className="size-4 transition-transform duration-200 group-data-[state=open]/menu-button:rotate-180" />
               </ItemActions>
             </Item>
-          </DropdownMenuTrigger>
+          </SidebarMenuButton></DropdownMenuTrigger>
           <DropdownMenuContent>
             {profileThemeOptions.map((profile) => {
               const isDisabled = !selectedBrand.supportedProfiles.includes(

@@ -70,7 +70,7 @@ export function AccountAccess() {
           />
           Update Security
         </Button>
-        <Item variant="muted" render={<a href="#" />}>
+        <Item variant="muted" asChild><a href="#">
           <ItemMedia variant="icon">
             <IconPlaceholder
               lucide="AlertCircleIcon"
@@ -95,7 +95,7 @@ export function AccountAccess() {
             remixicon="RiArrowRightLine"
             className="size-4"
           />
-        </Item>
+        </a></Item>
       </CardFooter>
     </Card>
   )

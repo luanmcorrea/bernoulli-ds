@@ -46,11 +46,6 @@ export function ShippingAddress() {
             <Field>
               <FieldLabel htmlFor="shipping-state">State</FieldLabel>
               <Select
-                items={[
-                  { label: "California", value: "CA" },
-                  { label: "New York", value: "NY" },
-                  { label: "Texas", value: "TX" },
-                ]}
                 defaultValue="CA"
               >
                 <SelectTrigger id="shipping-state" className="w-full">
@@ -74,11 +69,6 @@ export function ShippingAddress() {
             <Field>
               <FieldLabel htmlFor="shipping-country">Country</FieldLabel>
               <Select
-                items={[
-                  { label: "United States", value: "US" },
-                  { label: "Canada", value: "CA" },
-                  { label: "United Kingdom", value: "UK" },
-                ]}
                 defaultValue="US"
               >
                 <SelectTrigger id="shipping-country" className="w-full">

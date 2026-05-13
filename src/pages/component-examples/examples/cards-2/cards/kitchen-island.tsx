@@ -64,8 +64,9 @@ export function KitchenIsland() {
         <div className="flex flex-col gap-2">
           <span className="sr-only">Scenes</span>
           <ToggleGroup
+            type="multiple"
             value={[scene]}
-            onValueChange={(value) => handleSceneChange(value[0] ?? "cooking")}
+            onValueChange={(value: string[]) => handleSceneChange(value[0] ?? "cooking")}
             variant="outline"
             spacing={1}
             className="flex-wrap"

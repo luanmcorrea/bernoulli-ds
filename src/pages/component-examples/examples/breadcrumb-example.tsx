@@ -63,11 +63,10 @@ function BreadcrumbWithDropdown() {
           <BreadcrumbItem>
             <DropdownMenu>
               <DropdownMenuTrigger
-                render={<Button size="icon-sm" variant="ghost" />}
-              >
+               asChild><Button size="icon-sm" variant="ghost">
                 <BreadcrumbEllipsis />
                 <span className="sr-only">Toggle menu</span>
-              </DropdownMenuTrigger>
+              </Button></DropdownMenuTrigger>
               <DropdownMenuContent align="start">
                 <DropdownMenuItem>Documentation</DropdownMenuItem>
                 <DropdownMenuItem>Themes</DropdownMenuItem>
@@ -95,7 +94,7 @@ function BreadcrumbWithLink() {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink render={<a href="#">Home</a>} />
+            <BreadcrumbLink asChild><a href="#">Home</a></BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
@@ -103,7 +102,7 @@ function BreadcrumbWithLink() {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink render={<a href="#">Components</a>} />
+            <BreadcrumbLink asChild><a href="#">Components</a></BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

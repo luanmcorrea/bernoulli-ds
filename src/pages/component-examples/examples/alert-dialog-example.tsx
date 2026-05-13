@@ -43,9 +43,7 @@ function AlertDialogBasic() {
   return (
     <Example title="Basic" className="items-center">
       <AlertDialog>
-        <AlertDialogTrigger
-          render={<Button variant="outline">Default</Button>}
-        />
+        <AlertDialogTrigger asChild><Button variant="outline">Default</Button></AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
@@ -68,7 +66,7 @@ function AlertDialogSmall() {
   return (
     <Example title="Small" className="items-center">
       <AlertDialog>
-        <AlertDialogTrigger render={<Button variant="outline">Small</Button>} />
+        <AlertDialogTrigger asChild><Button variant="outline">Small</Button></AlertDialogTrigger>
         <AlertDialogContent size="sm">
           <AlertDialogHeader>
             <AlertDialogTitle>Allow accessory to connect?</AlertDialogTitle>
@@ -90,9 +88,7 @@ function AlertDialogWithMedia() {
   return (
     <Example title="With Media" className="items-center">
       <AlertDialog>
-        <AlertDialogTrigger
-          render={<Button variant="outline">Default (Media)</Button>}
-        />
+        <AlertDialogTrigger asChild><Button variant="outline">Default (Media)</Button></AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogMedia>
@@ -124,9 +120,7 @@ function AlertDialogSmallWithMedia() {
   return (
     <Example title="Small With Media" className="items-center">
       <AlertDialog>
-        <AlertDialogTrigger
-          render={<Button variant="outline">Small (Media)</Button>}
-        />
+        <AlertDialogTrigger asChild><Button variant="outline">Small (Media)</Button></AlertDialogTrigger>
 
         <AlertDialogContent size="sm">
           <AlertDialogHeader>
@@ -158,9 +152,7 @@ function AlertDialogDestructive() {
   return (
     <Example title="Destructive" className="items-center">
       <AlertDialog>
-        <AlertDialogTrigger
-          render={<Button variant="destructive">Delete Chat</Button>}
-        />
+        <AlertDialogTrigger asChild><Button variant="destructive">Delete Chat</Button></AlertDialogTrigger>
         <AlertDialogContent size="sm">
           <AlertDialogHeader>
             <AlertDialogMedia className="bg-destructive/10 text-destructive dark:bg-destructive/20 dark:text-destructive">
@@ -193,9 +185,9 @@ function AlertDialogInDialog() {
   return (
     <Example title="In Dialog" className="items-center">
       <Dialog>
-        <DialogTrigger render={<Button variant="outline" />}>
+        <DialogTrigger asChild><Button variant="outline">
           Open Dialog
-        </DialogTrigger>
+        </Button></DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Alert Dialog Example</DialogTitle>
@@ -205,9 +197,9 @@ function AlertDialogInDialog() {
           </DialogHeader>
           <DialogFooter>
             <AlertDialog>
-              <AlertDialogTrigger render={<Button />}>
+              <AlertDialogTrigger asChild><Button>
                 Open Alert Dialog
-              </AlertDialogTrigger>
+              </Button></AlertDialogTrigger>
               <AlertDialogContent size="sm">
                 <AlertDialogHeader>
                   <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>

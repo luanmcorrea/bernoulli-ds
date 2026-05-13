@@ -70,9 +70,9 @@ function QuestionList({
   questions: { q: string; a: string }[]
 }) {
   return (
-    <Accordion defaultValue={[0]}>
+    <Accordion type="single" collapsible defaultValue="0">
       {questions.map((item, index) => (
-        <AccordionItem key={index} value={index}>
+        <AccordionItem key={index} value={String(index)}>
           <AccordionTrigger>{item.q}</AccordionTrigger>
           <AccordionContent>{item.a}</AccordionContent>
         </AccordionItem>

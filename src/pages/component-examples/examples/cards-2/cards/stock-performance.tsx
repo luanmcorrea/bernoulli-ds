@@ -27,7 +27,8 @@ import {
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Separator } from "@/components/ui/separator"
 
-const TICKERS = ["VOO", "VIG", "AAPL", "MSFT", "GOOGL", "AMZN", "TSLA"]
+const _TICKERS = ["VOO", "VIG", "AAPL", "MSFT", "GOOGL", "AMZN", "TSLA"]
+void _TICKERS
 
 const CHART_DATA: Record<string, { month: string; price: number }[]> = {
   VOO: [
@@ -80,7 +81,6 @@ export function StockPerformance() {
           <Field>
             <FieldLabel htmlFor="ticker-select">Ticker</FieldLabel>
             <Combobox
-              items={TICKERS}
               value={ticker}
               onValueChange={(value) => {
                 if (value !== null) setTicker(value)

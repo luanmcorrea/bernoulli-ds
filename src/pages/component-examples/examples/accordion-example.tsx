@@ -52,7 +52,7 @@ function AccordionBasic() {
 
   return (
     <Example title="Basic">
-      <Accordion className="mx-auto max-w-lg">
+      <Accordion type="single" collapsible className="mx-auto max-w-lg">
         {items.map((item) => (
           <AccordionItem key={item.value} value={item.value}>
             <AccordionTrigger>{item.trigger}</AccordionTrigger>
@@ -84,7 +84,7 @@ function AccordionMultiple() {
 
   return (
     <Example title="Multiple">
-      <Accordion multiple className="mx-auto max-w-lg">
+      <Accordion  type="multiple" className="mx-auto max-w-lg">
         {items.map((item) => (
           <AccordionItem key={item.value} value={item.value}>
             <AccordionTrigger>{item.trigger}</AccordionTrigger>
@@ -214,7 +214,7 @@ function AccordionInCard() {
         </CardHeader>
         <CardContent>
           <Accordion
-            multiple
+             type="multiple"
             defaultValue={["plans"]}
             className="style-maia:rounded-md style-mira:rounded-md"
           >
@@ -258,13 +258,13 @@ function AccordionWithDisabled() {
 
   return (
     <Example title="With Disabled">
-      <Accordion className="mx-auto max-w-lg overflow-hidden border rounded-lg style-nova:rounded-lg style-lyra:rounded-none style-maia:rounded-lg style-mira:rounded-lg style-luma:rounded-xl">
+      <Accordion type="single" collapsible className="mx-auto max-w-lg overflow-hidden border rounded-lg style-nova:rounded-lg style-lyra:rounded-none style-maia:rounded-lg style-mira:rounded-lg style-luma:rounded-xl">
         {items.map((item) => (
           <AccordionItem
             key={item.value}
             value={item.value}
             disabled={item.disabled}
-            className="p-1 data-open:bg-muted/50"
+            className="p-1 data-[state=open]:bg-muted/50"
           >
             <AccordionTrigger className="px-4 style-nova:px-2.5 style-lyra:px-2">
               {item.trigger}

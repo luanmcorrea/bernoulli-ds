@@ -373,10 +373,7 @@ function InputGroupWithTooltip({
             <InputGroupAddon align="inline-end">
               <Tooltip>
                 <TooltipTrigger
-                  render={
-                    <InputGroupButton className="rounded-full" size="icon-xs" />
-                  }
-                >
+                 asChild><InputGroupButton className="rounded-full" size="icon-xs">
                   <IconPlaceholder
                     lucide="InfoIcon"
                     tabler="IconInfoCircle"
@@ -384,7 +381,7 @@ function InputGroupWithTooltip({
                     phosphor="InfoIcon"
                     remixicon="RiInformationLine"
                   />
-                </TooltipTrigger>
+                </InputGroupButton></TooltipTrigger>
                 <TooltipContent>This is content in a tooltip.</TooltipContent>
               </Tooltip>
             </InputGroupAddon>
@@ -400,10 +397,7 @@ function InputGroupWithTooltip({
             <InputGroupAddon>
               <DropdownMenu>
                 <DropdownMenuTrigger
-                  render={
-                    <InputGroupButton className="text-muted-foreground tabular-nums" />
-                  }
-                >
+                 asChild><InputGroupButton className="text-muted-foreground tabular-nums">
                   {country}{" "}
                   <IconPlaceholder
                     lucide="ChevronDownIcon"
@@ -412,7 +406,7 @@ function InputGroupWithTooltip({
                     phosphor="CaretDownIcon"
                     remixicon="RiArrowDownSLine"
                   />
-                </DropdownMenuTrigger>
+                </InputGroupButton></DropdownMenuTrigger>
                 <DropdownMenuContent
                   align="start"
                   className="min-w-16"
@@ -440,7 +434,7 @@ function InputGroupWithTooltip({
           <FieldLabel htmlFor="input-secure-19">Popover</FieldLabel>
           <InputGroup>
             <Popover>
-              <PopoverTrigger render={<InputGroupAddon />} nativeButton={false}>
+              <PopoverTrigger asChild><InputGroupAddon>
                 <InputGroupButton variant="ghost" size="icon-xs">
                   <IconPlaceholder
                     lucide="InfoIcon"
@@ -450,7 +444,7 @@ function InputGroupWithTooltip({
                     remixicon="RiInformationLine"
                   />
                 </InputGroupButton>
-              </PopoverTrigger>
+              </InputGroupAddon></PopoverTrigger>
               <PopoverContent align="start">
                 <PopoverHeader>
                   <PopoverTitle>Your connection is not secure.</PopoverTitle>

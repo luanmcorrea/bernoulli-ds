@@ -30,7 +30,7 @@ function SheetWithForm() {
   return (
     <Example title="With Form">
       <Sheet>
-        <SheetTrigger render={<Button variant="outline" />}>Open</SheetTrigger>
+        <SheetTrigger asChild><Button variant="outline">Open</Button></SheetTrigger>
         <SheetContent>
           <SheetHeader>
             <SheetTitle>Edit profile</SheetTitle>
@@ -53,7 +53,7 @@ function SheetWithForm() {
           </div>
           <SheetFooter>
             <Button type="submit">Save changes</Button>
-            <SheetClose render={<Button variant="outline" />}>Close</SheetClose>
+            <SheetClose asChild><Button variant="outline">Close</Button></SheetClose>
           </SheetFooter>
         </SheetContent>
       </Sheet>
@@ -65,9 +65,9 @@ function SheetNoCloseButton() {
   return (
     <Example title="No Close Button">
       <Sheet>
-        <SheetTrigger render={<Button variant="outline" />}>
+        <SheetTrigger asChild><Button variant="outline">
           No Close Button
-        </SheetTrigger>
+        </Button></SheetTrigger>
         <SheetContent showCloseButton={false}>
           <SheetHeader>
             <SheetTitle>No Close Button</SheetTitle>
@@ -91,10 +91,9 @@ function SheetWithSides() {
         {SHEET_SIDES.map((side) => (
           <Sheet key={side}>
             <SheetTrigger
-              render={<Button variant="outline" className="capitalize" />}
-            >
+             asChild><Button variant="outline" className="capitalize">
               {side}
-            </SheetTrigger>
+            </Button></SheetTrigger>
             <SheetContent
               side={side}
               className="data-[side=bottom]:max-h-[50vh] data-[side=top]:max-h-[50vh]"
@@ -125,9 +124,9 @@ function SheetWithSides() {
               </div>
               <SheetFooter>
                 <Button type="submit">Save changes</Button>
-                <SheetClose render={<Button variant="outline" />}>
+                <SheetClose asChild><Button variant="outline">
                   Cancel
-                </SheetClose>
+                </Button></SheetClose>
               </SheetFooter>
             </SheetContent>
           </Sheet>

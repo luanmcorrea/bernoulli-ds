@@ -73,20 +73,18 @@ export function CodespacesCard() {
               <ItemActions>
                 <Tooltip>
                   <TooltipTrigger
-                    render={<Button variant="ghost" size="icon-sm" />}
-                  >
+                   asChild><Button variant="ghost" size="icon-sm">
                     <PlusIcon />
-                  </TooltipTrigger>
+                  </Button></TooltipTrigger>
                   <TooltipContent side="bottom">
                     Create a codespace on main
                   </TooltipContent>
                 </Tooltip>
                 <DropdownMenu>
                   <DropdownMenuTrigger
-                    render={<Button variant="ghost" size="icon-sm" />}
-                  >
+                   asChild><Button variant="ghost" size="icon-sm">
                     <DotsThreeVerticalIcon weight="bold" />
-                  </DropdownMenuTrigger>
+                  </Button></DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-56">
                     <DropdownMenuGroup>
                       <DropdownMenuItem>
@@ -218,8 +216,7 @@ export function CodespacesCard() {
               <ItemActions>
                 <Tooltip>
                   <TooltipTrigger
-                    render={<Button variant="ghost" size="icon" />}
-                  >
+                   asChild><Button variant="ghost" size="icon">
                     <IconPlaceholder
                       lucide="InfoIcon"
                       tabler="IconInfoCircle"
@@ -227,7 +224,7 @@ export function CodespacesCard() {
                       phosphor="InfoIcon"
                       remixicon="RiInformationLine"
                     />
-                  </TooltipTrigger>
+                  </Button></TooltipTrigger>
                   <TooltipContent side="left">
                     Which remote URL should I use?
                   </TooltipContent>

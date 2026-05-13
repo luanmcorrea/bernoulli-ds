@@ -45,11 +45,9 @@ export function CoverArt() {
         <Button
           variant="secondary"
           className="w-full"
-          render={<label htmlFor="cover-art" className="cursor-pointer" />}
-          nativeButton={false}
-        >
+         asChild><label htmlFor="cover-art" className="cursor-pointer">
           Upload Artwork
-        </Button>
+        </label></Button>
         <CardDescription className="text-center text-xs">
           Minimum 3000 × 3000px
           <br />

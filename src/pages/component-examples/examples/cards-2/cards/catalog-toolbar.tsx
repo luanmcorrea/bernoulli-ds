@@ -37,7 +37,7 @@ export function CatalogToolbar() {
         />
         Upload New Release
       </Button>
-      <ToggleGroup defaultValue={["releases"]} variant="outline">
+      <ToggleGroup type="multiple" defaultValue={["releases"]} variant="outline">
         <ToggleGroupItem value="all-tracks">All Tracks</ToggleGroupItem>
         <ToggleGroupItem value="releases">Releases</ToggleGroupItem>
         <ToggleGroupItem value="top-earners">Top Earners</ToggleGroupItem>

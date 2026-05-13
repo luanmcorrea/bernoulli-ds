@@ -45,17 +45,15 @@ function EmptyBasic() {
         </EmptyHeader>
         <EmptyContent>
           <div className="flex gap-2">
-            <Button render={<a href="#" />} nativeButton={false}>
+            <Button asChild><a href="#">
               Create project
-            </Button>
+            </a></Button>
             <Button variant="outline">Import project</Button>
           </div>
           <Button
             variant="link"
-            render={<a href="#" />}
             className="text-muted-foreground"
-            nativeButton={false}
-          >
+           asChild><a href="#">
             Learn more{" "}
             <IconPlaceholder
               lucide="ArrowUpRightIcon"
@@ -64,7 +62,7 @@ function EmptyBasic() {
               phosphor="ArrowUpRightIcon"
               remixicon="RiArrowRightUpLine"
             />
-          </Button>
+          </a></Button>
         </EmptyContent>
       </Empty>
     </Example>
@@ -85,10 +83,8 @@ function EmptyWithMutedBackground() {
           <Button>Try again</Button>
           <Button
             variant="link"
-            render={<a href="#" />}
             className="text-muted-foreground"
-            nativeButton={false}
-          >
+           asChild><a href="#">
             Learn more{" "}
             <IconPlaceholder
               lucide="ArrowUpRightIcon"
@@ -97,7 +93,7 @@ function EmptyWithMutedBackground() {
               phosphor="ArrowUpRightIcon"
               remixicon="RiArrowRightUpLine"
             />
-          </Button>
+          </a></Button>
         </EmptyContent>
       </Empty>
     </Example>
@@ -236,17 +232,15 @@ function EmptyInCard() {
         </EmptyHeader>
         <EmptyContent>
           <div className="flex gap-2">
-            <Button render={<a href="#" />} nativeButton={false}>
+            <Button asChild><a href="#">
               Create project
-            </Button>
+            </a></Button>
             <Button variant="outline">Import project</Button>
           </div>
           <Button
             variant="link"
-            render={<a href="#" />}
             className="text-muted-foreground"
-            nativeButton={false}
-          >
+           asChild><a href="#">
             Learn more{" "}
             <IconPlaceholder
               lucide="ArrowUpRightIcon"
@@ -255,7 +249,7 @@ function EmptyInCard() {
               phosphor="ArrowUpRightIcon"
               remixicon="RiArrowRightUpLine"
             />
-          </Button>
+          </a></Button>
         </EmptyContent>
       </Empty>
     </Example>

@@ -291,12 +291,10 @@ function AvatarWithLevel() {
   return (
     <Example title="Level" className="relative">
       <Popover>
-        <PopoverTrigger render={
+        <PopoverTrigger asChild>
           <Button variant="ghost-neutral" size="icon" className="absolute top-3 right-3">
             <SlidersHorizontalIcon />
           </Button>
-          }>
-          Open Popover
         </PopoverTrigger>
         <PopoverContent align="end" className="w-fit">
           <Field className="w-40">

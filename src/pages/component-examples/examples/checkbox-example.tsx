@@ -287,13 +287,13 @@ function CheckboxCustom() {
               >
                 <Field
                   orientation="horizontal"
-                  className="overflow-hidden  px-3! py-1.5! transition-all has-data-checked:px-2! has-data-checked:gap-1.5"
+                  className="overflow-hidden  px-3! py-1.5! transition-all has-data-[state=checked]:px-2! has-data-[state=checked]:gap-1.5"
                 >
                   <Checkbox
                     value={option.value}
                     id={option.value}
                     defaultChecked={option.value === "social-media"}
-                    className="-ml-6 rounded-full -translate-x-2 transition-all has-data-checked:ml-0 has-data-checked:translate-x-0"
+                    className="-ml-6 rounded-full -translate-x-2 transition-all has-data-[state=checked]:ml-0 has-data-[state=checked]:translate-x-0"
                   />
                   <FieldTitle>{option.label}</FieldTitle>
                 </Field>
