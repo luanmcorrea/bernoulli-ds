@@ -41,12 +41,6 @@ export function ReportBug() {
             <Field>
               <FieldLabel htmlFor="bug-severity">Severity</FieldLabel>
               <Select
-                items={[
-                  { label: "Critical", value: "critical" },
-                  { label: "High", value: "high" },
-                  { label: "Medium", value: "medium" },
-                  { label: "Low", value: "low" },
-                ]}
                 defaultValue="medium"
               >
                 <SelectTrigger id="bug-severity" className="w-full">
@@ -65,12 +59,6 @@ export function ReportBug() {
             <Field>
               <FieldLabel htmlFor="bug-component">Component</FieldLabel>
               <Select
-                items={[
-                  { label: "Dashboard", value: "dashboard" },
-                  { label: "Auth", value: "auth" },
-                  { label: "API", value: "api" },
-                  { label: "Billing", value: "billing" },
-                ]}
                 defaultValue="dashboard"
               >
                 <SelectTrigger id="bug-component" className="w-full">

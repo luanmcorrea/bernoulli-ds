@@ -54,8 +54,9 @@ export function RollerShades() {
       </CardContent>
       <CardFooter>
         <ToggleGroup
+          type="multiple"
           value={[preset]}
-          onValueChange={(value) => {
+          onValueChange={(value: string[]) => {
             const v = value[0]
             if (v === "open") setPosition([0])
             if (v === "half") setPosition([50])

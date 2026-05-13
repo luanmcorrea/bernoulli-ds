@@ -35,7 +35,7 @@ export function ThemeSwitcher({
     <SidebarMenu>
       <SidebarMenuItem>
         <DropdownMenu>
-          <DropdownMenuTrigger render={<SidebarMenuButton size="lg" />}>
+          <DropdownMenuTrigger asChild><SidebarMenuButton size="lg">
             <Item className="gap-2 p-0">
               <div className="flex size-8 items-center justify-center rounded-sm bg-primary text-primary-foreground">
                 <SwatchesIcon />
@@ -47,10 +47,10 @@ export function ThemeSwitcher({
                 </ItemDescription>
               </ItemContent>
               <ItemActions>
-                <CaretDownIcon className="size-4 transition-transform duration-200 group-data-popup-open/menu-button:rotate-180" />
+                <CaretDownIcon className="size-4 transition-transform duration-200 group-data-[state=open]/menu-button:rotate-180" />
               </ItemActions>
             </Item>
-          </DropdownMenuTrigger>
+          </SidebarMenuButton></DropdownMenuTrigger>
           <DropdownMenuContent>
             {brandThemeOptions.map((theme) => (
               <DropdownMenuItem

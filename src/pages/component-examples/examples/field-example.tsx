@@ -202,31 +202,26 @@ function TextareaFields() {
 
 function SelectFields() {
   const basicItems = [
-    { label: "Choose an option", value: null },
     { label: "Option 1", value: "option1" },
     { label: "Option 2", value: "option2" },
     { label: "Option 3", value: "option3" },
   ]
   const countryItems = [
-    { label: "Select your country", value: null },
     { label: "United States", value: "us" },
     { label: "United Kingdom", value: "uk" },
     { label: "Canada", value: "ca" },
   ]
   const timezoneItems = [
-    { label: "Select timezone", value: null },
     { label: "UTC", value: "utc" },
     { label: "Eastern Time", value: "est" },
     { label: "Pacific Time", value: "pst" },
   ]
   const invalidItems = [
-    { label: "This field has an error", value: null },
     { label: "Option 1", value: "option1" },
     { label: "Option 2", value: "option2" },
     { label: "Option 3", value: "option3" },
   ]
   const disabledItems = [
-    { label: "Cannot select", value: null },
     { label: "Option 1", value: "option1" },
     { label: "Option 2", value: "option2" },
     { label: "Option 3", value: "option3" },
@@ -237,9 +232,9 @@ function SelectFields() {
       <FieldGroup>
         <Field>
           <FieldLabel htmlFor="select-basic">Basic Select</FieldLabel>
-          <Select items={basicItems}>
+          <Select>
             <SelectTrigger id="select-basic">
-              <SelectValue />
+              <SelectValue placeholder="Choose an option" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
@@ -254,9 +249,9 @@ function SelectFields() {
         </Field>
         <Field>
           <FieldLabel htmlFor="select-country">Country</FieldLabel>
-          <Select items={countryItems}>
+          <Select>
             <SelectTrigger id="select-country">
-              <SelectValue />
+              <SelectValue placeholder="Select your country" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
@@ -277,9 +272,9 @@ function SelectFields() {
           <FieldDescription>
             Choose your local timezone for accurate scheduling.
           </FieldDescription>
-          <Select items={timezoneItems}>
+          <Select>
             <SelectTrigger id="select-timezone">
-              <SelectValue />
+              <SelectValue placeholder="Select timezone" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
@@ -294,9 +289,9 @@ function SelectFields() {
         </Field>
         <Field data-invalid>
           <FieldLabel htmlFor="select-invalid">Invalid Select</FieldLabel>
-          <Select items={invalidItems}>
+          <Select>
             <SelectTrigger id="select-invalid" aria-invalid>
-              <SelectValue />
+              <SelectValue placeholder="This field has an error" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
@@ -316,9 +311,9 @@ function SelectFields() {
           <FieldLabel htmlFor="select-disabled-field">
             Disabled Field
           </FieldLabel>
-          <Select items={disabledItems} disabled>
+          <Select disabled>
             <SelectTrigger id="select-disabled-field">
-              <SelectValue />
+              <SelectValue placeholder="Cannot select" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
@@ -935,7 +930,6 @@ function InputOTPFields() {
 
 function HorizontalFields() {
   const basicItems = [
-    { label: "Select a fruit", value: null },
     { label: "Apple", value: "apple" },
     { label: "Banana", value: "banana" },
     { label: "Orange", value: "orange" },
@@ -979,9 +973,9 @@ function HorizontalFields() {
             <FieldLabel htmlFor="horizontal-select">Favorite Fruit</FieldLabel>
             <FieldDescription>Choose your favorite fruit.</FieldDescription>
           </FieldContent>
-          <Select items={basicItems}>
+          <Select>
             <SelectTrigger id="horizontal-select">
-              <SelectValue />
+              <SelectValue placeholder="Select a fruit" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>

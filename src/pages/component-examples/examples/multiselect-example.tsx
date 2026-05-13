@@ -118,7 +118,7 @@ function MultiselectSearchLargeList() {
   ]
   return (
     <Example title="Search & Large List">
-      <Multiselect items={items}>
+      <Multiselect>
         <MultiselectTrigger className="w-full max-w-72">
           <MultiselectValue placeholder="Select fruits"/>
         </MultiselectTrigger>
@@ -148,7 +148,7 @@ function MultielectSmall() {
   ]
   return (
     <Example title="Small">
-      <Multiselect items={items}>
+      <Multiselect>
         <MultiselectTrigger size="sm" className="w-full max-w-72">
           <MultiselectValue placeholder="Select fruits" />
         </MultiselectTrigger>
@@ -283,7 +283,7 @@ function MultiselectWithField() {
     <Example title="With Field">
       <Field>
         <FieldLabel htmlFor="multiselect-fruit">Favorite fruits</FieldLabel>
-        <Multiselect items={items}>
+        <Multiselect>
           <MultiselectTrigger id="multiselect-fruit">
             <MultiselectValue placeholder="Select fruits" />
           </MultiselectTrigger>
@@ -317,7 +317,7 @@ function MultiselectInvalid() {
   return (
     <Example title="Invalid">
       <div className="flex flex-col gap-4">
-        <Multiselect items={items}>
+        <Multiselect>
           <MultiselectTrigger aria-invalid="true" className="w-full max-w-72">
             <MultiselectValue placeholder="Select fruits"/>
           </MultiselectTrigger>
@@ -333,7 +333,7 @@ function MultiselectInvalid() {
         </Multiselect>
         <Field data-invalid>
           <FieldLabel htmlFor="multiselect-fruit-invalid">Favorite Fruit</FieldLabel>
-          <Multiselect items={items}>
+          <Multiselect>
             <MultiselectTrigger id="multiselect-fruit-invalid" aria-invalid>
               <MultiselectValue placeholder="Select fruits"/>
             </MultiselectTrigger>

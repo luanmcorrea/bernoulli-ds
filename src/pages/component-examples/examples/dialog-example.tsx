@@ -76,9 +76,9 @@ function DialogWithForm() {
     <Example title="With Form" className="items-center justify-center">
       <Dialog>
         <form>
-          <DialogTrigger render={<Button variant="outline" />}>
+          <DialogTrigger asChild><Button variant="outline">
             Edit Profile
-          </DialogTrigger>
+          </Button></DialogTrigger>
           <DialogContent>
             <DialogHeader>
               <DialogTitle>Edit profile</DialogTitle>
@@ -102,9 +102,9 @@ function DialogWithForm() {
               </Field>
             </FieldGroup>
             <DialogFooter>
-              <DialogClose render={<Button variant="outline" />}>
+              <DialogClose asChild><Button variant="outline">
                 Cancel
-              </DialogClose>
+              </Button></DialogClose>
               <Button type="submit">Save changes</Button>
             </DialogFooter>
           </DialogContent>
@@ -118,9 +118,9 @@ function DialogScrollableContent() {
   return (
     <Example title="Scrollable Content" className="items-center justify-center">
       <Dialog>
-        <DialogTrigger render={<Button variant="outline" />}>
+        <DialogTrigger asChild><Button variant="outline">
           Scrollable Content
-        </DialogTrigger>
+        </Button></DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Scrollable Content</DialogTitle>
@@ -154,9 +154,9 @@ function DialogWithStickyFooter() {
   return (
     <Example title="With Sticky Footer" className="items-center justify-center">
       <Dialog>
-        <DialogTrigger render={<Button variant="outline" />}>
+        <DialogTrigger asChild><Button variant="outline">
           Sticky Footer
-        </DialogTrigger>
+        </Button></DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Scrollable Content</DialogTitle>
@@ -181,9 +181,9 @@ function DialogWithStickyFooter() {
             ))}
           </div>
           <DialogFooter>
-            <DialogClose render={<Button variant="outline" />}>
+            <DialogClose asChild><Button variant="outline">
               Close
-            </DialogClose>
+            </Button></DialogClose>
           </DialogFooter>
         </DialogContent>
       </Dialog>
@@ -195,9 +195,9 @@ function DialogNoCloseButton() {
   return (
     <Example title="No Close Button" className="items-center justify-center">
       <Dialog>
-        <DialogTrigger render={<Button variant="outline" />}>
+        <DialogTrigger asChild><Button variant="outline">
           No Close Button
-        </DialogTrigger>
+        </Button></DialogTrigger>
         <DialogContent showCloseButton={false}>
           <DialogHeader>
             <DialogTitle>No Close Button</DialogTitle>
@@ -207,9 +207,9 @@ function DialogNoCloseButton() {
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <DialogClose render={<Button variant="outline" />}>
+            <DialogClose asChild><Button variant="outline">
               Close
-            </DialogClose>
+            </Button></DialogClose>
           </DialogFooter>
         </DialogContent>
       </Dialog>
@@ -274,9 +274,9 @@ function DialogChatSettings() {
   return (
     <Example title="Chat Settings" className="items-center justify-center">
       <Dialog>
-        <DialogTrigger render={<Button variant="outline" />}>
+        <DialogTrigger asChild><Button variant="outline">
           Chat Settings
-        </DialogTrigger>
+        </Button></DialogTrigger>
         <DialogContent className="sm:min-w-lg flex flex-col">
           <DialogHeader>
             <DialogTitle>Chat Settings</DialogTitle>
@@ -304,7 +304,6 @@ function DialogChatSettings() {
                       <Field orientation="horizontal">
                         <FieldLabel htmlFor="theme">Theme</FieldLabel>
                         <Select
-                          items={themes}
                           value={theme}
                           onValueChange={(value) => setTheme(value as string)}
                         >
@@ -331,7 +330,6 @@ function DialogChatSettings() {
                           Accent Color
                         </FieldLabel>
                         <Select
-                          items={accents}
                           value={accentColor}
                           onValueChange={(value) =>
                             setAccentColor(value as string)
@@ -367,7 +365,6 @@ function DialogChatSettings() {
                           </FieldDescription>
                         </FieldContent>
                         <Select
-                          items={spokenLanguages}
                           value={spokenLanguage}
                           onValueChange={(value) =>
                             setSpokenLanguage(value as string)
@@ -394,7 +391,6 @@ function DialogChatSettings() {
                       <Field orientation="horizontal">
                         <FieldLabel htmlFor="voice">Voice</FieldLabel>
                         <Select
-                          items={voices}
                           value={voice}
                           onValueChange={(value) => setVoice(value as string)}
                         >
@@ -478,8 +474,7 @@ function DialogChatSettings() {
                         <InputGroupAddon align="inline-end">
                           <Tooltip>
                             <TooltipTrigger
-                              render={<InputGroupButton size="icon-xs" />}
-                            >
+                             asChild><InputGroupButton size="icon-xs">
                               <IconPlaceholder
                                 lucide="InfoIcon"
                                 tabler="IconInfoCircle"
@@ -487,7 +482,7 @@ function DialogChatSettings() {
                                 phosphor="InfoIcon"
                                 remixicon="RiInformationLine"
                               />
-                            </TooltipTrigger>
+                            </InputGroupButton></TooltipTrigger>
                             <TooltipContent className="flex items-center gap-2">
                               Used to identify you in the chat. <Kbd>N</Kbd>
                             </TooltipContent>

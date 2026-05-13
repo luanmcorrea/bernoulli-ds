@@ -49,16 +49,15 @@ function PaginationLink({
       variant={isActive ? "default" : "outline"}
       size={size}
       className={cn(className)}
-      nativeButton={false}
-      render={
-        <a
-          aria-current={isActive ? "page" : undefined}
-          data-slot="pagination-link"
-          data-active={isActive}
-          {...props}
-        />
-      }
-    />
+      asChild
+    >
+      <a
+        aria-current={isActive ? "page" : undefined}
+        data-slot="pagination-link"
+        data-active={isActive}
+        {...props}
+      />
+    </Button>
   )
 }
 
@@ -71,7 +70,7 @@ function PaginationPrevious({
     <PaginationLink
       aria-label="Go to previous page"
       size="default"
-      className={cn("pl-2!", className)}
+      className={cn("pl-2! border-transparent", className)}
       {...props}
     >
       <CaretLeftIcon data-icon="inline-start" />
@@ -89,7 +88,7 @@ function PaginationNext({
     <PaginationLink
       aria-label="Go to next page"
       size="default"
-      className={cn("pr-2!", className)}
+      className={cn("pr-2! border-transparent", className)}
       {...props}
     >
       <span className="hidden sm:block">{text}</span>

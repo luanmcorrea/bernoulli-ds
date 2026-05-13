@@ -40,7 +40,6 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { Toaster } from "@/components/ui/sonner"
 import { cn } from "@/lib/utils"
 import { AppSidebar } from "@/pages/component-examples/components/app-sidebar"
 import {
@@ -88,8 +87,7 @@ function PageHeader({ currentSection, onNavigate }: PageHeaderProps) {
   }
 
   return (
-    <header className="flex h-16 items-center gap-3 px-4 md:px-6">
-      <Toaster richColors position="top-center" />
+    <header className="sticky left-0 top-0 z-1 flex h-16 items-center gap-3 bg-background/60 supports-backdrop-filter:backdrop-blur-md px-4 md:px-6">
       <SidebarTrigger className="-ml-1" />
       <Separator orientation="vertical" className="my-auto mr-2 h-4" />
       <Breadcrumb>
@@ -225,14 +223,14 @@ export function ComponentExamplesPage() {
         activeSection={activeSection.slug}
         onNavigate={(slug) => handleNavigate(slug)}
       />
-      <SidebarInset className="max-h-screen w-full overflow-hidden">
+      <SidebarInset className="max-h-screen w-full overflow-auto">
         <PageHeader
           currentSection={activeSection}
           onNavigate={(slug) => handleNavigate(slug)}
         />
         <div
           className={cn(
-            "flex min-h-0 flex-1 flex-col overflow-auto",
+            "flex min-h-0 flex-1 flex-col z-0",
             activeSection.slug === "sidebar" && "bg-muted/20"
           )}
         >

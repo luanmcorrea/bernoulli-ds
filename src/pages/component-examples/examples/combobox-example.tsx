@@ -1175,8 +1175,8 @@ function ComboboxInDialog() {
   return (
     <Example title="Combobox in Dialog">
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger render={<Button variant="outline" />}>
-          Open Dialog
+        <DialogTrigger asChild>
+          <Button variant="outline">Open Dialog</Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-106.25">
           <DialogHeader>
@@ -1232,10 +1232,6 @@ function ComboboxInDialog() {
 
 const items = [
   {
-    label: "Select a framework",
-    value: null,
-  },
-  {
     label: "React",
     value: "react",
   },
@@ -1281,9 +1277,9 @@ function ComboboxWithOtherInputs() {
           </ComboboxList>
         </ComboboxContent>
       </Combobox>
-      <Select items={items}>
+      <Select>
         <SelectTrigger className="w-52">
-          <SelectValue />
+          <SelectValue placeholder="Select a framework" />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>

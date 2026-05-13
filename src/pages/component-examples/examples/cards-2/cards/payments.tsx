@@ -40,8 +40,7 @@ export function Payments() {
             <BreadcrumbItem>
               <DropdownMenu>
                 <DropdownMenuTrigger
-                  render={<Button size="icon-sm" variant="ghost" />}
-                >
+                 asChild><Button size="icon-sm" variant="ghost">
                   <IconPlaceholder
                     lucide="MoreHorizontalIcon"
                     tabler="IconDots"
@@ -50,7 +49,7 @@ export function Payments() {
                     remixicon="RiMoreLine"
                   />
                   <span className="sr-only">Account options</span>
-                </DropdownMenuTrigger>
+                </Button></DropdownMenuTrigger>
                 <DropdownMenuContent align="start">
                   <DropdownMenuGroup>
                     <DropdownMenuItem>Profile</DropdownMenuItem>
@@ -69,7 +68,7 @@ export function Payments() {
       </CardHeader>
       <CardContent>
         <ItemGroup>
-          <Item variant="muted" render={<a href="#" />}>
+          <Item variant="muted" asChild><a href="#">
             <ItemMedia variant="icon">
               <IconPlaceholder
                 lucide="GaugeIcon"
@@ -93,8 +92,8 @@ export function Payments() {
               remixicon="RiArrowRightSLine"
               className="size-4 shrink-0 text-muted-foreground"
             />
-          </Item>
-          <Item variant="muted" render={<a href="#" />}>
+          </a></Item>
+          <Item variant="muted" asChild><a href="#">
             <ItemMedia variant="icon">
               <IconPlaceholder
                 lucide="CalendarIcon"
@@ -118,8 +117,8 @@ export function Payments() {
               remixicon="RiArrowRightSLine"
               className="size-4 shrink-0 text-muted-foreground"
             />
-          </Item>
-          <Item variant="muted" render={<a href="#" />}>
+          </a></Item>
+          <Item variant="muted" asChild><a href="#">
             <ItemMedia variant="icon">
               <IconPlaceholder
                 lucide="RepeatIcon"
@@ -143,8 +142,8 @@ export function Payments() {
               remixicon="RiArrowRightSLine"
               className="size-4 shrink-0 text-muted-foreground"
             />
-          </Item>
-          <Item variant="muted" render={<a href="#" />}>
+          </a></Item>
+          <Item variant="muted" asChild><a href="#">
             <ItemMedia variant="icon">
               <IconPlaceholder
                 lucide="RefreshCwIcon"
@@ -168,7 +167,7 @@ export function Payments() {
               remixicon="RiArrowRightSLine"
               className="size-4 shrink-0 text-muted-foreground"
             />
-          </Item>
+          </a></Item>
         </ItemGroup>
       </CardContent>
     </Card>

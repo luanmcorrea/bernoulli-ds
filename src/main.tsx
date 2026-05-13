@@ -7,12 +7,14 @@ import App from "./App.tsx"
 import { BrandThemeProvider } from "@/components/providers/brand-theme-provider.tsx"
 import { ThemeProvider } from "@/components/providers/theme-provider.tsx"
 import { TooltipProvider } from "@/components/ui/tooltip.tsx"
+import { Toaster } from "@/components/ui/sonner"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider>
       <TooltipProvider>
         <BrandThemeProvider>
+          <Toaster richColors position="top-center" />
           <App />
         </BrandThemeProvider>
       </TooltipProvider>

@@ -1,5 +1,7 @@
+"use client"
+
 import * as React from "react"
-import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar"
+import { Avatar as AvatarPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 
@@ -7,7 +9,7 @@ function Avatar({
   className,
   size = "default",
   ...props
-}: AvatarPrimitive.Root.Props & {
+}: React.ComponentProps<typeof AvatarPrimitive.Root> & {
   size?: "default" | "xs" | "sm" | "lg" | "xl" | "2xl"
 }) {
   return (
@@ -23,7 +25,10 @@ function Avatar({
   )
 }
 
-function AvatarImage({ className, ...props }: AvatarPrimitive.Image.Props) {
+function AvatarImage({
+  className,
+  ...props
+}: React.ComponentProps<typeof AvatarPrimitive.Image>) {
   return (
     <AvatarPrimitive.Image
       data-slot="avatar-image"
@@ -39,7 +44,7 @@ function AvatarImage({ className, ...props }: AvatarPrimitive.Image.Props) {
 function AvatarFallback({
   className,
   ...props
-}: AvatarPrimitive.Fallback.Props) {
+}: React.ComponentProps<typeof AvatarPrimitive.Fallback>) {
   return (
     <AvatarPrimitive.Fallback
       data-slot="avatar-fallback"
@@ -114,21 +119,18 @@ function AvatarProgressLevel({
       {...props}
       viewBox="0 0 100 100"
     >
-      {/* Base track */}
       <circle
-        cx={size/2}
-        cy={size/2}
+        cx={size / 2}
+        cy={size / 2}
         r={radius}
         fill="none"
         stroke="currentColor"
         className="text-muted"
         strokeWidth={strokeWidth}
       />
-
-      {/* Progress */}
       <circle
-        cx={size/2}
-        cy={size/2}
+        cx={size / 2}
+        cy={size / 2}
         r={radius}
         fill="none"
         stroke="currentColor"

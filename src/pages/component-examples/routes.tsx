@@ -25,6 +25,7 @@ import InputOTPExample from "@/pages/component-examples/examples/input-otp-examp
 import InputExample from "@/pages/component-examples/examples/input-example"
 import LabelExample from "@/pages/component-examples/examples/label-example"
 import MultiselectExample from "@/pages/component-examples/examples/multiselect-example"
+import NativeSelectExample from "@/pages/component-examples/examples/native-select-example"
 import PaginationExample from "@/pages/component-examples/examples/pagination-example"
 import PopoverExample from "@/pages/component-examples/examples/popover-example"
 import Page from "@/pages/component-examples/examples/dashboard/page"
@@ -94,6 +95,7 @@ export const sections: SectionGroup[] = [
       { slug: "input-otp", title: "Input OTP", extra: false, path: "/input-otp", component: InputOTPExample, },
       { slug: "label", title: "Label", extra: false, path: "/label", component: LabelExample, },
       { slug: "multiselect", title: "Multiselect", extra: true, path: "/multiselect", component: MultiselectExample, },
+      { slug: "native-select", title: "Native Select", extra: false, path: "/native-select", component: NativeSelectExample, },
       { slug: "pagination", title: "Pagination", extra: false, path: "/pagination", component: PaginationExample, },
       { slug: "popover", title: "Popover", extra: false, path: "/popover", component: PopoverExample, },
       { slug: "progress", title: "Progress", extra: false, path: "/progress", component: ProgressExample, },

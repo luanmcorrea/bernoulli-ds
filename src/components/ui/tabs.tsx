@@ -1,4 +1,7 @@
-import { Tabs as TabsPrimitive } from "@base-ui/react/tabs"
+"use client"
+
+import * as React from "react"
+import { Tabs as TabsPrimitive } from "radix-ui"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
@@ -7,13 +10,13 @@ function Tabs({
   className,
   orientation = "horizontal",
   ...props
-}: TabsPrimitive.Root.Props) {
+}: React.ComponentProps<typeof TabsPrimitive.Root>) {
   return (
     <TabsPrimitive.Root
       data-slot="tabs"
-      data-orientation={orientation}
+      orientation={orientation}
       className={cn(
-        "group/tabs flex gap-2 data-horizontal:flex-col",
+        "group/tabs flex gap-2 data-[orientation=horizontal]:flex-col",
         className
       )}
       {...props}
@@ -22,18 +25,20 @@ function Tabs({
 }
 
 const tabsListVariants = cva(
-  "group/tabs-list inline-flex w-fit min-w-fit items-center justify-center rounded-full gap-1 bg-none p-0 text-muted-foreground group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col group-data-vertical/tabs:rounded-2xl data-[variant=line]:rounded-none",
+  "group/tabs-list inline-flex w-fit min-w-fit items-center justify-center rounded-full gap-1 bg-none p-0 text-muted-foreground group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col group-data-[orientation=vertical]/tabs:rounded-2xl data-[variant=line]:rounded-none",
   {
     variants: {
       variant: {
         default: "bg-muted p-1.5",
         ghost: "",
-        outline: "gap-2 [&_[data-slot=tabs-trigger]]:data-active:text-primary [&_[data-slot=tabs-trigger]]:data-active:bg-accent [&_[data-slot=tabs-trigger]]:border [&_[data-slot=tabs-trigger]]:data-active:border-primary [&_[data-slot=tabs-trigger]]:hover:not-data-active:border-secondary [&_[data-slot=tabs-trigger]]:data-active:dark:bg-accent/30 [&_[data-slot=tabs-trigger]]:data-active:dark:border-secondary [&_[data-slot=tabs-trigger]]:data-active:dark:text-secondary",
-        line: "[&_[data-slot=tabs-trigger]]:data-active:text-primary [&_[data-slot=tabs-trigger]]:data-active:bg-transparent [&_[data-slot=tabs-trigger]]:data-active:dark:text-secondary",
+        outline:
+          "gap-2 [&_[data-slot=tabs-trigger]]:data-[state=active]:text-primary [&_[data-slot=tabs-trigger]]:data-[state=active]:bg-accent [&_[data-slot=tabs-trigger]]:border [&_[data-slot=tabs-trigger]]:data-[state=active]:border-primary [&_[data-slot=tabs-trigger]]:hover:not-data-[state=active]:border-secondary [&_[data-slot=tabs-trigger]]:data-[state=active]:dark:bg-accent/30 [&_[data-slot=tabs-trigger]]:data-[state=active]:dark:border-secondary [&_[data-slot=tabs-trigger]]:data-[state=active]:dark:text-secondary",
+        line: "[&_[data-slot=tabs-trigger]]:data-[state=active]:text-primary [&_[data-slot=tabs-trigger]]:data-[state=active]:bg-transparent [&_[data-slot=tabs-trigger]]:data-[state=active]:dark:text-secondary",
       },
       size: {
         sm: "[&_[data-slot=tabs-trigger]]:h-8 [&_[data-slot=tabs-trigger]]:px-3 [&_[data-slot=tabs-trigger]]:text-sm data-[variant=line]:[&_[data-slot=tabs-trigger]]:p-2",
-        default: "[&_[data-slot=tabs-trigger]]:h-10 [&_[data-slot=tabs-trigger]]:px-4 data-[variant=line]:[&_[data-slot=tabs-trigger]]:p-2",
+        default:
+          "[&_[data-slot=tabs-trigger]]:h-10 [&_[data-slot=tabs-trigger]]:px-4 data-[variant=line]:[&_[data-slot=tabs-trigger]]:p-2",
         lg: "[&_[data-slot=tabs-trigger]]:h-12 [&_[data-slot=tabs-trigger]]:px-4 data-[variant=line]:[&_[data-slot=tabs-trigger]]:p-2.5",
       },
     },
@@ -49,7 +54,8 @@ function TabsList({
   variant = "default",
   size = "default",
   ...props
-}: TabsPrimitive.List.Props & VariantProps<typeof tabsListVariants>) {
+}: React.ComponentProps<typeof TabsPrimitive.List> &
+  VariantProps<typeof tabsListVariants>) {
   return (
     <TabsPrimitive.List
       data-slot="tabs-list"
@@ -61,14 +67,17 @@ function TabsList({
   )
 }
 
-function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
+function TabsTrigger({
+  className,
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.Trigger>) {
   return (
-    <TabsPrimitive.Tab
+    <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-        "relative inline-flex flex-1 items-center justify-center gap-2 rounded-full font-cta whitespace-nowrap hover:not-data-active:text-secondary transition-all group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start group-data-vertical/tabs:py-1.5 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
-        "data-active:bg-primary data-active:text-primary-foreground dark:data-active:text-primary-foreground",
-        "after:absolute after:bg-primary after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-0 group-data-horizontal/tabs:after:h-px group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-active:after:opacity-100 dark:after:bg-secondary",
+        "relative inline-flex flex-1 items-center justify-center gap-2 rounded-full font-cta whitespace-nowrap hover:not-data-[state=active]:text-secondary transition-all group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:justify-start group-data-[orientation=vertical]/tabs:py-1.5 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
+        "data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground",
+        "after:absolute after:bg-primary after:opacity-0 after:transition-opacity group-data-[orientation=horizontal]/tabs:after:inset-x-0 group-data-[orientation=horizontal]/tabs:after:bottom-0 group-data-[orientation=horizontal]/tabs:after:h-px group-data-[orientation=vertical]/tabs:after:inset-y-0 group-data-[orientation=vertical]/tabs:after:-right-1 group-data-[orientation=vertical]/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-[state=active]:after:opacity-100 dark:after:bg-secondary",
         className
       )}
       {...props}
@@ -76,9 +85,12 @@ function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
   )
 }
 
-function TabsContent({ className, ...props }: TabsPrimitive.Panel.Props) {
+function TabsContent({
+  className,
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.Content>) {
   return (
-    <TabsPrimitive.Panel
+    <TabsPrimitive.Content
       data-slot="tabs-content"
       className={cn("flex-1 text-sm outline-none", className)}
       {...props}

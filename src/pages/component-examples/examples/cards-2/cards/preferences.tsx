@@ -58,7 +58,7 @@ export function Preferences() {
         <FieldGroup>
           <Field>
             <FieldLabel htmlFor="default-currency">Default Currency</FieldLabel>
-            <Select items={CURRENCIES} defaultValue="usd">
+            <Select defaultValue="usd">
               <SelectTrigger id="default-currency" className="w-full">
                 <SelectValue />
               </SelectTrigger>

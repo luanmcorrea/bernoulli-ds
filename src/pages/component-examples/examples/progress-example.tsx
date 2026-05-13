@@ -6,6 +6,7 @@ import {
   Example,
   ExampleWrapper,
 } from "@/pages/component-examples/components/example"
+import { Field, FieldLabel } from "@/components/ui/field"
 import {
   Item,
   ItemActions,
@@ -14,11 +15,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/components/ui/item"
-import {
-  Progress,
-  ProgressLabel,
-  ProgressValue,
-} from "@/components/ui/progress"
+import { Progress } from "@/components/ui/progress"
 import { Slider } from "@/components/ui/slider"
 import { IconPlaceholder } from "@/components/ui/icon-placeholder"
 
@@ -50,24 +47,27 @@ function ProgressValues() {
 function ProgressWithLabel() {
   return (
     <Example title="With Label">
-      <Progress value={56}>
-        <ProgressLabel>Upload progress</ProgressLabel>
-        <ProgressValue />
-      </Progress>
+      <Field>
+        <FieldLabel htmlFor="progress-upload">
+          <span>Upload progress</span>
+          <span className="ml-auto">66%</span>
+        </FieldLabel>
+        <Progress value={66} className="w-full" id="progress-upload" />
+      </Field>
     </Example>
   )
 }
 
 function ProgressControlled() {
-  const [value, setValue] = React.useState(50)
+  const [value, setValue] = React.useState([50])
 
   return (
     <Example title="Controlled">
       <div className="flex w-full flex-col gap-4">
-        <Progress value={value} className="w-full" />
+        <Progress value={value[0]} className="w-full" />
         <Slider
           value={value}
-          onValueChange={(value) => setValue(value as number)}
+          onValueChange={setValue}
           min={0}
           max={100}
           step={1}

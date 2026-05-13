@@ -266,13 +266,10 @@ function TableWithActions() {
             <TableCell className="text-right">
               <DropdownMenu>
                 <DropdownMenuTrigger
-                  render={
-                    <Button variant="ghost" size="icon" className="size-8" />
-                  }
-                >
+                 asChild><Button variant="ghost" size="icon" className="size-8">
                   <DotsThreeVerticalIcon weight="bold" />
                   <span className="sr-only">Open menu</span>
-                </DropdownMenuTrigger>
+                </Button></DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <DropdownMenuItem>Edit</DropdownMenuItem>
                   <DropdownMenuItem>Duplicate</DropdownMenuItem>
@@ -290,13 +287,10 @@ function TableWithActions() {
             <TableCell className="text-right">
               <DropdownMenu>
                 <DropdownMenuTrigger
-                  render={
-                    <Button variant="ghost" size="icon" className="size-8" />
-                  }
-                >
+                 asChild><Button variant="ghost" size="icon" className="size-8">
                   <DotsThreeVerticalIcon weight="bold" />
                   <span className="sr-only">Open menu</span>
-                </DropdownMenuTrigger>
+                </Button></DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <DropdownMenuItem>Edit</DropdownMenuItem>
                   <DropdownMenuItem>Duplicate</DropdownMenuItem>
@@ -314,13 +308,10 @@ function TableWithActions() {
             <TableCell className="text-right">
               <DropdownMenu>
                 <DropdownMenuTrigger
-                  render={
-                    <Button variant="ghost" size="icon" className="size-8" />
-                  }
-                >
+                 asChild><Button variant="ghost" size="icon" className="size-8">
                   <DotsThreeVerticalIcon weight="bold" />
                   <span className="sr-only">Open menu</span>
-                </DropdownMenuTrigger>
+                </Button></DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <DropdownMenuItem>Edit</DropdownMenuItem>
                   <DropdownMenuItem>Duplicate</DropdownMenuItem>
@@ -379,22 +370,14 @@ function TableWithSelect() {
             <TableRow key={item.task}>
               <TableCell className="font-medium">{item.task}</TableCell>
               <TableCell>
-                <Select
-                  items={people}
-                  defaultValue={people.find(
-                    (person) => person.value === item.assignee
-                  )}
-                  itemToStringValue={(item) => {
-                    return item.value
-                  }}
-                >
+                <Select defaultValue={item.assignee}>
                   <SelectTrigger className="w-40" size="sm">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
                       {people.map((person) => (
-                        <SelectItem key={person.value} value={person}>
+                        <SelectItem key={person.value} value={person.value}>
                           {person.label}
                         </SelectItem>
                       ))}

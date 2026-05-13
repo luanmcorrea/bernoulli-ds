@@ -38,9 +38,9 @@ function PopoverBasic() {
   return (
     <Example title="Basic">
       <Popover>
-        <PopoverTrigger render={<Button variant="outline" className="w-fit" />}>
+        <PopoverTrigger asChild><Button variant="outline" className="w-fit">
           Open Popover
-        </PopoverTrigger>
+        </Button></PopoverTrigger>
         <PopoverContent align="start">
           <PopoverHeader>
             <PopoverTitle>Dimensions</PopoverTitle>
@@ -59,15 +59,12 @@ function PopoverSides() {
     <Example title="Sides">
       <div className="flex flex-col gap-2">
         <div className="flex flex-wrap gap-2">
-          {(["inline-start", "left", "top"] as const).map((side) => (
+          {(["left", "top"] as const).map((side) => (
             <Popover key={side}>
               <PopoverTrigger
-                render={
-                  <Button variant="outline" className="w-fit capitalize" />
-                }
-              >
+               asChild><Button variant="outline" className="w-fit capitalize">
                 {side.replace("-", " ")}
-              </PopoverTrigger>
+              </Button></PopoverTrigger>
               <PopoverContent side={side} className="w-40">
                 <p>Popover on {side.replace("-", " ")}</p>
               </PopoverContent>
@@ -75,15 +72,12 @@ function PopoverSides() {
           ))}
         </div>
         <div className="flex flex-wrap gap-2">
-          {(["bottom", "right", "inline-end"] as const).map((side) => (
+          {(["bottom", "right"] as const).map((side) => (
             <Popover key={side}>
               <PopoverTrigger
-                render={
-                  <Button variant="outline" className="w-fit capitalize" />
-                }
-              >
+               asChild><Button variant="outline" className="w-fit capitalize">
                 {side.replace("-", " ")}
-              </PopoverTrigger>
+              </Button></PopoverTrigger>
               <PopoverContent side={side} className="w-40">
                 <p>Popover on {side.replace("-", " ")}</p>
               </PopoverContent>
@@ -99,9 +93,9 @@ function PopoverWithForm() {
   return (
     <Example title="With Form">
       <Popover>
-        <PopoverTrigger render={<Button variant="outline" />}>
+        <PopoverTrigger asChild><Button variant="outline">
           Open Popover
-        </PopoverTrigger>
+        </Button></PopoverTrigger>
         <PopoverContent className="w-64" align="start">
           <PopoverHeader>
             <PopoverTitle>Dimensions</PopoverTitle>
@@ -134,25 +128,25 @@ function PopoverAlignments() {
     <Example title="Alignments">
       <div className="flex gap-6">
         <Popover>
-          <PopoverTrigger render={<Button variant="outline" size="sm" />}>
+          <PopoverTrigger asChild><Button variant="outline" size="sm">
             Start
-          </PopoverTrigger>
+          </Button></PopoverTrigger>
           <PopoverContent align="start" className="w-40">
             Aligned to start
           </PopoverContent>
         </Popover>
         <Popover>
-          <PopoverTrigger render={<Button variant="outline" size="sm" />}>
+          <PopoverTrigger asChild><Button variant="outline" size="sm">
             Center
-          </PopoverTrigger>
+          </Button></PopoverTrigger>
           <PopoverContent align="center" className="w-40">
             Aligned to center
           </PopoverContent>
         </Popover>
         <Popover>
-          <PopoverTrigger render={<Button variant="outline" size="sm" />}>
+          <PopoverTrigger asChild><Button variant="outline" size="sm">
             End
-          </PopoverTrigger>
+          </Button></PopoverTrigger>
           <PopoverContent align="end" className="w-40">
             Aligned to end
           </PopoverContent>
@@ -166,9 +160,9 @@ function PopoverInDialog() {
   return (
     <Example title="In Dialog">
       <Dialog>
-        <DialogTrigger render={<Button variant="outline" />}>
+        <DialogTrigger asChild><Button variant="outline">
           Open Dialog
-        </DialogTrigger>
+        </Button></DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Popover Example</DialogTitle>
@@ -178,10 +172,9 @@ function PopoverInDialog() {
           </DialogHeader>
           <Popover>
             <PopoverTrigger
-              render={<Button variant="outline" className="w-fit" />}
-            >
+             asChild><Button variant="outline" className="w-fit">
               Open Popover
-            </PopoverTrigger>
+            </Button></PopoverTrigger>
             <PopoverContent align="start">
               <PopoverHeader>
                 <PopoverTitle>Popover in Dialog</PopoverTitle>
