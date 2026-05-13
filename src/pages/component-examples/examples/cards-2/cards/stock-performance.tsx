@@ -27,8 +27,7 @@ import {
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Separator } from "@/components/ui/separator"
 
-const _TICKERS = ["VOO", "VIG", "AAPL", "MSFT", "GOOGL", "AMZN", "TSLA"]
-void _TICKERS
+const TICKERS = ["VOO", "VIG", "AAPL", "MSFT", "GOOGL", "AMZN", "TSLA"]
 
 const CHART_DATA: Record<string, { month: string; price: number }[]> = {
   VOO: [
@@ -81,6 +80,7 @@ export function StockPerformance() {
           <Field>
             <FieldLabel htmlFor="ticker-select">Ticker</FieldLabel>
             <Combobox
+              items={TICKERS}
               value={ticker}
               onValueChange={(value) => {
                 if (value !== null) setTicker(value)
@@ -103,8 +103,8 @@ export function StockPerformance() {
             </Combobox>
           </Field>
         </FieldGroup>
-        <Separator />
-        <ChartContainer config={chartConfig} className="h-[200px] w-full">
+        <Separator className="style-sera:hidden" />
+        <ChartContainer config={chartConfig} className="h-50 w-full">
           <AreaChart
             accessibilityLayer
             data={data}

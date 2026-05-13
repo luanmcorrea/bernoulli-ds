@@ -75,6 +75,7 @@ export function AssignIssue() {
         <Combobox
           multiple
           autoHighlight
+          items={users}
           defaultValue={[users[0]]}
         >
           <ComboboxChips ref={anchor}>

@@ -512,7 +512,6 @@ const countries = [
   { code: "zw", value: "zimbabwe", label: "Zimbabwe", continent: "Africa" },
 ]
 
-// @ts-expect-error - kept for reference, not currently rendered
 const timezones = [
   {
     value: "Americas",
@@ -552,7 +551,7 @@ const timezones = [
 function ComboboxBasic() {
   return (
     <Example title="Basic">
-      <Combobox>
+      <Combobox items={frameworks}>
         <ComboboxInput placeholder="Select a framework" />
         <ComboboxContent>
           <ComboboxEmpty>No items found.</ComboboxEmpty>
@@ -583,7 +582,7 @@ function ComboboxSides() {
             "inline-end",
           ] as const
         ).map((side) => (
-          <Combobox key={side}>
+          <Combobox key={side} items={frameworks}>
             <ComboboxInput
               placeholder={side.replace("-", " ")}
               className="w-32 **:data-[slot=input-group-control]:capitalize"
@@ -608,7 +607,7 @@ function ComboboxSides() {
 function ComboboxDisabled() {
   return (
     <Example title="Disabled">
-      <Combobox>
+      <Combobox items={frameworks}>
         <ComboboxInput placeholder="Select a framework" disabled />
         <ComboboxContent>
           <ComboboxEmpty>No items found.</ComboboxEmpty>
@@ -630,7 +629,7 @@ const disabledFrameworks = ["Nuxt.js", "Remix"]
 function ComboboxDisabledItems() {
   return (
     <Example title="Disabled Items">
-      <Combobox>
+      <Combobox items={frameworks}>
         <ComboboxInput placeholder="Select a framework" />
         <ComboboxContent>
           <ComboboxEmpty>No items found.</ComboboxEmpty>
@@ -655,7 +654,7 @@ function ComboboxInvalid() {
   return (
     <Example title="Invalid">
       <div className="flex flex-col gap-4">
-        <Combobox>
+        <Combobox items={frameworks}>
           <ComboboxInput placeholder="Select a framework" aria-invalid="true" />
           <ComboboxContent>
             <ComboboxEmpty>No items found.</ComboboxEmpty>
@@ -672,7 +671,7 @@ function ComboboxInvalid() {
           <FieldLabel htmlFor="combobox-framework-invalid">
             Framework
           </FieldLabel>
-          <Combobox>
+          <Combobox items={frameworks}>
             <ComboboxInput
               id="combobox-framework-invalid"
               placeholder="Select a framework"
@@ -700,7 +699,7 @@ function ComboboxInvalid() {
 function ComboboxWithClear() {
   return (
     <Example title="With Clear Button">
-      <Combobox defaultValue={frameworks[0]}>
+      <Combobox items={frameworks} defaultValue={frameworks[0]}>
         <ComboboxInput placeholder="Select a framework" showClear />
         <ComboboxContent>
           <ComboboxEmpty>No items found.</ComboboxEmpty>
@@ -720,13 +719,13 @@ function ComboboxWithClear() {
 function ComboboxWithGroups() {
   return (
     <Example title="With Groups">
-      <Combobox>
+      <Combobox items={timezones}>
         <ComboboxInput placeholder="Select a timezone" />
         <ComboboxContent>
           <ComboboxEmpty>No timezones found.</ComboboxEmpty>
           <ComboboxList>
             {(group) => (
-              <ComboboxGroup key={group.value}>
+              <ComboboxGroup key={group.value} items={group.items}>
                 <ComboboxLabel>{group.value}</ComboboxLabel>
                 <ComboboxCollection>
                   {(item) => (
@@ -747,13 +746,13 @@ function ComboboxWithGroups() {
 function ComboboxWithGroupsAndSeparator() {
   return (
     <Example title="With Groups and Separator">
-      <Combobox>
+      <Combobox items={timezones}>
         <ComboboxInput placeholder="Select a timezone" />
         <ComboboxContent>
           <ComboboxEmpty>No timezones found.</ComboboxEmpty>
           <ComboboxList>
             {(group) => (
-              <ComboboxGroup key={group.value}>
+              <ComboboxGroup key={group.value} items={group.items}>
                 <ComboboxLabel>{group.value}</ComboboxLabel>
                 <ComboboxCollection>
                   {(item) => (
@@ -792,7 +791,7 @@ function ComboboxWithForm() {
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="framework">Framework</FieldLabel>
-                <Combobox>
+                <Combobox items={frameworks}>
                   <ComboboxInput
                     id="framework"
                     name="framework"
@@ -824,13 +823,12 @@ function ComboboxWithForm() {
   )
 }
 
-// @ts-expect-error - kept for reference, not currently rendered
 const largeListItems = Array.from({ length: 100 }, (_, i) => `Item ${i + 1}`)
 
 function ComboboxLargeList() {
   return (
     <Example title="Large List (100 items)">
-      <Combobox>
+      <Combobox items={largeListItems}>
         <ComboboxInput placeholder="Search from 100 items" />
         <ComboboxContent>
           <ComboboxEmpty>No items found.</ComboboxEmpty>
@@ -850,7 +848,7 @@ function ComboboxLargeList() {
 function ComboboxAutoHighlight() {
   return (
     <Example title="With Auto Highlight">
-      <Combobox autoHighlight>
+      <Combobox items={frameworks} autoHighlight>
         <ComboboxInput placeholder="Select a framework" />
         <ComboboxContent>
           <ComboboxEmpty>No items found.</ComboboxEmpty>
@@ -870,7 +868,7 @@ function ComboboxAutoHighlight() {
 function ComboxboxInputAddon() {
   return (
     <Example title="With Icon Addon">
-      <Combobox>
+      <Combobox items={timezones}>
         <ComboboxInput placeholder="Select a timezone">
           <InputGroupAddon>
             <IconPlaceholder
@@ -886,7 +884,7 @@ function ComboxboxInputAddon() {
           <ComboboxEmpty>No timezones found.</ComboboxEmpty>
           <ComboboxList>
             {(group) => (
-              <ComboboxGroup key={group.value}>
+              <ComboboxGroup key={group.value} items={group.items}>
                 <ComboboxLabel>{group.value}</ComboboxLabel>
                 <ComboboxCollection>
                   {(item) => (
@@ -907,7 +905,7 @@ function ComboxboxInputAddon() {
 function ComboboxInPopup() {
   return (
     <Example title="Combobox in Popup">
-      <Combobox defaultValue={countries[0]}>
+      <Combobox items={countries} defaultValue={countries[0]}>
         <ComboboxTrigger
           render={
             <Button
@@ -946,6 +944,7 @@ function ComboboxMultiple() {
       <Combobox
         multiple
         autoHighlight
+        items={frameworks}
         defaultValue={[frameworks[0], frameworks[1], frameworks[2]]}
       >
         <ComboboxChips ref={anchor}>
@@ -983,6 +982,7 @@ function ComboboxMultipleDisabled() {
       <Combobox
         multiple
         autoHighlight
+        items={frameworks}
         defaultValue={[frameworks[0], frameworks[1]]}
         disabled
       >
@@ -1023,6 +1023,7 @@ function ComboboxMultipleInvalid() {
         <Combobox
           multiple
           autoHighlight
+          items={frameworks}
           defaultValue={[frameworks[0], frameworks[1]]}
         >
           <ComboboxChips ref={anchor1}>
@@ -1055,6 +1056,7 @@ function ComboboxMultipleInvalid() {
           <Combobox
             multiple
             autoHighlight
+            items={frameworks}
             defaultValue={[frameworks[0], frameworks[1], frameworks[2]]}
           >
             <ComboboxChips ref={anchor2}>
@@ -1101,6 +1103,7 @@ function ComboboxMultipleNoRemove() {
       <Combobox
         multiple
         autoHighlight
+        items={frameworks}
         defaultValue={[frameworks[0], frameworks[1]]}
       >
         <ComboboxChips ref={anchor}>
@@ -1136,6 +1139,7 @@ function ComboboxWithCustomItems() {
   return (
     <Example title="With Custom Item Rendering">
       <Combobox
+        items={countries.filter((country) => country.code !== "")}
         itemToStringValue={(country: (typeof countries)[number]) =>
           country.label
         }
@@ -1171,9 +1175,9 @@ function ComboboxInDialog() {
   return (
     <Example title="Combobox in Dialog">
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild><Button variant="outline">
-          Open Dialog
-        </Button></DialogTrigger>
+        <DialogTrigger asChild>
+          <Button variant="outline">Open Dialog</Button>
+        </DialogTrigger>
         <DialogContent className="sm:max-w-106.25">
           <DialogHeader>
             <DialogTitle>Select Framework</DialogTitle>
@@ -1185,7 +1189,7 @@ function ComboboxInDialog() {
             <FieldLabel htmlFor="framework-dialog" className="sr-only">
               Framework
             </FieldLabel>
-            <Combobox>
+            <Combobox items={frameworks}>
               <ComboboxInput
                 id="framework-dialog"
                 placeholder="Select a framework"
@@ -1260,7 +1264,7 @@ const items = [
 function ComboboxWithOtherInputs() {
   return (
     <Example title="With Other Inputs">
-      <Combobox>
+      <Combobox items={frameworks}>
         <ComboboxInput placeholder="Select a framework" className="w-52" />
         <ComboboxContent>
           <ComboboxEmpty>No items found.</ComboboxEmpty>
@@ -1275,7 +1279,7 @@ function ComboboxWithOtherInputs() {
       </Combobox>
       <Select>
         <SelectTrigger className="w-52">
-          <SelectValue />
+          <SelectValue placeholder="Select a framework" />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>

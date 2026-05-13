@@ -53,7 +53,6 @@ export default function SelectExample() {
       <SelectWithGroups />
       <SelectSides />
       <SelectLargeList />
-      <SelectSizes />
       <SelectPlan />
       <SelectWithButton />
       <SelectWithField />
@@ -95,10 +94,10 @@ function SelectBasic() {
 
 function SelectWithIcons() {
   return (
-    <Example title="With Icons">
+    <Example title="With Icons & Sizes">
       <div className="flex flex-col gap-4">
         <Select>
-          <SelectTrigger size="sm">
+          <SelectTrigger className="w-full max-w-72" size="sm">
             <SelectValue
               placeholder={
                 <>
@@ -150,7 +149,59 @@ function SelectWithIcons() {
           </SelectContent>
         </Select>
         <Select>
-          <SelectTrigger size="default">
+          <SelectTrigger className="w-full max-w-72" size="default">
+            <SelectValue
+              placeholder={
+                <>
+                  <IconPlaceholder
+                    lucide="ChartLineIcon"
+                    tabler="IconChartLine"
+                    hugeicons="Chart03Icon"
+                    phosphor="ChartLineIcon"
+                    remixicon="RiLineChartLine"
+                  />
+                  Chart Type
+                </>
+              }
+            />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectItem value="line">
+                <IconPlaceholder
+                  lucide="ChartLineIcon"
+                  tabler="IconChartLine"
+                  hugeicons="Chart03Icon"
+                  phosphor="ChartLineIcon"
+                  remixicon="RiLineChartLine"
+                />
+                Line
+              </SelectItem>
+              <SelectItem value="bar">
+                <IconPlaceholder
+                  lucide="ChartBarIcon"
+                  tabler="IconChartBar"
+                  hugeicons="Chart03Icon"
+                  phosphor="ChartBarIcon"
+                  remixicon="RiBarChartLine"
+                />
+                Bar
+              </SelectItem>
+              <SelectItem value="pie">
+                <IconPlaceholder
+                  lucide="ChartPieIcon"
+                  tabler="IconChartPie"
+                  hugeicons="Chart03Icon"
+                  phosphor="ChartPieIcon"
+                  remixicon="RiPieChartLine"
+                />
+                Pie
+              </SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+        <Select>
+          <SelectTrigger className="w-full max-w-72" size="lg">
             <SelectValue
               placeholder={
                 <>
@@ -373,48 +424,6 @@ function SelectLargeList() {
           </SelectGroup>
         </SelectContent>
       </Select>
-    </Example>
-  )
-}
-
-function SelectSizes() {
-  const items = [
-    { label: "Apple", value: "apple" },
-    { label: "Banana", value: "banana" },
-    { label: "Blueberry", value: "blueberry" },
-  ]
-  return (
-    <Example title="Sizes">
-      <div className="flex flex-col gap-4">
-        <Select>
-          <SelectTrigger size="sm">
-            <SelectValue placeholder="Select a fruit" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              {items.map((item) => (
-                <SelectItem key={item.value} value={item.value}>
-                  {item.label}
-                </SelectItem>
-              ))}
-            </SelectGroup>
-          </SelectContent>
-        </Select>
-        <Select>
-          <SelectTrigger size="default">
-            <SelectValue placeholder="Select a fruit" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              {items.map((item) => (
-                <SelectItem key={item.value} value={item.value}>
-                  {item.label}
-                </SelectItem>
-              ))}
-            </SelectGroup>
-          </SelectContent>
-        </Select>
-      </div>
     </Example>
   )
 }
