@@ -27,7 +27,7 @@ export default function MultiselectExample() {
       <MultiselectBasic />
       <MultiselectWithGroups />
       <MultiselectSearchLargeList />
-      <MultielectSmall />
+      <MultielectSizes />
       <MultiselectClickRemove />
       <MultiselectDisabled />
       <MultiselectSides />
@@ -139,7 +139,7 @@ function MultiselectSearchLargeList() {
   )
 }
 
-function MultielectSmall() {
+function MultielectSizes() {
   const items = [
     { label: "Select a fruit", value: null },
     { label: "Apple", value: "apple" },
@@ -147,10 +147,38 @@ function MultielectSmall() {
     { label: "Blueberry", value: "blueberry" },
   ]
   return (
-    <Example title="Small">
+    <Example title="Sizes">
       <Multiselect>
         <MultiselectTrigger size="sm" className="w-full max-w-72">
-          <MultiselectValue placeholder="Select fruits" />
+          <MultiselectValue placeholder="Small" />
+        </MultiselectTrigger>
+        <MultiselectContent>
+          <MultiselectGroup>
+            {items.map((item) => (
+              <MultiselectItem key={item.value} value={item.value}>
+                {item.label}
+              </MultiselectItem>
+            ))}
+          </MultiselectGroup>
+        </MultiselectContent>
+      </Multiselect>
+      <Multiselect>
+        <MultiselectTrigger size="default" className="w-full max-w-72">
+          <MultiselectValue placeholder="Default" />
+        </MultiselectTrigger>
+        <MultiselectContent>
+          <MultiselectGroup>
+            {items.map((item) => (
+              <MultiselectItem key={item.value} value={item.value}>
+                {item.label}
+              </MultiselectItem>
+            ))}
+          </MultiselectGroup>
+        </MultiselectContent>
+      </Multiselect>
+      <Multiselect>
+        <MultiselectTrigger size="lg" className="w-full max-w-72">
+          <MultiselectValue placeholder="Large" />
         </MultiselectTrigger>
         <MultiselectContent>
           <MultiselectGroup>

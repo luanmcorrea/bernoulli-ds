@@ -162,13 +162,7 @@ function MultiselectTrigger({ className, size = "default", children, ...props }:
       )}
       <MultiselectPrimitive.Icon
         render={
-          <Button
-            variant="ghost"
-            size="icon-xs"
-            className="-mr-1 ml-auto rounded-full"
-          >
-            <CaretDownIcon className="pointer-events-none size-4 transition-transform duration-200 group-data-popup-open/multiselect-trigger:rotate-180" />
-          </Button>
+          <CaretDownIcon className="pointer-events-none shrink-0 size-4 ml-auto text-primary transition-transform duration-200 group-data-popup-open/multiselect-trigger:rotate-180" />
         }
       />
     </MultiselectPrimitive.Trigger>
@@ -374,7 +368,14 @@ function MultiselectContent({
 function MultiselectSelectAll({ className, children, ...props }: Omit<ComponentPropsWithoutRef<"div">, "onClick">) {
   const { items, selectedValues, setSelectedValues, inputValue } = useMultiselectContext()
   const allValues = useMemo(() => Array.from(items.keys()), [items])
-  const allSelected = allValues.length > 0 && allValues.every(v => selectedValues.includes(v))
+  const selectedCount = allValues.filter(v => selectedValues.includes(v)).length
+  const allSelected = allValues.length > 0 && selectedCount === allValues.length
+  const someSelected = selectedCount > 0 && !allSelected
+  const checkedState: boolean | "indeterminate" = allSelected
+    ? true
+    : someSelected
+      ? "indeterminate"
+      : false
 
   if (inputValue.trim() !== "") return null
 
@@ -384,6 +385,7 @@ function MultiselectSelectAll({ className, children, ...props }: Omit<ComponentP
       data-slot="multiselect-select-all"
       role="option"
       aria-selected={allSelected}
+      aria-checked={someSelected ? "mixed" : allSelected}
       onPointerDown={e => {
         e.preventDefault()
         e.stopPropagation()
@@ -395,7 +397,7 @@ function MultiselectSelectAll({ className, children, ...props }: Omit<ComponentP
       )}
     >
       <Checkbox
-        checked={allSelected}
+        checked={checkedState}
         tabIndex={-1}
         aria-hidden
         className="pointer-events-none absolute left-2.5"

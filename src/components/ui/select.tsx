@@ -132,11 +132,7 @@ function SelectTrigger({
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <Button variant="ghost" size="icon-xs" className="-mx-1 rounded-full" asChild>
-          <span>
-            <CaretDownIcon className="pointer-events-none size-4 transition-transform duration-200 group-data-[state=open]/select-trigger:rotate-180" />
-          </span>
-        </Button>
+        <CaretDownIcon className="pointer-events-none size-4 text-primary transition-transform duration-200 group-data-[state=open]/select-trigger:rotate-180" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   )

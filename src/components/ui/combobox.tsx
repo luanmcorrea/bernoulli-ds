@@ -45,7 +45,7 @@ function ComboboxClear({ className, ...props }: ComboboxPrimitive.Clear.Props) {
       className={cn(className)}
       {...props}
     >
-      <XIcon className="pointer-events-none size-4" />
+      <XIcon className="pointer-events-none size-4 text-muted-foreground" />
     </ComboboxPrimitive.Clear>
   )
 }
