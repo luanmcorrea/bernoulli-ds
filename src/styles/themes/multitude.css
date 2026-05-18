@@ -19,60 +19,60 @@
 }
 
 :root[data-brand="multitude"][data-profile="student"] {
-  --profile-primary: oklch(56.02% 0.20143 304.52);
-  --profile-accent: oklch(88.676% 0.05949 307.145);
+  --profile-primary: oklch(54.938% 0.20797 297.762);
+  --profile-accent: oklch(88.405% 0.06081 306.63);
 }
 
 :root[data-brand="multitude"][data-profile="family"] {
-  --profile-primary: oklch(55.808% 0.20882 261.324);
-  --profile-accent: oklch(88.853% 0.0467 262.543);
+  --profile-primary: oklch(55.67% 0.13925 298.512);
+  --profile-accent: oklch(90.828% 0.05341 302.057);
 }
 
 :root[data-brand="multitude"][data-profile="teacher"] {
-  --profile-primary: oklch(51.072% 0.22803 278.287);
-  --profile-accent: oklch(86.232% 0.05946 285.072);
+  --profile-primary: oklch(52.216% 0.18471 268.71);
+  --profile-accent: oklch(81.801% 0.08791 273.628);
 }
 
 :root[data-brand="multitude"][data-profile="school"] {
-  --profile-primary: oklch(62.81% 0.13347 182.232);
-  --profile-accent: oklch(91.659% 0.04569 182.857);
+  --profile-primary: oklch(50.461% 0.24661 304.387);
+  --profile-accent: oklch(88.842% 0.05503 314.457);
 }
 
 :root[data-brand="multitude"][data-profile="system"] {
-  --profile-primary: oklch(44.598% 0.20745 285.924);
-  --profile-accent: oklch(86.626% 0.05976 294.685);
+  --profile-primary: oklch(43.433% 0.24031 280.485);
+  --profile-accent: oklch(78.091% 0.11508 294.342);
 }
 
 :root.dark[data-brand="multitude"] {
   --brand-primary: oklch(46.543% 0.21187 302.598);
   --brand-secondary: oklch(65.85% 0.17482 304.969);
-  --brand-accent: oklch(36.172% 0.05166 313.136);
+  --brand-accent: oklch(32.561% 0.11616 304.333);
   --brand-ring: oklch(70.77% 0.17579 305.234);
 }
 
 :root.dark[data-brand="multitude"][data-profile="student"] {
-  --profile-primary: oklch(56.02% 0.20143 304.52);
-  --profile-accent: oklch(28.737% 0.12492 288.614);
+  --profile-primary: oklch(54.938% 0.20797 297.762);
+  --profile-accent: oklch(29.098% 0.16804 286.848);
 }
 
 :root.dark[data-brand="multitude"][data-profile="family"] {
-  --profile-primary: oklch(55.808% 0.20882 261.324);
-  --profile-accent: oklch(25.954% 0.13419 263.257);
+  --profile-primary: oklch(55.67% 0.13925 298.512);
+  --profile-accent: oklch(27.783% 0.12607 287.637);
 }
 
 :root.dark[data-brand="multitude"][data-profile="teacher"] {
-  --profile-primary: oklch(51.072% 0.22803 278.287);
-  --profile-accent: oklch(26.246% 0.1337 275.811);
+  --profile-primary: oklch(52.216% 0.18471 268.71);
+  --profile-accent: oklch(27.13% 0.12252 261.682);
 }
 
 :root.dark[data-brand="multitude"][data-profile="school"] {
-  --profile-primary: oklch(62.81% 0.13347 182.232);
-  --profile-accent: oklch(35.886% 0.06189 188.4);
+  --profile-primary: oklch(50.461% 0.24661 304.387);
+  --profile-accent: oklch(28.391% 0.14833 303.988);
 }
 
 :root.dark[data-brand="multitude"][data-profile="system"] {
-  --profile-primary: oklch(44.598% 0.20745 285.924);
-  --profile-accent: oklch(29.382% 0.11739 284.386);
+  --profile-primary: oklch(43.433% 0.24031 280.485);
+  --profile-accent: oklch(29.457% 0.18777 273.306);
 }
 
 :root[data-brand="multitude"] {
