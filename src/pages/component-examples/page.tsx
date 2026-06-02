@@ -18,7 +18,6 @@ import { Button } from "@/components/ui/button"
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
@@ -93,15 +92,7 @@ function PageHeader({ currentSection, onNavigate }: PageHeaderProps) {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem className="hidden md:block">
-            <BreadcrumbLink
-              href={defaultComponentRoute.path}
-              onClick={(event) => {
-                event.preventDefault()
-                onNavigate(defaultComponentRoute.slug)
-              }}
-            >
-              Components
-            </BreadcrumbLink>
+            Components
           </BreadcrumbItem>
           <BreadcrumbSeparator className="hidden md:block" />
           <BreadcrumbItem>
