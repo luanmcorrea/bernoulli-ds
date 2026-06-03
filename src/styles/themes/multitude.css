@@ -9,14 +9,20 @@
 
   --primary: oklch(46.543% 0.21187 302.598);
   --primary-hover: oklch(68.015% 0.18485 306.708);
+  --primary-foreground: var(--background);
   --secondary: oklch(65.85% 0.17482 304.969);
   --accent: oklch(88.865% 0.06939 306.654);
   --ring: oklch(70.77% 0.17579 305.234);
+  /* use in specific components to ignore dark mode. */
+  --fix-primary: oklch(46.543% 0.21187 302.598); 
+  --fix-primary-foreground: var(--color-white);
+  --fix-primary-hover: oklch(68.015% 0.18485 306.708);
 }
 
 .dark[data-brand="multitude"] {
-  --primary: oklch(46.543% 0.21187 302.598);
-  --primary-hover: oklch(68.015% 0.18485 306.708);
+  --primary: oklch(69.958% 0.20283 306.642);
+  --primary-hover: oklch(46.543% 0.21187 302.598);
+  --primary-foreground: var(--background);
   --secondary: oklch(65.85% 0.17482 304.969);
   --accent: oklch(32.561% 0.11616 304.333);
   --ring: oklch(70.77% 0.17579 305.234);

@@ -31,8 +31,12 @@
     --sidebar-accent-foreground: var(--color-neutral-800);
     --sidebar-border: var(--color-neutral-300);
     --sidebar-ring: var(--sidebar-primary);
-
+    /* Extras */
     --primary-hover: var(--color-slate-600);
+    /* use in specific components to ignore dark mode. */
+    --fix-primary: var(--primary); 
+    --fix-primary-foreground: var(--primary-foreground);
+    --fix-primary-hover: var(--primary-hover);
 }
 
 .dark {
@@ -67,6 +71,10 @@
     --sidebar-accent-foreground: var(--color-neutral-50);
     --sidebar-border: var(--color-neutral-700);
     --sidebar-ring: var(--sidebar-primary);
-
+    /* Extras */
     --primary-hover: var(--color-slate-600);
+    /* use in specific components to ignore dark mode. */
+    --fix-primary: var(--primary); 
+    --fix-primary-foreground: var(--primary-foreground);
+    --fix-primary-hover: var(--primary-hover);
 }

@@ -13,14 +13,20 @@
 
   --primary: oklch(58.251% 0.08977 188.191);
   --primary-hover: oklch(69.778% 0.10745 188.011);
+  --primary-foreground: var(--background);
   --secondary: oklch(69.778% 0.10745 188.011);
   --accent: oklch(94.033% 0.03838 192.66);
   --ring: oklch(74.093% 0.10319 188.82);
+  /* use in specific components to ignore dark mode. */
+  --fix-primary: oklch(58.251% 0.08977 188.191); 
+  --fix-primary-foreground: var(--color-white);
+  --fix-primary-hover: oklch(69.778% 0.10745 188.011);
 }
 
 .dark[data-brand="bernoulli"] {
-  --primary: oklch(58.251% 0.08977 188.191);
-  --primary-hover: oklch(69.778% 0.10745 188.011);
+  --primary: oklch(69.778% 0.10745 188.011);
+  --primary-hover: oklch(58.251% 0.08977 188.191);
+  --primary-foreground: var(--background);
   --secondary: oklch(69.778% 0.10745 188.011);
   --accent: oklch(34.804% 0.0609 186.582);
   --ring: oklch(74.093% 0.10319 188.82);

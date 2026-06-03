@@ -97,24 +97,40 @@ function ButtonIconOnly() {
         <Button size="icon-sm" variant="outline"><PlusIcon/></Button>
         <Button size="icon-sm" variant="ghost"><PlusIcon/></Button>
         <Button size="icon-sm" variant="link"><PlusIcon/></Button>
+        <Button size="icon-sm" variant="neutral"><PlusIcon/></Button>
+        <Button size="icon-sm" variant="outline-neutral"><PlusIcon/></Button>
+        <Button size="icon-sm" variant="ghost-neutral"><PlusIcon/></Button>
+        <Button size="icon-sm" variant="link-neutral"><PlusIcon/></Button>
       </div>
       <div className="flex flex-wrap items-center gap-4">
         <Button size="icon"><PlusIcon/></Button>
         <Button size="icon" variant="outline"><PlusIcon/></Button>
         <Button size="icon" variant="ghost"><PlusIcon/></Button>
         <Button size="icon" variant="link"><PlusIcon/></Button>
+        <Button size="icon" variant="neutral"><PlusIcon/></Button>
+        <Button size="icon" variant="outline-neutral"><PlusIcon/></Button>
+        <Button size="icon" variant="ghost-neutral"><PlusIcon/></Button>
+        <Button size="icon" variant="link-neutral"><PlusIcon/></Button>
       </div>
       <div className="flex flex-wrap items-center gap-4">
         <Button size="icon-lg"><PlusIcon/></Button>
         <Button size="icon-lg" variant="outline"><PlusIcon/></Button>
         <Button size="icon-lg" variant="ghost"><PlusIcon/></Button>
         <Button size="icon-lg" variant="link"><PlusIcon/></Button>
+        <Button size="icon-lg" variant="neutral"><PlusIcon/></Button>
+        <Button size="icon-lg" variant="outline-neutral"><PlusIcon/></Button>
+        <Button size="icon-lg" variant="ghost-neutral"><PlusIcon/></Button>
+        <Button size="icon-lg" variant="link-neutral"><PlusIcon/></Button>
       </div>
       <div className="flex flex-wrap items-center gap-4">
         <Button size="icon-xl"><PlusIcon/></Button>
         <Button size="icon-xl" variant="outline"><PlusIcon/></Button>
         <Button size="icon-xl" variant="ghost"><PlusIcon/></Button>
         <Button size="icon-xl" variant="link"><PlusIcon/></Button>
+        <Button size="icon-xl" variant="neutral"><PlusIcon/></Button>
+        <Button size="icon-xl" variant="outline-neutral"><PlusIcon/></Button>
+        <Button size="icon-xl" variant="ghost-neutral"><PlusIcon/></Button>
+        <Button size="icon-xl" variant="link-neutral"><PlusIcon/></Button>
       </div>
     </Example>
   )

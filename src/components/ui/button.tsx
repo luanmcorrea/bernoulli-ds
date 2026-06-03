@@ -9,18 +9,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary-hover disabled:bg-muted aria-expanded:bg-primary-hover has-[*[aria-label='Loading']]:bg-muted",
+        default: "bg-fix-primary text-fix-primary-foreground hover:bg-fix-primary-hover disabled:bg-muted aria-expanded:bg-fix-primary-hover has-[*[aria-label='Loading']]:bg-muted",
         "neutral": "bg-foreground text-background hover:bg-muted-foreground disabled:bg-muted aria-expanded:bg-muted-foreground has-[*[aria-label='Loading']]:bg-muted",
-        outline: "border-primary text-primary hover:border-primary-hover hover:text-primary-hover aria-expanded:bg-accent aria-expanded:text-primary disabled:border-muted-foreground dark:text-secondary dark:border-secondary has-[*[aria-label='Loading']]:border-muted! has-[*[aria-label='Loading']]:text-muted-foreground!",
+        outline: "border-primary text-primary hover:border-primary-hover hover:text-primary-hover aria-expanded:bg-accent aria-expanded:text-primary disabled:border-muted-foreground disabled:text-muted-foreground has-[*[aria-label='Loading']]:border-muted! has-[*[aria-label='Loading']]:text-muted-foreground!",
         "outline-neutral": "border-foreground text-foreground hover:border-muted-foreground hover:text-muted-foreground aria-expanded:bg-muted aria-expanded:text-muted disabled:border-muted-foreground has-[*[aria-label='Loading']]:border-muted! has-[*[aria-label='Loading']]:text-muted-foreground!",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
-        ghost: "text-primary hover:bg-accent aria-expanded:bg-accent aria-expanded:text-primary dark:text-secondary has-[*[aria-label='Loading']]:text-muted-foreground!",
+        ghost: "text-primary hover:bg-accent aria-expanded:bg-accent aria-expanded:text-primary has-[*[aria-label='Loading']]:text-muted-foreground!",
         "ghost-neutral": "text-foreground hover:bg-muted aria-expanded:bg-muted aria-expanded:text-primary has-[*[aria-label='Loading']]:text-muted-foreground!",
         destructive: "bg-destructive text-primary-foreground hover:bg-destructive/90 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 disabled:bg-muted disabled:text-muted-foreground! dark:text-background dark:hover:bg-destructive/60 dark:focus-visible:ring-destructive/40",
         "destructive-outline": "border-destructive text-destructive hover:opacity-60 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 disabled:border-muted-foreground/30",
         "destructive-ghost": "text-destructive hover:bg-destructive/20 hover:opacity-60 focus-visible:border-destructive/40 focus-visible:ring-destructive/20",
         "destructive-link": "text-destructive underline-offset-4 hover:underline focus-visible:border-destructive/40 focus-visible:ring-destructive/20 !p-0 !h-auto",
-        link: "text-primary underline-offset-4 hover:underline hover:text-primary-hover p-0! h-fit! w-fit! dark:text-secondary",
+        link: "text-primary underline-offset-4 hover:underline hover:text-primary-hover p-0! h-fit! w-fit!",
         "link-neutral": "text-foreground underline-offset-4 hover:underline p-0! h-fit! w-fit!",
       },
       size: {

@@ -32,8 +32,8 @@ const tabsListVariants = cva(
         default: "bg-muted p-1.5",
         ghost: "",
         outline:
-          "gap-2 [&_[data-slot=tabs-trigger]]:data-[state=active]:text-primary [&_[data-slot=tabs-trigger]]:data-[state=active]:bg-accent [&_[data-slot=tabs-trigger]]:border [&_[data-slot=tabs-trigger]]:data-[state=active]:border-primary [&_[data-slot=tabs-trigger]]:hover:not-data-[state=active]:border-secondary [&_[data-slot=tabs-trigger]]:data-[state=active]:dark:bg-accent/30 [&_[data-slot=tabs-trigger]]:data-[state=active]:dark:border-secondary [&_[data-slot=tabs-trigger]]:data-[state=active]:dark:text-secondary",
-        line: "[&_[data-slot=tabs-trigger]]:data-[state=active]:text-primary [&_[data-slot=tabs-trigger]]:data-[state=active]:bg-transparent [&_[data-slot=tabs-trigger]]:data-[state=active]:dark:text-secondary",
+          "gap-2 [&_[data-slot=tabs-trigger]]:data-[state=active]:text-primary [&_[data-slot=tabs-trigger]]:data-[state=active]:bg-accent [&_[data-slot=tabs-trigger]]:border [&_[data-slot=tabs-trigger]]:data-[state=active]:border-primary [&_[data-slot=tabs-trigger]]:data-[state=active]:dark:bg-accent/30",
+        line: "[&_[data-slot=tabs-trigger]]:data-[state=active]:text-primary [&_[data-slot=tabs-trigger]]:data-[state=active]:bg-transparent",
       },
       size: {
         sm: "[&_[data-slot=tabs-trigger]]:h-8 [&_[data-slot=tabs-trigger]]:px-3 [&_[data-slot=tabs-trigger]]:text-sm data-[variant=line]:[&_[data-slot=tabs-trigger]]:p-2",
@@ -75,9 +75,9 @@ function TabsTrigger({
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-        "relative inline-flex flex-1 items-center justify-center gap-2 rounded-full font-cta whitespace-nowrap hover:not-data-[state=active]:text-secondary transition-all group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:justify-start group-data-[orientation=vertical]/tabs:py-1.5 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-ring focus-visible:ring-2 focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
-        "data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground",
-        "after:absolute after:bg-primary after:opacity-0 after:transition-opacity group-data-[orientation=horizontal]/tabs:after:inset-x-0 group-data-[orientation=horizontal]/tabs:after:bottom-0 group-data-[orientation=horizontal]/tabs:after:h-px group-data-[orientation=vertical]/tabs:after:inset-y-0 group-data-[orientation=vertical]/tabs:after:-right-1 group-data-[orientation=vertical]/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-[state=active]:after:opacity-100 dark:after:bg-secondary",
+        "relative inline-flex flex-1 items-center justify-center gap-2 rounded-full font-cta whitespace-nowrap hover:not-data-[state=active]:text-fix-primary-hover transition-all group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:justify-start group-data-[orientation=vertical]/tabs:py-1.5 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-ring focus-visible:ring-2 focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
+        "data-[state=active]:bg-fix-primary data-[state=active]:text-fix-primary-foreground dark:data-[state=active]:text-fix-primary-foreground",
+        "after:absolute after:bg-fix-primary after:opacity-0 after:transition-opacity group-data-[orientation=horizontal]/tabs:after:inset-x-0 group-data-[orientation=horizontal]/tabs:after:bottom-0 group-data-[orientation=horizontal]/tabs:after:h-px group-data-[orientation=vertical]/tabs:after:inset-y-0 group-data-[orientation=vertical]/tabs:after:-right-1 group-data-[orientation=vertical]/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-[state=active]:after:opacity-100",
         className
       )}
       {...props}
