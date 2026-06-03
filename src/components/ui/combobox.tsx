@@ -10,7 +10,7 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/components/ui/input-group"
-import { CaretDownIcon, XCircleIcon, CheckIcon, XIcon } from "@phosphor-icons/react"
+import { CaretDownIcon, XIcon, CheckIcon } from "@phosphor-icons/react"
 import { Badge } from "./badge"
 
 const Combobox = ComboboxPrimitive.Root
@@ -349,7 +349,7 @@ const ComboboxChips = React.forwardRef<
       data-overflow-behavior={overflowBehavior}
       data-size={size}
       className={cn(
-        "flex w-full min-w-0 items-center gap-1 overflow-hidden rounded-3xl border bg-input bg-clip-padding px-3 py-1.5 text-sm transition-[color,box-shadow,background-color] data-[size=sm]:min-h-8 data-[size=default]:min-h-10 data-[size=lg]:min-h-12 focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/30 has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:bg-muted has-disabled:opacity-50 has-aria-invalid:border-destructive has-aria-invalid:ring-3 has-aria-invalid:ring-destructive/20 has-data-[slot=combobox-chip]:px-3 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:ring-destructive/40",
+        "flex w-full min-w-0 items-center gap-1 overflow-hidden rounded-3xl border bg-input bg-clip-padding px-3 py-1.5 text-sm transition-[color,box-shadow,background-color] data-[size=sm]:min-h-8 data-[size=default]:min-h-10 data-[size=lg]:min-h-12 focus-within:border-ring focus-within:ring-4 focus-within:ring-ring/30 has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:bg-muted has-disabled:opacity-50 has-aria-invalid:border-destructive has-aria-invalid:ring-4 has-aria-invalid:ring-destructive/20 has-data-[slot=combobox-chip]:px-3 dark:has-aria-invalid:border-destructive/50 dark:has-aria-invalid:ring-destructive/40",
         shouldWrap && "h-fit flex-wrap overflow-visible",
         className
       )}
@@ -396,7 +396,7 @@ function ComboboxChip({
           className="-ml-1 text-inherit! data-disabled:hidden"
           data-slot="combobox-chip-remove"
         >
-          <XCircleIcon className="pointer-events-none" />
+          < XIcon className="pointer-events-none" />
         </ComboboxPrimitive.ChipRemove>
       )}
     </ComboboxPrimitive.Chip>

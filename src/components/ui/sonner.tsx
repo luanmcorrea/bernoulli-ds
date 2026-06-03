@@ -1,6 +1,6 @@
 import { useTheme } from "@/components/providers/theme-provider"
 import { Toaster as Sonner, type ToasterProps } from "sonner"
-import { CheckCircleIcon, InfoIcon, WarningCircleIcon, XCircleIcon } from "@phosphor-icons/react"
+import { CheckCircleIcon, InfoIcon, WarningCircleIcon, XCircleIcon, XIcon } from "@phosphor-icons/react"
 import { Spinner } from "@/components/ui/spinner"
 
 const Toaster = ({ ...props }: ToasterProps) => {
@@ -10,7 +10,9 @@ const Toaster = ({ ...props }: ToasterProps) => {
     <Sonner
       theme={theme as ToasterProps["theme"]}
       className="toaster group"
+      closeButton={true}
       icons={{
+        close: <XIcon />,
         success: (
           <CheckCircleIcon weight="fill" className="size-4" />
         ),
@@ -51,6 +53,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
       toastOptions={{
         classNames: {
           toast: "cn-toast!",
+          closeButton: "text-background! hover:bg-foreground! border-transparent! left-[unset]! top-3! right-0!",
         },
       }}
       {...props}
