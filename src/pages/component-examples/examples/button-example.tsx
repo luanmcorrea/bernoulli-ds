@@ -55,28 +55,16 @@ function ButtonIconLeft() {
   return (
     <Example title="Icon Left">
       <div className="flex flex-wrap items-center gap-4">
-        <Button size="sm"><PlusIcon/>Default</Button>
-        <Button size="sm" variant="outline"><PlusIcon/>Outline</Button>
-        <Button size="sm" variant="ghost"><PlusIcon/>Ghost</Button>
-        <Button size="sm" variant="link"><PlusIcon/>Link</Button>
-      </div>
-      <div className="flex flex-wrap items-center gap-4">
         <Button><PlusIcon/>Default</Button>
         <Button variant="outline"><PlusIcon/>Outline</Button>
         <Button variant="ghost"><PlusIcon/>Ghost</Button>
         <Button variant="link"><PlusIcon/>Link</Button>
       </div>
       <div className="flex flex-wrap items-center gap-4">
-        <Button size="lg"><PlusIcon/>Default</Button>
-        <Button size="lg" variant="outline"><PlusIcon/>Outline</Button>
-        <Button size="lg" variant="ghost"><PlusIcon/>Ghost</Button>
-        <Button size="lg" variant="link"><PlusIcon/>Link</Button>
-      </div>
-      <div className="flex flex-wrap items-center gap-4">
-        <Button size="xl"><PlusIcon/>Default</Button>
-        <Button size="xl" variant="outline"><PlusIcon/>Outline</Button>
-        <Button size="xl" variant="ghost"><PlusIcon/>Ghost</Button>
-        <Button size="xl" variant="link"><PlusIcon/>Link</Button>
+        <Button variant="neutral"><PlusIcon/>Default</Button>
+        <Button variant="outline-neutral"><PlusIcon/>Outline</Button>
+        <Button variant="ghost-neutral"><PlusIcon/>Ghost</Button>
+        <Button variant="link-neutral"><PlusIcon/>Link</Button>
       </div>
     </Example>
   )
@@ -86,28 +74,16 @@ function ButtonIconRight() {
   return (
     <Example title="Icon Right">
       <div className="flex flex-wrap items-center gap-4">
-        <Button size="sm">Default<ArrowRightIcon/></Button>
-        <Button size="sm" variant="outline">Outline<ArrowRightIcon/></Button>
-        <Button size="sm" variant="ghost">Ghost<ArrowRightIcon/></Button>
-        <Button size="sm" variant="link">Link<ArrowRightIcon/></Button>
-      </div>
-      <div className="flex flex-wrap items-center gap-4">
         <Button>Default<ArrowRightIcon/></Button>
         <Button variant="outline">Outline<ArrowRightIcon/></Button>
         <Button variant="ghost">Ghost<ArrowRightIcon/></Button>
         <Button variant="link">Link<ArrowRightIcon/></Button>
       </div>
       <div className="flex flex-wrap items-center gap-4">
-        <Button size="lg">Default<ArrowRightIcon/></Button>
-        <Button size="lg" variant="outline">Outline<ArrowRightIcon/></Button>
-        <Button size="lg" variant="ghost">Ghost<ArrowRightIcon/></Button>
-        <Button size="lg" variant="link">Link<ArrowRightIcon/></Button>
-      </div>
-      <div className="flex flex-wrap items-center gap-4">
-        <Button size="xl">Default<ArrowRightIcon/></Button>
-        <Button size="xl" variant="outline">Outline<ArrowRightIcon/></Button>
-        <Button size="xl" variant="ghost">Ghost<ArrowRightIcon/></Button>
-        <Button size="xl" variant="link">Link<ArrowRightIcon/></Button>
+        <Button variant="neutral">Default<ArrowRightIcon/></Button>
+        <Button variant="outline-neutral">Outline<ArrowRightIcon/></Button>
+        <Button variant="ghost-neutral">Ghost<ArrowRightIcon/></Button>
+        <Button variant="link-neutral">Link<ArrowRightIcon/></Button>
       </div>
     </Example>
   )
