@@ -4,11 +4,6 @@
 @import "@fontsource/poppins/600.css";
 @import "@fontsource/poppins/700.css";
 
-:root {
-  --profile-primary: oklch(58.251% 0.08977 188.191);
-  --profile-accent: oklch(94.033% 0.03838 192.66);
-}
-
 :root[data-brand="bernoulli"] {
   --brand-font-heading: 'Poppins';
   --brand-font-sans: 'Roboto Variable';
@@ -16,81 +11,83 @@
   --brand-font-cta: var(--brand-font-heading), var(--brand-font-sans);
   --brand-font-weight-cta: 600;
 
-  --brand-primary: oklch(58.251% 0.08977 188.191);
-  --brand-secondary: oklch(69.778% 0.10745 188.011);
-  --brand-accent: oklch(94.033% 0.03838 192.66);
-  --brand-ring: oklch(74.093% 0.10319 188.82);
+  --primary: oklch(58.251% 0.08977 188.191);
+  --primary-hover: oklch(69.778% 0.10745 188.011);
+  --secondary: oklch(69.778% 0.10745 188.011);
+  --accent: oklch(94.033% 0.03838 192.66);
+  --ring: oklch(74.093% 0.10319 188.82);
+}
+
+.dark[data-brand="bernoulli"] {
+  --primary: oklch(58.251% 0.08977 188.191);
+  --primary-hover: oklch(69.778% 0.10745 188.011);
+  --secondary: oklch(69.778% 0.10745 188.011);
+  --accent: oklch(34.804% 0.0609 186.582);
+  --ring: oklch(74.093% 0.10319 188.82);
 }
 
 :root[data-brand="bernoulli"][data-profile="student"] {
-  --profile-primary: oklab(56.336% 0.09928 -0.12545);
-  --profile-accent: oklch(83.599% 0.06948 311.158);
+  --sidebar-primary: oklch(56.336% 0.15990 308.369);
+  --sidebar-accent: oklch(83.599% 0.06940 311.206);
 }
 
 :root[data-brand="bernoulli"][data-profile="family"] {
-  --profile-primary: oklch(55.67% 0.13925 298.512);
-  --profile-accent: oklch(82.138% 0.08855 299.954);
+  --sidebar-primary: oklch(55.670% 0.13916 298.518);
+  --sidebar-accent: oklch(82.138% 0.08845 299.979);
 }
 
 :root[data-brand="bernoulli"][data-profile="teacher"] {
-  --profile-primary: oklch(65.297% 0.09541 208.728);
-  --profile-accent: oklch(88.73% 0.05014 205.838);
+  --sidebar-primary: oklch(65.296% 0.09538 208.686);
+  --sidebar-accent: oklch(88.729% 0.05009 205.731);
 }
 
 :root[data-brand="bernoulli"][data-profile="school"] {
-  --profile-primary: oklch(49.621% 0.15711 271.016);
-  --profile-accent: oklch(85.285% 0.04089 276.247);
+  --sidebar-primary: oklch(49.620% 0.15704 271.005);
+  --sidebar-accent: oklch(85.285% 0.04079 276.252);
 }
 
 :root[data-brand="bernoulli"][data-profile="system"] {
-  --profile-primary: oklch(40.738% 0.13128 294.466);
-  --profile-accent: oklch(83.434% 0.07107 299.471);
+  --sidebar-primary: oklch(40.738% 0.13121 294.467);
+  --sidebar-accent: oklch(83.434% 0.07097 299.503);
 }
 
-:root.dark[data-brand="bernoulli"] {
-  --brand-primary: oklch(58.251% 0.08977 188.191);
-  --brand-secondary: oklch(69.778% 0.10745 188.011);
-  --brand-accent: oklch(34.804% 0.0609 186.582);
-  --brand-ring: oklch(74.093% 0.10319 188.82);
+.dark[data-brand="bernoulli"][data-profile="student"] {
+  --sidebar-primary: oklch(56.336% 0.15990 308.369);
+  --sidebar-accent: oklch(27.716% 0.10471 307.269);
 }
 
-:root.dark[data-brand="bernoulli"][data-profile="student"] {
-  --profile-primary: oklab(56.336% 0.09928 -0.12545);
-  --profile-accent: oklch(28.634% 0.1457 303.638);
+.dark[data-brand="bernoulli"][data-profile="family"] {
+  --sidebar-primary: oklch(55.670% 0.13916 298.518);
+  --sidebar-accent: oklch(25.822% 0.11148 290.206);
 }
 
-:root.dark[data-brand="bernoulli"][data-profile="family"] {
-  --profile-primary: oklch(55.67% 0.13925 298.512);
-  --profile-accent: oklch(27.73% 0.13085 287.461);
+.dark[data-brand="bernoulli"][data-profile="teacher"] {
+  --sidebar-primary: oklch(65.296% 0.09538 208.686);
+  --sidebar-accent: oklch(25.679% 0.04405 207.161);
 }
 
-:root.dark[data-brand="bernoulli"][data-profile="teacher"] {
-  --profile-primary: oklch(65.297% 0.09541 208.728);
-  --profile-accent: oklch(25.679% 0.04406 207.198);
+.dark[data-brand="bernoulli"][data-profile="school"] {
+  --sidebar-primary: oklch(49.620% 0.15704 271.005);
+  --sidebar-accent: oklch(27.283% 0.09964 267.485);
 }
 
-:root.dark[data-brand="bernoulli"][data-profile="school"] {
-  --profile-primary: oklch(49.621% 0.15711 271.016);
-  --profile-accent: oklch(27.13% 0.12252 261.682);
-}
-
-:root.dark[data-brand="bernoulli"][data-profile="system"] {
-  --profile-primary: oklch(40.738% 0.13128 294.466);
-  --profile-accent: oklch(27.695% 0.1221 290.294);
+.dark[data-brand="bernoulli"][data-profile="system"] {
+  --sidebar-primary: oklch(40.738% 0.13121 294.467);
+  --sidebar-accent: oklch(27.178% 0.10470 293.222);
 }
 
 :root[data-brand="bernoulli"] {
-  --chart-brand-1: #C1EEE6;
-  --chart-brand-2: #75D7CD;
-  --chart-brand-3: #40C7BC;
-  --chart-brand-4: #019B92;
-  --chart-brand-5: #016A63;
+  --chart-1: #C1EEE6;
+  --chart-2: #75D7CD;
+  --chart-3: #40C7BC;
+  --chart-4: #019B92;
+  --chart-5: #016A63;
 }
 
-:root.dark[data-brand="bernoulli"] {
-  --chart-brand-1: #C1EEE6;
-  --chart-brand-2: #75D7CD;
-  --chart-brand-3: #40C7BC;
-  --chart-brand-4: #019B92;
-  --chart-brand-5: #016A63;
+.dark[data-brand="bernoulli"] {
+  --chart-1: #C1EEE6;
+  --chart-2: #75D7CD;
+  --chart-3: #40C7BC;
+  --chart-4: #019B92;
+  --chart-5: #016A63;
 }
