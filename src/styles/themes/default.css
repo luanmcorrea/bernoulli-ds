@@ -13,7 +13,6 @@
     --muted-foreground: var(--color-neutral-500);
     --accent: var(--color-neutral-100);
     --accent-foreground: var(--color-neutral-800);
-    --destructive: var(--color-red-600);
     --border: var(--color-neutral-300);
     --input: var(--color-white);
     --ring: var(--primary);
@@ -31,9 +30,24 @@
     --sidebar-accent-foreground: var(--color-neutral-800);
     --sidebar-border: var(--color-neutral-300);
     --sidebar-ring: var(--sidebar-primary);
+    
+    /* Feedback */
+    --destructive: var(--color-red-600);
+    --destructive-accent: var(--color-red-200);
+    --destructive-foreground: var(--color-white);
+    --success: oklch(44.881% 0.14391 141.503);
+    --success-accent: oklch(85.97% 0.14797 141.279);
+    --success-foreground: var(--color-white);
+    --warning: oklch(64.605% 0.1943 41.103);
+    --warning-accent: oklch(90.145% 0.07286 70.675);
+    --warning-foreground: var(--color-white);
+    --info: var(--color-blue-800);
+    --info-accent: var(--color-blue-200);
+    --info-foreground: var(--color-white);
+
     /* Extras */
     --primary-hover: var(--color-slate-600);
-    /* use in specific components to ignore dark mode. */
+        /* fix-primary-* ignore primary overrides in dark mode (specific components) */
     --fix-primary: var(--primary); 
     --fix-primary-foreground: var(--primary-foreground);
     --fix-primary-hover: var(--primary-hover);
@@ -54,7 +68,6 @@
     --muted-foreground: var(--color-neutral-400);
     --accent: var(--color-neutral-950);
     --accent-foreground: var(--color-neutral-50);
-    --destructive: var(--color-red-400);
     --border: var(--color-neutral-700);
     --input: var(--color-neutral-800);
     --ring: var(--primary);
@@ -71,6 +84,19 @@
     --sidebar-accent-foreground: var(--color-neutral-50);
     --sidebar-border: var(--color-neutral-700);
     --sidebar-ring: var(--sidebar-primary);
+    /* Feedback */
+    --destructive: var(--color-red-400);
+    --destructive-accent: var(--color-red-900);
+    --destructive-foreground: var(--color-neutral-900);
+    --success: oklch(74.495% 0.18608 141.112);
+    --success-accent: oklch(44.623% 0.13237 141.236);
+    --success-foreground: var(--color-neutral-900);
+    --warning: oklch(78.947% 0.15759 64.312);
+    --warning-accent: oklch(46.656% 0.14007 41.096);
+    --warning-foreground: var(--color-neutral-900);
+    --info: var(--color-blue-400);
+    --info-accent: var(--color-blue-900);
+    --info-foreground: var(--color-neutral-900);
     /* Extras */
     --primary-hover: var(--color-slate-600);
     /* use in specific components to ignore dark mode. */

@@ -5,14 +5,15 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { Spinner } from "@/components/ui/spinner"
 import { IconPlaceholder } from "@/components/ui/icon-placeholder"
+import { CheckCircleIcon } from "@phosphor-icons/react"
 
 export default function BadgeExample() {
   return (
     <ExampleWrapper className="lg:grid-cols-1">
       <BadgeVariants />
-      <BadgeWithIconLeft />
-      <BadgeWithIconRight />
-      <BadgeWithSpinner />
+      <BadgeSecondaryVariants />
+      <BadgeOutlineVariants />
+      <BadgeIconLoad />
       <BadgeAsLink />
       <BadgeLongText />
       <BadgeCustomColors />
@@ -22,197 +23,57 @@ export default function BadgeExample() {
 
 function BadgeVariants() {
   return (
-    <Example title="Variants">
+    <Example title="Default variants">
       <div className="flex flex-wrap gap-2">
         <Badge>Default</Badge>
-        <Badge variant="secondary">Secondary</Badge>
+        <Badge variant="neutral">Neutral</Badge>
         <Badge variant="destructive">Destructive</Badge>
-        <Badge variant="outline">Outline</Badge>
-        <Badge variant="ghost">Ghost</Badge>
-        <Badge variant="link">Link</Badge>
+        <Badge variant="success">Success</Badge>
+        <Badge variant="warning">Warning</Badge>
+        <Badge variant="info">Info</Badge>
       </div>
     </Example>
   )
 }
 
-function BadgeWithIconLeft() {
+function BadgeSecondaryVariants() {
   return (
-    <Example title="Icon Left">
+    <Example title="Secondary variants">
       <div className="flex flex-wrap gap-2">
-        <Badge>
-          <IconPlaceholder
-            lucide="BadgeCheck"
-            tabler="IconRosetteDiscountCheck"
-            hugeicons="CheckmarkBadge02Icon"
-            phosphor="CheckCircleIcon"
-            remixicon="RiCheckboxCircleLine"
-            data-icon="inline-start"
-          />
-          Default
-        </Badge>
-        <Badge variant="secondary">
-          <IconPlaceholder
-            lucide="BadgeCheck"
-            tabler="IconRosetteDiscountCheck"
-            hugeicons="CheckmarkBadge02Icon"
-            phosphor="CheckCircleIcon"
-            remixicon="RiCheckboxCircleLine"
-            data-icon="inline-start"
-          />
-          Secondary
-        </Badge>
-        <Badge variant="destructive">
-          <IconPlaceholder
-            lucide="BadgeCheck"
-            tabler="IconRosetteDiscountCheck"
-            hugeicons="CheckmarkBadge02Icon"
-            phosphor="CheckCircleIcon"
-            remixicon="RiCheckboxCircleLine"
-            data-icon="inline-start"
-          />
-          Destructive
-        </Badge>
-        <Badge variant="outline">
-          <IconPlaceholder
-            lucide="BadgeCheck"
-            tabler="IconRosetteDiscountCheck"
-            hugeicons="CheckmarkBadge02Icon"
-            phosphor="CheckCircleIcon"
-            remixicon="RiCheckboxCircleLine"
-            data-icon="inline-start"
-          />
-          Outline
-        </Badge>
-        <Badge variant="ghost">
-          <IconPlaceholder
-            lucide="BadgeCheck"
-            tabler="IconRosetteDiscountCheck"
-            hugeicons="CheckmarkBadge02Icon"
-            phosphor="CheckCircleIcon"
-            remixicon="RiCheckboxCircleLine"
-            data-icon="inline-start"
-          />
-          Ghost
-        </Badge>
-        <Badge variant="link">
-          <IconPlaceholder
-            lucide="BadgeCheck"
-            tabler="IconRosetteDiscountCheck"
-            hugeicons="CheckmarkBadge02Icon"
-            phosphor="CheckCircleIcon"
-            remixicon="RiCheckboxCircleLine"
-            data-icon="inline-start"
-          />
-          Link
-        </Badge>
+        <Badge variant="secondary">Default</Badge>
+        <Badge variant="neutral-secondary">Neutral</Badge>
+        <Badge variant="destructive-secondary">Destructive</Badge>
+        <Badge variant="success-secondary">Success</Badge>
+        <Badge variant="warning-secondary">Warning</Badge>
+        <Badge variant="info-secondary">Info</Badge>
       </div>
     </Example>
   )
 }
 
-function BadgeWithIconRight() {
+function BadgeOutlineVariants() {
   return (
-    <Example title="Icon Right">
+    <Example title="Secondary variants">
       <div className="flex flex-wrap gap-2">
-        <Badge>
-          Default
-          <IconPlaceholder
-            lucide="ArrowRightIcon"
-            tabler="IconArrowRight"
-            hugeicons="ArrowRight02Icon"
-            phosphor="ArrowRightIcon"
-            remixicon="RiArrowRightLine"
-            data-icon="inline-end"
-          />
-        </Badge>
-        <Badge variant="secondary">
-          Secondary
-          <IconPlaceholder
-            lucide="ArrowRightIcon"
-            tabler="IconArrowRight"
-            hugeicons="ArrowRight02Icon"
-            phosphor="ArrowRightIcon"
-            remixicon="RiArrowRightLine"
-            data-icon="inline-end"
-          />
-        </Badge>
-        <Badge variant="destructive">
-          Destructive
-          <IconPlaceholder
-            lucide="ArrowRightIcon"
-            tabler="IconArrowRight"
-            hugeicons="ArrowRight02Icon"
-            phosphor="ArrowRightIcon"
-            remixicon="RiArrowRightLine"
-            data-icon="inline-end"
-          />
-        </Badge>
-        <Badge variant="outline">
-          Outline
-          <IconPlaceholder
-            lucide="ArrowRightIcon"
-            tabler="IconArrowRight"
-            hugeicons="ArrowRight02Icon"
-            phosphor="ArrowRightIcon"
-            remixicon="RiArrowRightLine"
-            data-icon="inline-end"
-          />
-        </Badge>
-        <Badge variant="ghost">
-          Ghost
-          <IconPlaceholder
-            lucide="ArrowRightIcon"
-            tabler="IconArrowRight"
-            hugeicons="ArrowRight02Icon"
-            phosphor="ArrowRightIcon"
-            remixicon="RiArrowRightLine"
-            data-icon="inline-end"
-          />
-        </Badge>
-        <Badge variant="link">
-          Link
-          <IconPlaceholder
-            lucide="ArrowRightIcon"
-            tabler="IconArrowRight"
-            hugeicons="ArrowRight02Icon"
-            phosphor="ArrowRightIcon"
-            remixicon="RiArrowRightLine"
-            data-icon="inline-end"
-          />
-        </Badge>
+        <Badge variant="outline">Default</Badge>
+        <Badge variant="neutral-outline">Neutral</Badge>
+        <Badge variant="destructive-outline">Destructive</Badge>
+        <Badge variant="success-outline">Success</Badge>
+        <Badge variant="warning-outline">Warning</Badge>
+        <Badge variant="info-outline">Info</Badge>
       </div>
     </Example>
   )
 }
 
-function BadgeWithSpinner() {
+function BadgeIconLoad() {
   return (
-    <Example title="With Spinner">
+    <Example title="Icon & Loading">
       <div className="flex flex-wrap gap-2">
-        <Badge>
-          <Spinner data-icon="inline-start" />
-          Default
-        </Badge>
-        <Badge variant="secondary">
-          <Spinner data-icon="inline-start" />
-          Secondary
-        </Badge>
-        <Badge variant="destructive">
-          <Spinner data-icon="inline-start" />
-          Destructive
-        </Badge>
-        <Badge variant="outline">
-          <Spinner data-icon="inline-start" />
-          Outline
-        </Badge>
-        <Badge variant="ghost">
-          <Spinner data-icon="inline-start" />
-          Ghost
-        </Badge>
-        <Badge variant="link">
-          <Spinner data-icon="inline-start" />
-          Link
-        </Badge>
+        <Badge><CheckCircleIcon />Icon left</Badge>
+        <Badge variant="success-secondary">Icon right<CheckCircleIcon /></Badge>
+        <Badge variant="info"><Spinner data-icon="inline-start"/>Loading</Badge>
+        <Badge variant="warning-outline"><Spinner data-icon="inline-start"/>Loading</Badge>
       </div>
     </Example>
   )
