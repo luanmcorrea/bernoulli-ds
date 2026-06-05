@@ -8,9 +8,9 @@ import { ArrowRightIcon, PlusIcon, FloppyDiskIcon, TelegramLogoIcon, TrashIcon, 
 export default function ButtonExample() {
   return (
     <ExampleWrapper className="lg:grid-cols-1 2xl:grid-cols-1">
-      <ButtonVariantsAndSizes />
-      <ButtonIconLeft />
-      <ButtonIconRight />
+      <ButtonVariants />
+      <ButtonSizes />
+      <ButtonIcon />
       <ButtonIconOnly />
       <ButtonLoading />
       <ButtonDestructive />
@@ -20,70 +20,68 @@ export default function ButtonExample() {
   )
 }
 
-function ButtonVariantsAndSizes() {
+function ButtonVariants() {
   return (
-    <Example title="Variants & Sizes">
-      <div className="flex flex-wrap items-center gap-4">
-        <Button size="sm">Default</Button>
-        <Button size="sm" variant="outline">Outline</Button>
-        <Button size="sm" variant="ghost">Ghost</Button>
-        <Button size="sm" variant="link">Link</Button>
-      </div>
+    <Example title="Variants">
       <div className="flex flex-wrap items-center gap-4">
         <Button>Default</Button>
+        <Button variant="secondary">Secondary</Button>
         <Button variant="outline">Outline</Button>
         <Button variant="ghost">Ghost</Button>
         <Button variant="link">Link</Button>
       </div>
       <div className="flex flex-wrap items-center gap-4">
-        <Button size="lg">Default</Button>
-        <Button size="lg" variant="outline">Outline</Button>
-        <Button size="lg" variant="ghost">Ghost</Button>
-        <Button size="lg" variant="link">Link</Button>
+        <Button variant="neutral">Default</Button>
+        <Button variant="secondary-neutral">Secondary</Button>
+        <Button variant="outline-neutral">Outline</Button>
+        <Button variant="ghost-neutral">Ghost</Button>
+        <Button variant="link-neutral">Link</Button>
       </div>
       <div className="flex flex-wrap items-center gap-4">
-        <Button size="xl">Default</Button>
-        <Button size="xl" variant="outline">Outline</Button>
-        <Button size="xl" variant="ghost">Ghost</Button>
-        <Button size="xl" variant="link">Link</Button>
+        <Button size="icon"><PlusIcon /></Button>
+        <Button variant="secondary" size="icon"><PlusIcon /></Button>
+        <Button variant="outline" size="icon"><PlusIcon /></Button>
+        <Button variant="ghost" size="icon"><PlusIcon /></Button>
+        <Button variant="link" size="icon"><PlusIcon /></Button>
+      </div>
+      <div className="flex flex-wrap items-center gap-4">
+        <Button variant="neutral" size="icon"><PlusIcon /></Button>
+        <Button variant="secondary-neutral" size="icon"><PlusIcon /></Button>
+        <Button variant="outline-neutral" size="icon"><PlusIcon /></Button>
+        <Button variant="ghost-neutral" size="icon"><PlusIcon /></Button>
+        <Button variant="link-neutral" size="icon"><PlusIcon /></Button>
       </div>
     </Example>
   )
 }
 
-function ButtonIconLeft() {
+function ButtonSizes() {
   return (
-    <Example title="Icon Left">
+    <Example title="Sizes">
       <div className="flex flex-wrap items-center gap-4">
-        <Button><PlusIcon/>Default</Button>
-        <Button variant="outline"><PlusIcon/>Outline</Button>
-        <Button variant="ghost"><PlusIcon/>Ghost</Button>
-        <Button variant="link"><PlusIcon/>Link</Button>
+        <Button size="xs">Extra small</Button>
+        <Button size="sm">Small</Button>
+        <Button>Default</Button>
+        <Button size="lg">Large</Button>
+        <Button size="xl">Extra large</Button>
       </div>
       <div className="flex flex-wrap items-center gap-4">
-        <Button variant="neutral"><PlusIcon/>Default</Button>
-        <Button variant="outline-neutral"><PlusIcon/>Outline</Button>
-        <Button variant="ghost-neutral"><PlusIcon/>Ghost</Button>
-        <Button variant="link-neutral"><PlusIcon/>Link</Button>
+        <Button size="icon-xs"><TelegramLogoIcon/></Button>
+        <Button size="icon-sm"><TelegramLogoIcon/></Button>
+        <Button size="icon"><TelegramLogoIcon/></Button>
+        <Button size="icon-lg"><TelegramLogoIcon/></Button>
+        <Button size="icon-xl"><TelegramLogoIcon/></Button>
       </div>
     </Example>
   )
 }
 
-function ButtonIconRight() {
+function ButtonIcon() {
   return (
     <Example title="Icon Right">
       <div className="flex flex-wrap items-center gap-4">
-        <Button>Default<ArrowRightIcon/></Button>
-        <Button variant="outline">Outline<ArrowRightIcon/></Button>
-        <Button variant="ghost">Ghost<ArrowRightIcon/></Button>
-        <Button variant="link">Link<ArrowRightIcon/></Button>
-      </div>
-      <div className="flex flex-wrap items-center gap-4">
-        <Button variant="neutral">Default<ArrowRightIcon/></Button>
-        <Button variant="outline-neutral">Outline<ArrowRightIcon/></Button>
-        <Button variant="ghost-neutral">Ghost<ArrowRightIcon/></Button>
-        <Button variant="link-neutral">Link<ArrowRightIcon/></Button>
+        <Button><ArrowLeftIcon/>Icon left</Button>
+        <Button>Icon right<ArrowRightIcon/></Button>
       </div>
     </Example>
   )
@@ -93,44 +91,18 @@ function ButtonIconOnly() {
   return (
     <Example title="Icon Only">
       <div className="flex flex-wrap items-center gap-4">
-        <Button size="icon-sm"><PlusIcon/></Button>
-        <Button size="icon-sm" variant="outline"><PlusIcon/></Button>
-        <Button size="icon-sm" variant="ghost"><PlusIcon/></Button>
-        <Button size="icon-sm" variant="link"><PlusIcon/></Button>
-        <Button size="icon-sm" variant="neutral"><PlusIcon/></Button>
-        <Button size="icon-sm" variant="outline-neutral"><PlusIcon/></Button>
-        <Button size="icon-sm" variant="ghost-neutral"><PlusIcon/></Button>
-        <Button size="icon-sm" variant="link-neutral"><PlusIcon/></Button>
-      </div>
-      <div className="flex flex-wrap items-center gap-4">
         <Button size="icon"><PlusIcon/></Button>
+        <Button size="icon" variant="secondary"><PlusIcon/></Button>
         <Button size="icon" variant="outline"><PlusIcon/></Button>
         <Button size="icon" variant="ghost"><PlusIcon/></Button>
         <Button size="icon" variant="link"><PlusIcon/></Button>
+      </div>  
+      <div className="flex flex-wrap items-center gap-4">
         <Button size="icon" variant="neutral"><PlusIcon/></Button>
+        <Button size="icon" variant="secondary-neutral"><PlusIcon/></Button>
         <Button size="icon" variant="outline-neutral"><PlusIcon/></Button>
         <Button size="icon" variant="ghost-neutral"><PlusIcon/></Button>
         <Button size="icon" variant="link-neutral"><PlusIcon/></Button>
-      </div>
-      <div className="flex flex-wrap items-center gap-4">
-        <Button size="icon-lg"><PlusIcon/></Button>
-        <Button size="icon-lg" variant="outline"><PlusIcon/></Button>
-        <Button size="icon-lg" variant="ghost"><PlusIcon/></Button>
-        <Button size="icon-lg" variant="link"><PlusIcon/></Button>
-        <Button size="icon-lg" variant="neutral"><PlusIcon/></Button>
-        <Button size="icon-lg" variant="outline-neutral"><PlusIcon/></Button>
-        <Button size="icon-lg" variant="ghost-neutral"><PlusIcon/></Button>
-        <Button size="icon-lg" variant="link-neutral"><PlusIcon/></Button>
-      </div>
-      <div className="flex flex-wrap items-center gap-4">
-        <Button size="icon-xl"><PlusIcon/></Button>
-        <Button size="icon-xl" variant="outline"><PlusIcon/></Button>
-        <Button size="icon-xl" variant="ghost"><PlusIcon/></Button>
-        <Button size="icon-xl" variant="link"><PlusIcon/></Button>
-        <Button size="icon-xl" variant="neutral"><PlusIcon/></Button>
-        <Button size="icon-xl" variant="outline-neutral"><PlusIcon/></Button>
-        <Button size="icon-xl" variant="ghost-neutral"><PlusIcon/></Button>
-        <Button size="icon-xl" variant="link-neutral"><PlusIcon/></Button>
       </div>
     </Example>
   )
