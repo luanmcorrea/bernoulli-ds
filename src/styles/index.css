@@ -6,8 +6,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-heading: var(--brand-font-heading), var(--brand-font-sans);
-    --font-sans: var(--brand-font-sans), sans-serif;
+    --font-heading: var(--brand-font-heading, var(--font-sans));
+    --font-sans: var(--brand-font-sans, Roboto, sans-serif);
     --font-weight-bold: var(--brand-font-weight-bold, 700);
     
     /* Extras */
