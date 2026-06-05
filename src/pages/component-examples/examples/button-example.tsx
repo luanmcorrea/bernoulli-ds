@@ -78,7 +78,7 @@ function ButtonSizes() {
 
 function ButtonIcon() {
   return (
-    <Example title="Icon Right">
+    <Example title="Icon">
       <div className="flex flex-wrap items-center gap-4">
         <Button><ArrowLeftIcon/>Icon left</Button>
         <Button>Icon right<ArrowRightIcon/></Button>
