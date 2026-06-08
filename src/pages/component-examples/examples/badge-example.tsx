@@ -53,7 +53,7 @@ function BadgeSecondaryVariants() {
 
 function BadgeOutlineVariants() {
   return (
-    <Example title="Secondary variants">
+    <Example title="Outline variants">
       <div className="flex flex-wrap gap-2">
         <Badge variant="outline">Default</Badge>
         <Badge variant="neutral-outline">Neutral</Badge>
