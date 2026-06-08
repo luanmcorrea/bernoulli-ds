@@ -16,8 +16,8 @@ export function ClaimableBalance() {
       <CardHeader>
         <CardDescription>Claimable Balance</CardDescription>
         <CardTitle className="text-5xl tabular-nums">$0.00</CardTitle>
-        <Badge variant="outline">
-          <span className="size-2 rounded-full bg-yellow-500" />
+        <Badge variant="warning-secondary">
+          <span className="size-2 rounded-full bg-warning" />
           Pending Setup
         </Badge>
       </CardHeader>

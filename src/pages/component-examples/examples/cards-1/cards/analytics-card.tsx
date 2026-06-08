@@ -42,7 +42,7 @@ export function AnalyticsCard() {
       <CardHeader>
         <CardTitle>Analytics</CardTitle>
         <CardDescription>
-          418.2K Visitors <Badge>+10%</Badge>
+          418.2K Visitors <Badge variant="success-secondary">+10%</Badge>
         </CardDescription>
         <CardAction>
           <Button variant="outline" size="sm">

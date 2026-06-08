@@ -50,7 +50,7 @@ export function Visitors() {
         <CardTitle>Visitors</CardTitle>
         <CardDescription>Last 6 months </CardDescription>
         <CardAction>
-          <Badge variant={trendPercent >= 0 ? "secondary" : "destructive"}>
+          <Badge variant={trendPercent >= 0 ? "success-secondary" : "destructive"}>
             {trendPrefix}
             {trendPercent}% vs last month
           </Badge>
