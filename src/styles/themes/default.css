@@ -36,7 +36,7 @@
     --destructive-accent: var(--color-red-200);
     --destructive-foreground: var(--color-white);
     --success: oklch(44.881% 0.14391 141.503);
-    --success-accent: oklab(85.97% -0.11545 0.09256)
+    --success-accent: oklab(85.97% -0.11545 0.09256);
     --success-foreground: var(--color-white);
     --warning: oklch(64.605% 0.1943 41.103);
     --warning-accent: oklch(90.145% 0.07286 70.675);
