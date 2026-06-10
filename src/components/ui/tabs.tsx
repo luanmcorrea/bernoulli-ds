@@ -29,10 +29,10 @@ const tabsListVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-muted p-1.5",
+        default: "bg-muted p-1",
         ghost: "",
         outline:
-          "gap-2 [&_[data-slot=tabs-trigger]]:data-[state=active]:text-primary [&_[data-slot=tabs-trigger]]:data-[state=active]:bg-accent [&_[data-slot=tabs-trigger]]:border [&_[data-slot=tabs-trigger]]:data-[state=active]:border-primary [&_[data-slot=tabs-trigger]]:data-[state=active]:dark:bg-accent/30",
+          "gap-2 [&_[data-slot=tabs-trigger]]:data-[state=active]:text-primary [&_[data-slot=tabs-trigger]]:data-[state=active]:bg-accent [&_[data-slot=tabs-trigger]]:border [&_[data-slot=tabs-trigger]]:data-[state=active]:border-primary",
         line: "[&_[data-slot=tabs-trigger]]:data-[state=active]:text-primary [&_[data-slot=tabs-trigger]]:data-[state=active]:bg-transparent",
       },
       size: {

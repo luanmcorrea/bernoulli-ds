@@ -18,6 +18,7 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import { AppWindowIcon, CodeIcon, DotsThreeVerticalIcon, GearIcon, HouseIcon, MagnifyingGlassIcon, PlusIcon } from "@phosphor-icons/react"
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"
 
 export default function TabsExample() {
   return (
@@ -349,7 +350,12 @@ function TabsWithInputAndButton() {
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
           </TabsList>
-          <Input placeholder="Search..." className="w-44" />
+          <InputGroup size="sm" className="max-w-44">
+            <InputGroupInput id="input-search-1" placeholder="Search..." />
+            <InputGroupAddon>
+              <MagnifyingGlassIcon />
+            </InputGroupAddon>
+          </InputGroup>
         </div>
         <div className="border rounded-lg p-6 style-nova:rounded-lg style-nova:p-4 style-lyra:rounded-none style-lyra:p-4 style-maia:rounded-xl style-maia:p-6 style-mira:rounded-md style-mira:p-4 style-luma:rounded-xl style-luma:p-6">
           <TabsContent value="overview">

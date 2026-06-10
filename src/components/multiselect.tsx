@@ -264,7 +264,7 @@ function MultiselectValue({
             {clickToRemove && (
               <Button 
                 data-slot="multiselect-value-remove"
-                variant="ghost" size="icon-xs"
+                variant="ghost-neutral" size="icon-xs"
                 className="-ml-1 -mr-2 text-inherit! group-disabled/multiselect-trigger:hidden"
                 onClick={
                   clickToRemove ? e => {

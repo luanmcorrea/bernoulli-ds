@@ -62,7 +62,7 @@ function AvatarBadge({ className, ...props }: React.ComponentProps<"span">) {
     <span
       data-slot="avatar-badge"
       className={cn(
-        "absolute right-0 bottom-0 z-10 inline-flex items-center justify-center rounded-full bg-sidebar-primary text-primary-foreground bg-blend-color ring-2 ring-card select-none",
+        "absolute right-0 bottom-0 z-10 inline-flex items-center justify-center rounded-full bg-sidebar-primary text-fix-primary-foreground bg-blend-color ring-2 ring-card select-none",
         "group-data-[size=xs]/avatar:size-1.25 group-data-[size=xs]/avatar:[&>svg]:hidden",
         "group-data-[size=sm]/avatar:size-2 group-data-[size=sm]/avatar:[&>svg]:hidden",
         "group-data-[size=default]/avatar:size-2.5 group-data-[size=default]/avatar:[&>svg]:size-2",
@@ -81,7 +81,7 @@ function AvatarBadgeLevel({ className, ...props }: React.ComponentProps<"span">)
     <span
       data-slot="avatar-badge-level"
       className={cn(
-        "absolute -right-0.5 -bottom-0.5 z-10 inline-flex items-center justify-center rounded-full bg-sidebar-primary text-primary-foreground bg-blend-color ring-2 ring-card select-none size-4 font-semibold text-[0.625rem]",
+        "absolute -right-0.5 -bottom-0.5 z-10 inline-flex items-center justify-center rounded-full bg-sidebar-primary text-fix-primary-foreground bg-blend-color ring-2 ring-card select-none size-4 font-semibold text-[0.625rem]",
         "group-data-[size=xs]/avatar:size-1.25 group-data-[size=xs]/avatar:text-[0px]",
         "group-data-[size=sm]/avatar:size-2 group-data-[size=sm]/avatar:text-[0px]",
         "group-data-[size=default]/avatar:size-2.5 group-data-[size=default]/avatar:text-[0px]",

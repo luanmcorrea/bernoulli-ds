@@ -48,7 +48,7 @@ export function Invoice() {
         <CardTitle>Invoice #INV-2847</CardTitle>
         <CardDescription>Due March 30, 2026</CardDescription>
         <CardAction>
-          <Badge variant="warning-secondary">Pending</Badge>
+          <Badge variant="destructive-secondary">Pending</Badge>
         </CardAction>
       </CardHeader>
       <CardContent>

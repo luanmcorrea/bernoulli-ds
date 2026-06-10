@@ -178,7 +178,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     accessorKey: "status",
     header: "Status",
     cell: ({ row }) => (
-      <Badge variant="secondary-neutral">
+      <Badge variant={row.original.status === "Done" ? "success" : "info-secondary"}>
         {row.original.status === "Done" ? (
           <IconPlaceholder
             lucide="CircleCheckIcon"
@@ -186,7 +186,6 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
             hugeicons="CheckmarkCircle01Icon"
             phosphor="CheckCircleIcon"
             remixicon="RiCheckboxCircleFill"
-            className="fill-green-500 dark:fill-green-400"
           />
         ) : (
           <IconPlaceholder

@@ -117,7 +117,7 @@ function Calendar({
           defaultClassNames.range_end
         ),
         today: cn(
-          "rounded-(--cell-radius) bg-muted text-foreground data-[selected=true]:rounded-none",
+          "rounded-(--cell-radius) bg-muted text-foreground",
           defaultClassNames.today
         ),
         outside: cn(
@@ -194,7 +194,7 @@ function CalendarDayButton({
 
   return (
     <Button
-      variant="ghost"
+      variant="ghost-neutral"
       size="icon"
       data-day={day.date.toLocaleDateString(locale?.code)}
       data-selected-single={

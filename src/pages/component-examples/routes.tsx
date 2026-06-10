@@ -10,6 +10,7 @@ import AvatarExample from "@/pages/component-examples/examples/avatar-example"
 import BadgeExample from "@/pages/component-examples/examples/badge-example"
 import BreadcrumbExample from "@/pages/component-examples/examples/breadcrumb-example"
 import ButtonExample from "@/pages/component-examples/examples/button-example"
+import CalendarExample from "@/pages/component-examples/examples/calendar-example"
 import CardExample from "@/pages/component-examples/examples/card-example"
 import CheckboxExample from "@/pages/component-examples/examples/checkbox-example"
 import ComboboxExample from "@/pages/component-examples/examples/combobox-example"
@@ -23,6 +24,7 @@ import FieldExample from "@/pages/component-examples/examples/field-example"
 import InputGroupExample from "@/pages/component-examples/examples/input-group-example"
 import InputOTPExample from "@/pages/component-examples/examples/input-otp-example"
 import InputExample from "@/pages/component-examples/examples/input-example"
+import ItemExample from "@/pages/component-examples/examples/item-example"
 import LabelExample from "@/pages/component-examples/examples/label-example"
 import MultiselectExample from "@/pages/component-examples/examples/multiselect-example"
 import NativeSelectExample from "@/pages/component-examples/examples/native-select-example"
@@ -80,6 +82,7 @@ export const sections: SectionGroup[] = [
       { slug: "badge", title: "Badge", extra: false, path: "/badge", component: BadgeExample, },
       { slug: "breadcrumb", title: "Breadcrumb", extra: false, path: "/breadcrumb", component: BreadcrumbExample, },
       { slug: "button", title: "Button", extra: false, path: "/button", component: ButtonExample, },
+      { slug: "calendar", title: "Calendar", extra: false, path: "/calendar", component: CalendarExample, },
       { slug: "card", title: "Card", extra: false, path: "/card", component: CardExample, },
       { slug: "checkbox", title: "Checkbox", extra: false, path: "/checkbox", component: CheckboxExample, },
       { slug: "combobox", title: "Combobox", extra: false, path: "/combobox", component: ComboboxExample, },
@@ -93,6 +96,7 @@ export const sections: SectionGroup[] = [
       { slug: "input", title: "Input", extra: false, path: "/input", component: InputExample, },
       { slug: "input-group", title: "Input Group", extra: false, path: "/input", component: InputGroupExample, },
       { slug: "input-otp", title: "Input OTP", extra: false, path: "/input-otp", component: InputOTPExample, },
+      { slug: "item", title: "Item", extra: false, path: "/item", component: ItemExample, },
       { slug: "label", title: "Label", extra: false, path: "/label", component: LabelExample, },
       { slug: "multiselect", title: "Multiselect", extra: true, path: "/multiselect", component: MultiselectExample, },
       { slug: "native-select", title: "Native Select", extra: false, path: "/native-select", component: NativeSelectExample, },

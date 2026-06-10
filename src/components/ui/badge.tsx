@@ -20,19 +20,19 @@ const badgeVariants = cva(
           "secondary-neutral": "bg-muted text-foreground [a]:hover:bg-foreground/80",
         destructive:
           "bg-destructive text-primary-foreground [a]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:bg-destructive dark:focus-visible:ring-destructive/40 dark:text-background [a]:dark:hover:bg-destructive/60",
-          "destructive-secondary": "bg-destructive-accent text-accent-foreground [a]:hover:bg-destructive-accent/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 [a]:dark:hover:bg-destructive-accent/60",
+          "destructive-secondary": "bg-destructive-accent text-foreground [a]:hover:bg-destructive-accent/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 [a]:dark:hover:bg-destructive-accent/60",
           "destructive-outline": "border-destructive text-destructive [a]:hover:opacity-60 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 disabled:border-muted-foreground",
         success:
           "bg-success text-success-foreground [a]:hover:bg-success/80",
-          "success-secondary": "bg-success-accent text-accent-foreground [a]:hover:bg-success-accent/80",
+          "success-secondary": "bg-success-accent text-foreground [a]:hover:bg-success-accent/80",
           "success-outline": "border-success text-success [a]:hover:bg-muted",        
           warning:
           "bg-warning text-warning-foreground [a]:hover:bg-warning/80",
-          "warning-secondary": "bg-warning-accent text-accent-foreground [a]:hover:bg-warning-accent/80",
+          "warning-secondary": "bg-warning-accent text-foreground [a]:hover:bg-warning-accent/80",
           "warning-outline": "border-warning text-warning [a]:hover:bg-muted", 
         info:
           "bg-info text-info-foreground [a]:hover:bg-info/80",
-          "info-secondary": "bg-info-accent text-accent-foreground [a]:hover:bg-info-accent/80",
+          "info-secondary": "bg-info-accent text-foreground [a]:hover:bg-info-accent/80",
           "info-outline": "border-info text-info [a]:hover:bg-muted", 
         outline:
           "border-primary text-primary [a]:hover:bg-muted [a]:hover:text-muted-foreground",

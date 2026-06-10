@@ -41,7 +41,7 @@ export function ObservabilityCard() {
             data-icon="inline-end"
           />
         </Button>
-        <Badge variant="secondary" className="ml-auto">
+        <Badge variant="warning-secondary" className="ml-auto">
           Warning
         </Badge>
       </CardFooter>

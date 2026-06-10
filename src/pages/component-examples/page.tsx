@@ -220,11 +220,7 @@ export function ComponentExamplesPage() {
           onNavigate={(slug) => handleNavigate(slug)}
         />
         <div
-          className={cn(
-            "flex min-h-0 flex-1 flex-col z-0",
-            activeSection.slug === "sidebar" && "bg-muted/20"
-          )}
-        >
+          className="flex min-h-0 flex-1 flex-col z-0">
           <CurrentExample />
         </div>
       </SidebarInset>

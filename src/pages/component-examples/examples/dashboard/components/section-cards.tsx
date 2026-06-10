@@ -21,7 +21,7 @@ export function SectionCards() {
             $1,250.00
           </CardTitle>
           <CardAction>
-            <Badge variant="secondary">
+            <Badge variant="success-outline">
               <IconPlaceholder
                 lucide="TrendingUpIcon"
                 tabler="IconTrendingUp"
@@ -57,7 +57,7 @@ export function SectionCards() {
             1,234
           </CardTitle>
           <CardAction>
-            <Badge variant="secondary">
+            <Badge variant="destructive-outline">
               <IconPlaceholder
                 lucide="TrendingDownIcon"
                 tabler="IconTrendingDown"
@@ -93,7 +93,7 @@ export function SectionCards() {
             45,678
           </CardTitle>
           <CardAction>
-            <Badge variant="secondary">
+            <Badge variant="success-outline">
               <IconPlaceholder
                 lucide="TrendingUpIcon"
                 tabler="IconTrendingUp"
@@ -127,7 +127,7 @@ export function SectionCards() {
             4.5%
           </CardTitle>
           <CardAction>
-            <Badge variant="secondary">
+            <Badge variant="success-outline">
               <IconPlaceholder
                 lucide="TrendingUpIcon"
                 tabler="IconTrendingUp"

@@ -63,7 +63,7 @@ function BreadcrumbWithDropdown() {
           <BreadcrumbItem>
             <DropdownMenu>
               <DropdownMenuTrigger
-               asChild><Button size="icon-sm" variant="ghost">
+               asChild><Button size="icon-sm" variant="ghost-neutral">
                 <BreadcrumbEllipsis />
                 <span className="sr-only">Toggle menu</span>
               </Button></DropdownMenuTrigger>

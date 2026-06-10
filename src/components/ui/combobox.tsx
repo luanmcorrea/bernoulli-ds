@@ -392,7 +392,7 @@ function ComboboxChip({
       <span className="max-w-26 truncate">{children}</span>      
       {showRemove && (
         <ComboboxPrimitive.ChipRemove
-          render={<Button variant="ghost" size="icon-xs" />}
+          render={<Button variant="ghost-neutral" size="icon-xs" />}
           className="-ml-1 text-inherit! data-disabled:hidden"
           data-slot="combobox-chip-remove"
         >
