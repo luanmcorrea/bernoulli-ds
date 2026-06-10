@@ -10,6 +10,7 @@ import AvatarExample from "@/pages/component-examples/examples/avatar-example"
 import BadgeExample from "@/pages/component-examples/examples/badge-example"
 import BreadcrumbExample from "@/pages/component-examples/examples/breadcrumb-example"
 import ButtonExample from "@/pages/component-examples/examples/button-example"
+import ButtonGroupExample from "@/pages/component-examples/examples/button-group-example"
 import CalendarExample from "@/pages/component-examples/examples/calendar-example"
 import CardExample from "@/pages/component-examples/examples/card-example"
 import CheckboxExample from "@/pages/component-examples/examples/checkbox-example"
@@ -82,6 +83,7 @@ export const sections: SectionGroup[] = [
       { slug: "badge", title: "Badge", extra: false, path: "/badge", component: BadgeExample, },
       { slug: "breadcrumb", title: "Breadcrumb", extra: false, path: "/breadcrumb", component: BreadcrumbExample, },
       { slug: "button", title: "Button", extra: false, path: "/button", component: ButtonExample, },
+      { slug: "button-group", title: "Button Group", extra: false, path: "/button-group", component: ButtonGroupExample, },
       { slug: "calendar", title: "Calendar", extra: false, path: "/calendar", component: CalendarExample, },
       { slug: "card", title: "Card", extra: false, path: "/card", component: CardExample, },
       { slug: "checkbox", title: "Checkbox", extra: false, path: "/checkbox", component: CheckboxExample, },

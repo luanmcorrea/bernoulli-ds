@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default: "bg-fix-primary text-fix-primary-foreground hover:bg-fix-primary-hover disabled:bg-muted aria-expanded:bg-fix-primary-hover has-[*[aria-label='Loading']]:bg-muted",
         "neutral": "bg-foreground text-background hover:bg-muted-foreground disabled:bg-muted aria-expanded:bg-muted-foreground has-[*[aria-label='Loading']]:bg-muted",
         outline: "border-primary text-primary hover:border-primary-hover hover:text-primary-hover aria-expanded:bg-accent aria-expanded:text-primary disabled:border-muted-foreground has-[*[aria-label='Loading']]:border-muted-foreground!",
-        "outline-neutral": "border-foreground text-foreground hover:border-muted-foreground hover:text-muted-foreground aria-expanded:bg-muted aria-expanded:text-muted disabled:border-muted-foreground has-[*[aria-label='Loading']]:border-muted!",
+        "outline-neutral": "border-border text-foreground hover:text-muted-foreground aria-expanded:bg-muted aria-expanded:text-muted disabled:border-muted-foreground has-[*[aria-label='Loading']]:border-muted!",
         secondary: "bg-accent text-accent-foreground hover:bg-accent/80 aria-expanded:bg-secondary",
         "secondary-neutral": "bg-muted text-foreground hover:bg-muted/80 aria-expanded:bg-secondary",
         ghost: "text-primary hover:bg-accent aria-expanded:bg-accent aria-expanded:text-primary",

@@ -37,7 +37,7 @@ export function ThemeSwitcher({
         <DropdownMenu>
           <DropdownMenuTrigger asChild><SidebarMenuButton size="lg">
             <Item className="gap-2 p-0">
-              <div className="flex size-8 items-center justify-center rounded-sm bg-primary text-primary-foreground">
+              <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <SwatchesIcon />
               </div>
               <ItemContent className="gap-0">

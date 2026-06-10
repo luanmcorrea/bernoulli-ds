@@ -11,9 +11,9 @@ const buttonGroupVariants = cva(
     variants: {
       orientation: {
         horizontal:
-          "*:data-slot:rounded-r-none [&>[data-slot]:not(:has(~[data-slot]))]:rounded-r-4xl! [&>[data-slot]~[data-slot]]:rounded-l-none [&>[data-slot]~[data-slot]]:border-l-0",
+          "[&>[data-slot]:has(~[data-slot])]:rounded-r-none [&>[data-slot]:not([data-size^=icon]):not(:has(~[data-slot]))]:rounded-r-4xl! has-[>[data-slot][data-size^=icon]]:has-[>[data-slot]:not([data-size^=icon])]:[&>[data-slot]:first-child]:rounded-l-4xl! has-[>[data-slot][data-size^=icon]]:has-[>[data-slot]:not([data-size^=icon])]:[&>[data-slot]:not(:has(~[data-slot]))]:rounded-r-4xl! [&>[data-slot]~[data-slot]]:rounded-l-none [&>[data-slot]~[data-slot]]:border-l-0",
         vertical:
-          "flex-col *:data-slot:rounded-b-none [&>[data-slot]:not(:has(~[data-slot]))]:rounded-b-4xl! [&>[data-slot]~[data-slot]]:rounded-t-none [&>[data-slot]~[data-slot]]:border-t-0",
+          "flex-col [&>[data-slot]:has(~[data-slot])]:rounded-b-none [&>[data-slot]:not([data-size^=icon]):not(:has(~[data-slot]))]:rounded-b-4xl! has-[>[data-slot][data-size^=icon]]:has-[>[data-slot]:not([data-size^=icon])]:[&>[data-slot]:first-child]:rounded-t-4xl! has-[>[data-slot][data-size^=icon]]:has-[>[data-slot]:not([data-size^=icon])]:[&>[data-slot]:not(:has(~[data-slot]))]:rounded-b-4xl! [&>[data-slot]~[data-slot]]:rounded-t-none [&>[data-slot]~[data-slot]]:border-t-0",
       },
     },
     defaultVariants: {
