@@ -39,7 +39,6 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { cn } from "@/lib/utils"
 import { AppSidebar } from "@/pages/component-examples/components/app-sidebar"
 import {
   allComponentRoutes,
