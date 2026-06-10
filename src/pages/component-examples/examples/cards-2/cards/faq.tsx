@@ -108,11 +108,11 @@ export function Faq() {
           </TabsContent>
         </Tabs>
       </CardContent>
-      <CardFooter>
-        <Button variant="outline" className="w-full">
+      <CardFooter className="gap-4">
+        <Button variant="outline" className="w-full shrink">
           Contact Support
         </Button>
-        <Button variant="link" className="w-full">
+        <Button variant="link" className="">
           Learn More
         </Button>
       </CardFooter>

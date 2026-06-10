@@ -428,7 +428,7 @@ export function DataTable({
             </SelectGroup>
           </SelectContent>
         </Select>
-        <TabsList variant="ghost" size="sm" className="hidden **:data-[slot=badge]:px-1 @4xl/main:flex">
+        <TabsList variant="outline" size="sm" className="hidden **:data-[slot=badge]:px-1 @4xl/main:flex">
           <TabsTrigger value="outline">Outline</TabsTrigger>
           <TabsTrigger value="past-performance">
             Past Performance <Badge variant="secondary">3</Badge>
@@ -441,7 +441,7 @@ export function DataTable({
         <div className="flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger
-             asChild><Button variant="outline" size="sm">
+             asChild><Button variant="outline-neutral" size="sm">
               <IconPlaceholder
                 lucide="Columns3Icon"
                 tabler="IconLayoutColumns"
