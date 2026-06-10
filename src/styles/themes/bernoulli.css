@@ -1,4 +1,3 @@
-@import "@fontsource-variable/roboto";
 @import "@fontsource/poppins/400.css";
 @import "@fontsource/poppins/500.css";
 @import "@fontsource/poppins/600.css";
@@ -6,7 +5,7 @@
 
 :root[data-brand="bernoulli"] {
   --brand-font-heading: 'Poppins';
-  --brand-font-sans: 'Roboto Variable';
+  --brand-font-sans: 'Poppins';
   --brand-font-weight-heading: 600;
   --brand-font-cta: var(--brand-font-heading), var(--brand-font-sans);
   --brand-font-weight-cta: 600;
