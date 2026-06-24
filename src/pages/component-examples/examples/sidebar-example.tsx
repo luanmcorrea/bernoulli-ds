@@ -25,6 +25,10 @@ import {
 import { Avatar, AvatarBadgeLevel, AvatarFallback, AvatarProgressLevel } from "@/components/ui/avatar"
 import { IconPlaceholder } from "@/components/ui/icon-placeholder"
 import { BackpackIcon, BookOpenIcon, ChatCircleDotsIcon, FilesIcon, FolderOpenIcon, HouseIcon, NoteBlankIcon, QuestionIcon, UserPlusIcon } from "@phosphor-icons/react"
+import iconAdamsMultitude from "@/assets/sidebar-header/icon-adams-multitude.svg"
+import typeAdamsMultitude from "@/assets/sidebar-header/type-adams-multitude.svg"
+// import iconMbBernoulli from "@/assets/sidebar-header/icon-mb-bernoulli.svg"
+// import typeMbBernoulli from "@/assets/sidebar-header/type-mb-bernoulli.svg"
 
 export default function SidebarExample() {
   const data = {
@@ -90,10 +94,10 @@ export default function SidebarExample() {
       <Sidebar collapsible="icon" className="absolute h-full">
         <SidebarHeader className="flex items-center">
           <div className="flex overflow-hidden py-1">
-            <img src="src/assets/sidebar-header/icon-adams-multitude.svg" />
-            <img className="min-w-fit" src="src/assets/sidebar-header/type-adams-multitude.svg" />
-            {/* <img src="src/assets/sidebar-header/icon-mb-bernoulli.svg" />
-            <img className="min-w-fit" src="src/assets/sidebar-header/type-mb-bernoulli.svg" /> */}
+            <img src={iconAdamsMultitude} />
+            <img className="min-w-fit" src={typeAdamsMultitude} />
+            {/* <img src={iconMbBernoulli} />
+            <img className="min-w-fit" src={typeMbBernoulli} /> */}
           </div>      
         </SidebarHeader>
         <SidebarContent>
