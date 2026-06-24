@@ -46,6 +46,7 @@ import SwitchExample from "@/pages/component-examples/examples/switch-example"
 import TableExample from "@/pages/component-examples/examples/table-example"
 import TabsExample from "@/pages/component-examples/examples/tabs-example"
 import TextareaExample from "@/pages/component-examples/examples/textarea-example"
+import ToggleExample from "@/pages/component-examples/examples/toggle-example"
 import TooltipExample from "@/pages/component-examples/examples/tooltip-example"
 
 export type ComponentRoute = {
@@ -116,6 +117,7 @@ export const sections: SectionGroup[] = [
       { slug: "table", title: "Table", extra: false, path: "/table", component: TableExample, },
       { slug: "tabs", title: "Tabs", extra: false, path: "/tabs", component: TabsExample, },
       { slug: "textarea", title: "Textarea", extra: false, path: "/textarea", component: TextareaExample, },
+      { slug: "toggle", title: "Toggle", extra: false, path: "/toggle", component: ToggleExample, },
       { slug: "tooltip", title: "Tooltip", extra: false, path: "/tooltip", component: TooltipExample, },
     ],
   },

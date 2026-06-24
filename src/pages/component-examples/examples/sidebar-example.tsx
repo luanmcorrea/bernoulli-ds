@@ -97,39 +97,13 @@ export default function SidebarExample() {
   return (
     <SidebarProvider className="relative border border-border/60 rounded-xl shadow-xs m-auto overflow-hidden min-h-0 h-95/100 w-95/100">
       <Sidebar collapsible="icon" className="absolute h-full">
-        <SidebarHeader>
-          <SidebarMenu>
-            <SidebarMenuItem>
-              <DropdownMenu>
-                <DropdownMenuTrigger
-                 asChild><SidebarMenuButton
-                      size="lg"
-                      className="data-[state=open]:bg-accent data-[state=open]:text-accent-foreground">
-                  <Item className="p-0" size="xs">
-                    <ItemContent>
-                      <ItemTitle className="text-base">Plataform</ItemTitle>
-                    </ItemContent>
-                  </Item>
-                </SidebarMenuButton></DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  {data.versions.map((version) => (
-                    <DropdownMenuItem
-                      key={version}
-                      onSelect={() => setSelectedVersion(version)}
-                    >
-                      v{version}{" "}
-                      {version === selectedVersion && (
-                        <IconPlaceholder
-                          phosphor="CheckIcon"
-                          className="ml-auto"
-                        />
-                      )}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </SidebarMenuItem>
-          </SidebarMenu>
+        <SidebarHeader className="flex items-center">
+          <div className="flex overflow-hidden py-1">
+            <img src="src/assets/sidebar-header/icon-adams-multitude.svg" />
+            <img className="min-w-fit" src="src/assets/sidebar-header/type-adams-multitude.svg" />
+            {/* <img src="src/assets/sidebar-header/icon-mb-bernoulli.svg" />
+            <img className="min-w-fit" src="src/assets/sidebar-header/type-mb-bernoulli.svg" /> */}
+          </div>      
         </SidebarHeader>
         <SidebarContent>
           {data.navMain.map((item) => (

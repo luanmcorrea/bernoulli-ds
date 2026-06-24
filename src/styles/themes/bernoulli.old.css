@@ -10,25 +10,25 @@
   --brand-font-cta: var(--brand-font-heading), var(--brand-font-sans);
   --brand-font-weight-cta: 600;
 
-  --primary: var(--sidebar-primary);
-  --primary-hover: color-mix(in oklab, var(--sidebar-primary), white 30%);
+  --primary: oklch(58.251% 0.08977 188.191);
+  --primary-hover: oklch(69.778% 0.10745 188.011);
   --primary-foreground: var(--background);
-  --secondary: color-mix(in oklab, var(--sidebar-primary), white 30%);
-  --accent: color-mix(in oklab, var(--sidebar-accent), white 30%);
-  --ring: color-mix(in oklab, var(--sidebar-primary), white 30%);
+  --secondary: oklch(69.778% 0.10745 188.011);
+  --accent: oklch(94.033% 0.03838 192.66);
+  --ring: oklch(74.093% 0.10319 188.82);
   /* use in specific components to ignore dark mode. */
-  --fix-primary: var(--sidebar-primary); 
+  --fix-primary: oklch(58.251% 0.08977 188.191); 
   --fix-primary-foreground: var(--color-white);
-  --fix-primary-hover: color-mix(in oklab, var(--sidebar-primary), white 30%);
+  --fix-primary-hover: oklch(69.778% 0.10745 188.011);
 }
 
 .dark[data-brand="bernoulli"] {
-  --primary: color-mix(in oklab, var(--sidebar-primary), white 20%);;
-  --primary-hover: color-mix(in oklab, var(--sidebar-primary), black 20%);
+  --primary: oklch(69.778% 0.10745 188.011);
+  --primary-hover: oklch(58.251% 0.08977 188.191);
   --primary-foreground: var(--background);
-  --secondary: color-mix(in oklab, var(--sidebar-primary), black 20%);
-  --accent: var(--sidebar-accent);
-  --ring: var(--sidebar-primary);
+  --secondary: oklch(69.778% 0.10745 188.011);
+  --accent: oklch(34.804% 0.0609 186.582);
+  --ring: oklch(74.093% 0.10319 188.82);
 }
 
 :root[data-brand="bernoulli"][data-profile="student"] {

@@ -84,10 +84,8 @@ function AvatarBadgeLevel({ className, ...props }: React.ComponentProps<"span">)
         "absolute -right-0.5 -bottom-0.5 z-10 inline-flex items-center justify-center rounded-full bg-sidebar-primary text-fix-primary-foreground bg-blend-color ring-2 ring-card select-none size-4 font-semibold text-[0.625rem]",
         "group-data-[size=xs]/avatar:size-1.25 group-data-[size=xs]/avatar:text-[0px]",
         "group-data-[size=sm]/avatar:size-2 group-data-[size=sm]/avatar:text-[0px]",
-        "group-data-[size=default]/avatar:size-2.5 group-data-[size=default]/avatar:text-[0px]",
-        "group-data-[size=lg]/avatar:text-",
-        "group-data-[size=xl]/avatar:text-",
-        "group-data-[size=2xl]/avatar:size-4 group-data-[size=2xl]/avatar:text-",
+        "group-data-[size=default]/avatar:size-2.5 group-data-[size=default]/avatar:text-[0.5rem]",
+        "group-data-[size=2xl]/avatar:size-4",
         className
       )}
       {...props}
