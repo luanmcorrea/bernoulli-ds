@@ -92,8 +92,6 @@ export default function SidebarExample() {
     ],
   }
 
-  const [selectedVersion, setSelectedVersion] = React.useState(data.versions[0])
-
   return (
     <SidebarProvider className="relative border border-border/60 rounded-xl shadow-xs m-auto overflow-hidden min-h-0 h-95/100 w-95/100">
       <Sidebar collapsible="icon" className="absolute h-full">
