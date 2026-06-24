@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,11 +8,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import {
-  Item,
-  ItemContent,
-  ItemTitle,
-} from "@/components/ui/item"
 import {
   Sidebar,
   SidebarContent,
